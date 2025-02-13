@@ -1,0 +1,71 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:gravity="center"
+    tools:context=".UserDashboardActivity">
+
+    <EditText
+        android:id="@+id/etUserSentence"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter your sentence"/>
+
+    <Button
+        android:id="@+id/btnAnalyzeSentiment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etUserSentence"
+        android:layout_marginTop="16dp"
+        android:text="Analyze Sentiment"
+        android:onClick="analyzeSentiment"/>
+
+    <TextView
+        android:id="@+id/tvSentimentResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnAnalyzeSentiment"
+        android:layout_marginTop="16dp"
+        android:text="Sentiment Result: "
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/classification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvSentimentResult"
+        android:layout_marginTop="20dp"
+        android:visibility="gone"
+        android:textStyle="bold"
+        android:textAlignment="center"/>
+
+    <TextView
+        android:id="@+id/suggestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/classification"
+        android:layout_marginTop="20dp"
+        android:visibility="gone"
+        android:textStyle="bold"
+        android:textAlignment="center"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/progressText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/progressBar"
+        android:layout_marginTop="8dp"
+        android:text="Finding Classification"
+        android:visibility="gone"
+        android:textStyle="bold"
+        android:textAlignment="center"/>
+
+</RelativeLayout>

@@ -1,0 +1,234 @@
+[
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/drawable_rounded_background.xml.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/drawable/rounded_background.xml"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/layout_activity_admin_dashboard.xml.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/layout/activity_admin_dashboard.xml"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/layout_user_data_dialog.xml.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/layout/user_data_dialog.xml"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/drawable_graph.xml.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/drawable/graph.xml"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/drawable_lmnb.jpg.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/drawable/lmnb.jpg"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/mipmap-mdpi_ic_launcher_foreground.webp.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/mipmap-mdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/drawable_xyz.jpg.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/drawable/xyz.jpg"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/xml_data_extraction_rules.xml.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/drawable_download.png.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/drawable/download.png"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/layout_activity_start_loading.xml.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/layout/activity_start_loading.xml"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/drawable_background.xml.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/drawable/background.xml"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/drawable_u_shape_background.xml.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/drawable/u_shape_background.xml"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/layout_activity_start.xml.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/layout/activity_start.xml"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/drawable_sign_up.xml.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/drawable/sign_up.xml"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/drawable_card_background.xml.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/drawable/card_background.xml"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/layout_activity_user_dashboard.xml.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/layout/activity_user_dashboard.xml"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/layout_activity_admin.xml.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/layout/activity_admin.xml"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/drawable_phone.xml.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/drawable/phone.xml"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/drawable_background_1.jpg.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/drawable/background_1.jpg"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/mipmap-xxxhdpi_ic_launcher_foreground.webp.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/mipmap-xxxhdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/layout_item_user_data_entry.xml.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/layout/item_user_data_entry.xml"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/layout_activity_user_sign_up.xml.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/layout/activity_user_sign_up.xml"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/layout_item_user_result.xml.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/layout/item_user_result.xml"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/xml_backup_rules.xml.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/layout_activity_admin_sign_up.xml.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/layout/activity_admin_sign_up.xml"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/drawable_regno.xml.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/drawable/regno.xml"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/drawable_background2.jpg.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/drawable/background2.jpg"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/layout_activity_popup_chart.xml.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/layout/activity_popup_chart.xml"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/drawable_semicircle_background.xml.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/drawable/semicircle_background.xml"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/layout_popup_chart.xml.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/layout/popup_chart.xml"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/layout_activity_user.xml.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/layout/activity_user.xml"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/drawable_password.xml.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/drawable/password.xml"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/drawable_login.xml.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/drawable/login.xml"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/drawable_email.xml.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/drawable/email.xml"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/drawable_lavender_border.xml.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/drawable/lavender_border.xml"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/drawable_account_c.xml.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/drawable/account_c.xml"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/drawable_chart.xml.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/drawable/chart.xml"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/drawable_recyclerview_divider.xml.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/drawable/recyclerview_divider.xml"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/layout_activity_admin_login.xml.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/layout/activity_admin_login.xml"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/mipmap-hdpi_ic_launcher_foreground.webp.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/mipmap-hdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/mipmap-xhdpi_ic_launcher_foreground.webp.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/mipmap-xhdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/drawable_abcd.jpg.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/drawable/abcd.jpg"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/layout_activity_user_login.xml.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/layout/activity_user_login.xml"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-41:/mipmap-xxhdpi_ic_launcher_foreground.webp.flat",
+        "source": "com.example.sentimentanalysis.app-main-43:/mipmap-xxhdpi/ic_launcher_foreground.webp"
+    }
+]

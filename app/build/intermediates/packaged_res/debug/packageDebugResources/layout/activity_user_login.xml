@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@drawable/background_1">
+    <!-- U-shape background -->
+    <View
+        android:id="@+id/backgroundView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/cardView"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="300dp"
+        android:background="@drawable/u_shape_background" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="USER Login"
+        android:textSize="40sp"
+        android:fontFamily="sans-serif-black"
+        android:layout_marginTop="30dp"
+        android:textStyle="bold|italic"
+        android:textAlignment="center"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:background="@drawable/lavender_border"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:elevation="8dp"
+        app:cardCornerRadius="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <EditText
+                android:id="@+id/etEmail1"
+                android:layout_width="match_parent"
+                android:textColor="@color/black"
+                android:textColorHint="#877D7D"
+                android:layout_height="wrap_content"
+                android:background="@drawable/lavender_border"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:drawableLeft="@drawable/account_c"
+                android:drawablePadding="15dp"
+                android:layout_marginBottom="30dp"
+                android:padding="16dp" />
+
+            <EditText
+                android:id="@+id/etPassword1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/lavender_border"
+                android:hint="Password"
+                android:drawableLeft="@drawable/password"
+                android:drawablePadding="15dp"
+                android:textColor="@color/black"
+                android:textColorHint="#877D7D"
+                android:inputType="textPassword"
+                android:padding="16dp" />
+
+
+            <!-- View with gradient background -->
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Login"
+                android:onClick="loginUser"/>
+
+            <TextView
+                android:id="@+id/tvSignUp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Not A User? Sign Up"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:clickable="true"
+                android:onClick="openUserSignUpActivity"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

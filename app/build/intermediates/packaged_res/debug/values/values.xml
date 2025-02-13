@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="app_name">Sentiment Analysis</string>
+    <string name="gcm_defaultSenderId" translatable="false">985268705508</string>
+    <string name="google_api_key" translatable="false">AIzaSyBJr5PYks_2EnVUGoblSmoMEyn6bsQJ4CA</string>
+    <string name="google_app_id" translatable="false">1:985268705508:android:a3e067762c33bd3b0674f1</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBJr5PYks_2EnVUGoblSmoMEyn6bsQJ4CA</string>
+    <string name="google_storage_bucket" translatable="false">sentiment-analysis-3a2a2.appspot.com</string>
+    <string name="project_id" translatable="false">sentiment-analysis-3a2a2</string>
+    <style name="Base.Theme.SentimentAnalysis" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        
+    </style>
+    <style name="Theme.SentimentAnalysis" parent="Base.Theme.SentimentAnalysis"/>
+</resources>
