@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.sentimentanalysis.app-mergeDebugResources-39:/values-v23/values-v23.xml",
+            "outputFile": "com.example.sentimentanalysis.app-mergeDebugResources-41:/values-v23/values-v23.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Shashank\\.gradle\\caches\\transforms-4\\009e161d00adf0a523d4f38d3364ac93\\transformed\\cardview-1.0.0\\res\\values-v23\\values-v23.xml",

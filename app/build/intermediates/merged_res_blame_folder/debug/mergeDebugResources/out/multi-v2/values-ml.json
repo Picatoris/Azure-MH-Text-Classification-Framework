@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.sentimentanalysis.app-mergeDebugResources-39:/values-ml/values-ml.xml",
+            "outputFile": "com.example.sentimentanalysis.app-mergeDebugResources-41:/values-ml/values-ml.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Shashank\\.gradle\\caches\\transforms-4\\fe2c7b65694dfc47aeba2cd50541b972\\transformed\\core-1.13.0\\res\\values-ml\\values-ml.xml",
@@ -35,23 +35,6 @@
                         "startOffsets": "4785,4904,5083,5222,5343,5507,5632,5737,6003,6185,6301,6475,6611,6760,6921,6985,7054",
                         "endColumns": "118,178,138,120,163,124,104,105,181,115,173,135,148,160,63,68,91",
                         "endOffsets": "4899,5078,5217,5338,5502,5627,5732,5838,6180,6296,6470,6606,6755,6916,6980,7049,7141"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Shashank\\.gradle\\caches\\transforms-4\\1327fc60f7fbbe8a7864c28018b33909\\transformed\\play-services-basement-18.3.0\\res\\values-ml\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "195",
-                        "endColumns": "155",
-                        "endOffsets": "350"
-                    },
-                    "to": {
-                        "startLines": "58",
-                        "startColumns": "4",
-                        "startOffsets": "5843",
-                        "endColumns": "159",
-                        "endOffsets": "5998"
                     }
                 },
                 {
@@ -122,6 +105,23 @@
                         "startOffsets": "7146,7481,7584,7695",
                         "endColumns": "108,102,110,103",
                         "endOffsets": "7250,7579,7690,7794"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Shashank\\.gradle\\caches\\transforms-4\\ffe9001e8ff0e20f057387f6a3032825\\transformed\\play-services-basement-18.4.0\\res\\values-ml\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "195",
+                        "endColumns": "155",
+                        "endOffsets": "350"
+                    },
+                    "to": {
+                        "startLines": "58",
+                        "startColumns": "4",
+                        "startOffsets": "5843",
+                        "endColumns": "159",
+                        "endOffsets": "5998"
                     }
                 }
             ]
