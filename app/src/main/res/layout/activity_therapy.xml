@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".TherapyActivity">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/tvTherapyTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Therapists Available"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Table Layout -->
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:stretchColumns="*"
+        app:layout_constraintTop_toBottomOf="@id/tvTherapyTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@android:color/white"
+        android:elevation="4dp"
+        android:padding="8dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center">
+
+        <!-- Table Header -->
+        <TableRow android:gravity="center">
+            <TextView android:text="S.No" android:textStyle="bold" android:padding="8dp" android:gravity="center" android:layout_weight="1" />
+            <TextView android:text="Doctor" android:textStyle="bold" android:padding="8dp" android:gravity="center" android:layout_weight="2" />
+            <TextView android:text="Phone" android:textStyle="bold" android:padding="8dp" android:gravity="center" android:layout_weight="2" />
+        </TableRow>
+
+        <!-- Table Rows (Doctor Data) -->
+        <TableRow android:gravity="center">
+            <TextView android:text="1" android:padding="8dp" android:gravity="center" />
+            <TextView android:text="Dr. Aditi Sharma" android:padding="8dp" android:gravity="center" />
+            <TextView android:text="+91 98765 43210" android:padding="8dp" android:gravity="center" />
+        </TableRow>
+
+        <TableRow android:gravity="center">
+            <TextView android:text="2" android:padding="8dp" android:gravity="center" />
+            <TextView android:text="Dr. Rajiv Menon" android:padding="8dp" android:gravity="center" />
+            <TextView android:text="+91 92345 67890" android:padding="8dp" android:gravity="center" />
+        </TableRow>
+
+        <TableRow android:gravity="center">
+            <TextView android:text="3" android:padding="8dp" android:gravity="center" />
+            <TextView android:text="Dr. Sneha Kapoor" android:padding="8dp" android:gravity="center" />
+            <TextView android:text="+91 91234 56789" android:padding="8dp" android:gravity="center" />
+        </TableRow>
+
+        <TableRow android:gravity="center">
+            <TextView android:text="4" android:padding="8dp" android:gravity="center" />
+            <TextView android:text="Dr. Arjun Verma" android:padding="8dp" android:gravity="center" />
+            <TextView android:text="+91 99887 76655" android:padding="8dp" android:gravity="center" />
+        </TableRow>
+
+        <TableRow android:gravity="center">
+            <TextView android:text="5" android:padding="8dp" android:gravity="center" />
+            <TextView android:text="Dr. Pooja Nair" android:padding="8dp" android:gravity="center" />
+            <TextView android:text="+91 98765 55443" android:padding="8dp" android:gravity="center" />
+        </TableRow>
+
+        <TableRow android:gravity="center">
+            <TextView android:text="6" android:padding="8dp" android:gravity="center" />
+            <TextView android:text="Dr. Vikram Singh" android:padding="8dp" android:gravity="center" />
+            <TextView android:text="+91 87654 32109" android:padding="8dp" android:gravity="center" />
+        </TableRow>
+
+        <TableRow android:gravity="center">
+            <TextView android:text="7" android:padding="8dp" android:gravity="center" />
+            <TextView android:text="Dr. Riya Mehta" android:padding="8dp" android:gravity="center" />
+            <TextView android:text="+91 93245 67812" android:padding="8dp" android:gravity="center" />
+        </TableRow>
+
+        <TableRow android:gravity="center">
+            <TextView android:text="8" android:padding="8dp" android:gravity="center" />
+            <TextView android:text="Dr. Kunal Bose" android:padding="8dp" android:gravity="center" />
+            <TextView android:text="+91 98712 34567" android:padding="8dp" android:gravity="center" />
+        </TableRow>
+
+        <TableRow android:gravity="center">
+            <TextView android:text="9" android:padding="8dp" android:gravity="center" />
+            <TextView android:text="Dr. Ananya Roy" android:padding="8dp" android:gravity="center" />
+            <TextView android:text="+91 92123 45678" android:padding="8dp" android:gravity="center" />
+        </TableRow>
+
+        <TableRow android:gravity="center">
+            <TextView android:text="10" android:padding="8dp" android:gravity="center" />
+            <TextView android:text="Dr. Devansh Tripathi" android:padding="8dp" android:gravity="center" />
+            <TextView android:text="+91 90123 56789" android:padding="8dp" android:gravity="center" />
+        </TableRow>
+
+    </TableLayout>
+
+    <!-- Back Button -->
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:padding="8dp"
+        android:backgroundTint="@color/primaryColor"
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/tableLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

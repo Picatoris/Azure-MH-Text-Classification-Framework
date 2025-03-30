@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "985268705508",
+    "project_id": "sentiment-analysis-3a2a2",
+    "storage_bucket": "sentiment-analysis-3a2a2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:985268705508:android:a3e067762c33bd3b0674f1",
+        "android_client_info": {
+          "package_name": "com.example.sentimentanalysis"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJr5PYks_2EnVUGoblSmoMEyn6bsQJ4CA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

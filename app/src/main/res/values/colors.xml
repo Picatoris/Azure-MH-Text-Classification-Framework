@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="lavender">#AD2BC5</color>
+    <color name="cyan">#07CC8D</color>
+    <color name="blue">#3790FD</color>
+    <color name="divider_color">#D3D3D3</color>
+    <color name="blue_500">#1E88E5</color>    <!-- Bright Blue -->
+    <color name="purple_500">#6200EE</color>  <!-- Deep Purple -->
+    <color name="gray">#BDBDBD</color>        <!-- Light Gray Divider -->
+    <color name="dark_gray">#666666</color>  <!-- Dark Gray Subtitle -->
+    <color name="dark_blue">#003366</color> <!-- Dark Blue for title -->
+    <color name="gray_dark">#555555</color> <!-- Dark Gray for subtitle -->
+    <color name="light_gray">#EEEEEE</color> <!-- Optional: Light gray for backgrounds -->
+    <color name="progress_gradient">#4CAF50</color> <!-- Green Progress Indicator -->
+    <!-- Primary Colors -->
+    <color name="colorPrimaryVariant">#3700B3</color>
+    <color name="colorSecondary">#03DAC6</color>
+    <color name="primaryColor">#2196F3</color>
+    <!-- Background & Surface Colors -->
+    <color name="colorAccent">#03DAC5</color>
+    <color name="primary_dark">#1976D2</color> <!-- Dark Blue -->
+    <!-- Text Colors -->
+    <color name="textColorSecondary">#757575</color>
+    <color name="colorPrimary">#00796B</color>  <!-- Teal -->
+    <color name="colorBackground">#E3F2FD</color> <!-- Light Blue -->
+    <color name="colorCardBackground">#FFFFFF</color>  <!-- White -->
+    <color name="textColorPrimary">#37474F</color>  <!-- Dark Gray -->
+    <color name="light_blue_bg">#E3F2FD</color>  <!-- Light Blue Background -->
+    <color name="button_blue">#1976D2</color>   <!-- Primary Button Color -->
+    <color name="colorPrimaryDark">#004A99</color> <!-- Adjust color as needed -->
+    <color name="backgroundColor">#F4F8FB</color>
+    <color name="textPrimary">#333333</color>
+    <color name="buttonColor">#007BFF</color>
+    <color name="iconColor">#6C757D</color>
+
+
+
+
+</resources>
