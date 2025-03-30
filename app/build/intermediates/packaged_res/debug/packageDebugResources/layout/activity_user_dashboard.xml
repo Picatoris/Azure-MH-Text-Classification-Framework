@@ -9,7 +9,33 @@
     android:background="@color/light_blue_bg"
     tools:context=".UserDashboardActivity">
 
-    <!-- Title -->
+
+    <!-- AI Consultation Button at the Bottom -->
+    <!-- Small Circular AI Button at the Bottom -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/btnConsultAI"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        app:cardCornerRadius="32dp"
+        app:cardElevation="6dp"
+        app:cardBackgroundColor="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="24dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="openGeminiActivity">
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_google_gemini"
+            android:contentDescription="Consult AI"/>
+    </androidx.cardview.widget.CardView>
+
+
     <TextView
         android:id="@+id/tvDashboardTitle"
         android:layout_width="wrap_content"

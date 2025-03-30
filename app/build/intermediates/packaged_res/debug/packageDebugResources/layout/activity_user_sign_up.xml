@@ -5,38 +5,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background2"
+    android:background="@color/light_blue_bg"
     tools:context=".UserSignUpActivity">
+
+    <!-- Title Text -->
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User Sign Up"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@color/dark_blue"
+        android:fontFamily="sans-serif-medium"
+        android:shadowColor="#80000000"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="48dp"/>
 
     <!-- CardView Container -->
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="24dp"
+        android:layout_marginHorizontal="24dp"
         android:background="@color/white"
-        app:cardCornerRadius="16dp"
+        app:cardCornerRadius="20dp"
         app:cardElevation="8dp"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"> <!-- Centering the form -->
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="24dp">
-
-            <!-- Title -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="User Sign Up"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:gravity="center"
-                android:layout_gravity="center_horizontal"
-                android:paddingBottom="16dp"/>
 
             <!-- Username Field -->
             <com.google.android.material.textfield.TextInputLayout
@@ -49,9 +57,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
-                    android:drawableStart="@drawable/account_c"
-                    android:drawablePadding="5dp"
-                    android:padding="12dp"/>
+                    android:drawableStart="@drawable/ic_user"
+                    android:drawablePadding="12dp"
+                    android:padding="14dp"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Registration Number Field -->
@@ -66,9 +74,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
-                    android:drawableStart="@drawable/regno"
-                    android:drawablePadding="5dp"
-                    android:padding="12dp"/>
+                    android:drawableStart="@drawable/ic_regno"
+                    android:drawablePadding="12dp"
+                    android:padding="14dp"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Email Field -->
@@ -83,9 +91,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textEmailAddress"
-                    android:drawableStart="@drawable/email"
-                    android:drawablePadding="5dp"
-                    android:padding="12dp"/>
+                    android:drawableStart="@drawable/ic_email"
+                    android:drawablePadding="12dp"
+                    android:padding="14dp"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Password Field -->
@@ -100,9 +108,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
-                    android:drawableStart="@drawable/password"
-                    android:drawablePadding="5dp"
-                    android:padding="12dp"/>
+                    android:drawableStart="@drawable/ic_lock"
+                    android:drawablePadding="12dp"
+                    android:padding="14dp"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Phone Number Field -->
@@ -117,20 +125,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="phone"
-                    android:drawableStart="@drawable/phone"
-                    android:drawablePadding="5dp"
-                    android:padding="12dp"/>
+                    android:drawableStart="@drawable/ic_phone"
+                    android:drawablePadding="12dp"
+                    android:padding="14dp"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Register Button -->
             <Button
                 android:id="@+id/btnRegister"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="52dp"
                 android:text="Register"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:background="@drawable/button_background"
+                android:background="@drawable/rounded_button"
                 android:textColor="@color/white"
                 android:layout_marginTop="24dp"
                 android:onClick="registerUser"/>

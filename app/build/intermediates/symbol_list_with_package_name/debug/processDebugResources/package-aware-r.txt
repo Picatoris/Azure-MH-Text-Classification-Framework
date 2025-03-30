@@ -3076,6 +3076,8 @@ drawable avd_show_password
 drawable background
 drawable background2
 drawable background_1
+drawable bg_ai_message
+drawable bg_user_message
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -3134,6 +3136,7 @@ drawable ic_call_decline_low
 drawable ic_clear_black_24
 drawable ic_clock_black_24dp
 drawable ic_email
+drawable ic_google_gemini
 drawable ic_keyboard_black_24dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
@@ -3149,8 +3152,10 @@ drawable ic_other_sign_in
 drawable ic_passkey
 drawable ic_password
 drawable ic_phone
+drawable ic_regno
 drawable ic_reset_password
 drawable ic_search_black_24
+drawable ic_send
 drawable ic_user
 drawable indeterminate_static
 drawable input_field_background
@@ -3359,12 +3364,14 @@ id btnAdmin
 id btnAnalyzeSentiment
 id btnBack
 id btnCallDoctor
+id btnConsultAI
 id btnConsultTherapy
 id btnLogin
 id btnRegister
 id btnResetPassword
 id btnUser
 id buttonPanel
+id buttonSend
 id cache_measures
 id callMeasure
 id cancel_button
@@ -3449,6 +3456,7 @@ id easeInOut
 id easeOut
 id east
 id edge
+id editTextMessage
 id edit_query
 id edit_text_id
 id elastic
@@ -3664,6 +3672,7 @@ id ratio
 id rectangles
 id recyclerView
 id recyclerViewCard
+id recyclerViewChat
 id regNoSpinner
 id regNoTextView
 id report_drawn
@@ -3769,6 +3778,7 @@ id textStart
 id textSubtitle
 id textTitle
 id textTop
+id textViewMessage
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
@@ -3804,6 +3814,7 @@ id tvDoctorPhone
 id tvForgotPassword
 id tvLogin
 id tvLoginLabel
+id tvMessage
 id tvResetTitle
 id tvSentimentResult
 id tvSignUp
@@ -3959,6 +3970,7 @@ layout activity_admin_dashboard
 layout activity_admin_login
 layout activity_admin_sign_up
 layout activity_forgot_password
+layout activity_gemini
 layout activity_popup_chart
 layout activity_start
 layout activity_start_loading
@@ -3987,8 +3999,10 @@ layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
+layout item_ai_message
 layout item_doctor
 layout item_user_data_entry
+layout item_user_message
 layout item_user_result
 layout m3_alert_dialog
 layout m3_alert_dialog_actions

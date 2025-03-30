@@ -12,6 +12,10 @@
         "source": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-main-45:\\mipmap-xhdpi\\ic_launcher.webp"
     },
     {
+        "merged": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-debug-43:\\layout_activity_forgot_password.xml.flat",
+        "source": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-main-45:\\layout\\activity_forgot_password.xml"
+    },
+    {
         "merged": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-debug-43:\\drawable_login.xml.flat",
         "source": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-main-45:\\drawable\\login.xml"
     },
@@ -36,6 +40,10 @@
         "source": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-main-45:\\drawable\\chart.xml"
     },
     {
+        "merged": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-debug-43:\\drawable_ic_send.xml.flat",
+        "source": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-main-45:\\drawable\\ic_send.xml"
+    },
+    {
         "merged": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-debug-43:\\layout_activity_user_login.xml.flat",
         "source": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-main-45:\\layout\\activity_user_login.xml"
     },
@@ -44,16 +52,16 @@
         "source": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-main-45:\\mipmap-xhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-debug-43:\\drawable_u_shape_background.xml.flat",
-        "source": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-main-45:\\drawable\\u_shape_background.xml"
+        "merged": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-debug-43:\\layout_item_doctor.xml.flat",
+        "source": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-main-45:\\layout\\item_doctor.xml"
     },
     {
         "merged": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-debug-43:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
         "source": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-main-45:\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
-        "merged": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-debug-43:\\layout_item_doctor.xml.flat",
-        "source": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-main-45:\\layout\\item_doctor.xml"
+        "merged": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-debug-43:\\drawable_u_shape_background.xml.flat",
+        "source": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-main-45:\\drawable\\u_shape_background.xml"
     },
     {
         "merged": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-debug-43:\\layout_activity_admin_login.xml.flat",
@@ -100,8 +108,16 @@
         "source": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-main-45:\\drawable\\semicircle_background.xml"
     },
     {
+        "merged": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-debug-43:\\drawable_ic_regno.xml.flat",
+        "source": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-main-45:\\drawable\\ic_regno.xml"
+    },
+    {
         "merged": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-debug-43:\\drawable_account_c.xml.flat",
         "source": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-main-45:\\drawable\\account_c.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-debug-43:\\layout_item_ai_message.xml.flat",
+        "source": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-main-45:\\layout\\item_ai_message.xml"
     },
     {
         "merged": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-debug-43:\\drawable_rounded_background.xml.flat",
@@ -136,6 +152,14 @@
         "source": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-main-45:\\mipmap-mdpi\\ic_launcher_foreground.webp"
     },
     {
+        "merged": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-debug-43:\\drawable_bg_ai_message.xml.flat",
+        "source": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-main-45:\\drawable\\bg_ai_message.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-debug-43:\\layout_activity_gemini.xml.flat",
+        "source": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-main-45:\\layout\\activity_gemini.xml"
+    },
+    {
         "merged": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-debug-43:\\drawable_ic_lock.xml.flat",
         "source": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-main-45:\\drawable\\ic_lock.xml"
     },
@@ -144,16 +168,16 @@
         "source": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-main-45:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
     {
+        "merged": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-debug-43:\\drawable_btn_outline.xml.flat",
+        "source": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-main-45:\\drawable\\btn_outline.xml"
+    },
+    {
         "merged": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-debug-43:\\layout_activity_admin_sign_up.xml.flat",
         "source": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-main-45:\\layout\\activity_admin_sign_up.xml"
     },
     {
         "merged": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-debug-43:\\drawable_email.xml.flat",
         "source": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-main-45:\\drawable\\email.xml"
-    },
-    {
-        "merged": "com.example.sentimentanalysis.app-debug-43:/layout_activity_forgot_password.xml.flat",
-        "source": "com.example.sentimentanalysis.app-main-45:/layout/activity_forgot_password.xml"
     },
     {
         "merged": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-debug-43:\\drawable_graph.xml.flat",
@@ -166,6 +190,10 @@
     {
         "merged": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-debug-43:\\mipmap-hdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-main-45:\\mipmap-hdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.sentimentanalysis.app-debug-43:/layout_activity_gemini.xml.flat",
+        "source": "com.example.sentimentanalysis.app-main-45:/layout/activity_gemini.xml"
     },
     {
         "merged": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-debug-43:\\drawable_ic_email.xml.flat",
@@ -188,10 +216,6 @@
         "source": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-main-45:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.sentimentanalysis.app-debug-43:/layout_activity_therapy.xml.flat",
-        "source": "com.example.sentimentanalysis.app-main-45:/layout/activity_therapy.xml"
-    },
-    {
         "merged": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-debug-43:\\drawable_download.png.flat",
         "source": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-main-45:\\drawable\\download.png"
     },
@@ -204,8 +228,12 @@
         "source": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-main-45:\\drawable\\button_teal.xml"
     },
     {
-        "merged": "com.example.sentimentanalysis.app-debug-43:/layout_activity_user_login.xml.flat",
-        "source": "com.example.sentimentanalysis.app-main-45:/layout/activity_user_login.xml"
+        "merged": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-debug-43:\\drawable_btn_gradient.xml.flat",
+        "source": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-main-45:\\drawable\\btn_gradient.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-debug-43:\\layout_item_user_message.xml.flat",
+        "source": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-main-45:\\layout\\item_user_message.xml"
     },
     {
         "merged": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-debug-43:\\mipmap-mdpi_ic_launcher_round.webp.flat",
@@ -236,8 +264,16 @@
         "source": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-main-45:\\mipmap-xxxhdpi\\ic_launcher_foreground.webp"
     },
     {
+        "merged": "com.example.sentimentanalysis.app-debug-43:/layout_item_user_message.xml.flat",
+        "source": "com.example.sentimentanalysis.app-main-45:/layout/item_user_message.xml"
+    },
+    {
         "merged": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-debug-43:\\drawable_ic_user.xml.flat",
         "source": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-main-45:\\drawable\\ic_user.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-debug-43:\\drawable_ic_reset_password.xml.flat",
+        "source": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-main-45:\\drawable\\ic_reset_password.xml"
     },
     {
         "merged": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-debug-43:\\mipmap-hdpi_ic_launcher_foreground.webp.flat",
@@ -252,16 +288,20 @@
         "source": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-main-45:\\layout\\item_user_data_entry.xml"
     },
     {
+        "merged": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-debug-43:\\drawable_edittext_bg.xml.flat",
+        "source": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-main-45:\\drawable\\edittext_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-debug-43:\\drawable_ic_google_gemini.xml.flat",
+        "source": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-main-45:\\drawable\\ic_google_gemini.xml"
+    },
+    {
         "merged": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-debug-43:\\layout_activity_admin_dashboard.xml.flat",
         "source": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-main-45:\\layout\\activity_admin_dashboard.xml"
     },
     {
         "merged": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-debug-43:\\drawable_background.xml.flat",
         "source": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-main-45:\\drawable\\background.xml"
-    },
-    {
-        "merged": "com.example.sentimentanalysis.app-debug-43:/drawable_btn_gradient.xml.flat",
-        "source": "com.example.sentimentanalysis.app-main-45:/drawable/btn_gradient.xml"
     },
     {
         "merged": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-debug-43:\\drawable_password.xml.flat",
@@ -276,16 +316,8 @@
         "source": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-main-45:\\layout\\activity_admin.xml"
     },
     {
-        "merged": "com.example.sentimentanalysis.app-debug-43:/drawable_edittext_bg.xml.flat",
-        "source": "com.example.sentimentanalysis.app-main-45:/drawable/edittext_bg.xml"
-    },
-    {
         "merged": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-debug-43:\\xml_backup_rules.xml.flat",
         "source": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-main-45:\\xml\\backup_rules.xml"
-    },
-    {
-        "merged": "com.example.sentimentanalysis.app-debug-43:/drawable_ic_reset_password.xml.flat",
-        "source": "com.example.sentimentanalysis.app-main-45:/drawable/ic_reset_password.xml"
     },
     {
         "merged": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-debug-43:\\layout_activity_therapy.xml.flat",
@@ -294,10 +326,6 @@
     {
         "merged": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-debug-43:\\drawable_button_blue.xml.flat",
         "source": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-main-45:\\drawable\\button_blue.xml"
-    },
-    {
-        "merged": "com.example.sentimentanalysis.app-debug-43:/drawable_btn_outline.xml.flat",
-        "source": "com.example.sentimentanalysis.app-main-45:/drawable/btn_outline.xml"
     },
     {
         "merged": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-debug-43:\\drawable_ic_phone.xml.flat",
@@ -318,6 +346,10 @@
     {
         "merged": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-debug-43:\\drawable_glassmorphism_background.xml.flat",
         "source": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-main-45:\\drawable\\glassmorphism_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-debug-43:\\drawable_bg_user_message.xml.flat",
+        "source": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-main-45:\\drawable\\bg_user_message.xml"
     },
     {
         "merged": "C:\\Users\\Shashank\\.gradle\\daemon\\8.6\\com.example.sentimentanalysis.app-debug-43:\\drawable_phone.xml.flat",

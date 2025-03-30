@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:2:1-64:12
-INJECTED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:2:1-64:12
-INJECTED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:2:1-64:12
-INJECTED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:2:1-64:12
+ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:2:1-67:12
+INJECTED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:2:1-67:12
+INJECTED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:2:1-67:12
+INJECTED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:2:1-67:12
 MERGED from [com.google.android.material:material:1.12.0] C:\Users\Shashank\.gradle\caches\transforms-4\dba19fc664c8f90dc4fa1995c322e999\transformed\material-1.12.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.2.0] C:\Users\Shashank\.gradle\caches\transforms-4\641debec630314fc523b46ea80572f4c\transformed\constraintlayout-2.2.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.airbnb.android:lottie:6.0.0] C:\Users\Shashank\.gradle\caches\transforms-4\d24edd16743bf833d94d8a5911d6d68b\transformed\lottie-6.0.0\AndroidManifest.xml:2:1-11:12
@@ -95,8 +95,8 @@ MERGED from [com.google.android.recaptcha:recaptcha:18.6.1] C:\Users\Shashank\.g
 	android:name
 		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:5:22-64
 application
-ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:7:5-62:19
-INJECTED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:7:5-62:19
+ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:7:5-65:19
+INJECTED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:7:5-65:19
 MERGED from [com.google.android.material:material:1.12.0] C:\Users\Shashank\.gradle\caches\transforms-4\dba19fc664c8f90dc4fa1995c322e999\transformed\material-1.12.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.12.0] C:\Users\Shashank\.gradle\caches\transforms-4\dba19fc664c8f90dc4fa1995c322e999\transformed\material-1.12.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.2.0] C:\Users\Shashank\.gradle\caches\transforms-4\641debec630314fc523b46ea80572f4c\transformed\constraintlayout-2.2.0\AndroidManifest.xml:7:5-20
@@ -167,94 +167,100 @@ MERGED from [com.google.android.play:core-common:2.0.3] C:\Users\Shashank\.gradl
 		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:15:9-55
 	android:dataExtractionRules
 		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:9:9-65
-activity#com.example.sentimentanalysis.ForgotPasswordActivity
+activity#com.example.sentimentanalysis.GeminiActivity
 ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:17:9-19:40
 	android:exported
 		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:19:13-37
 	android:name
-		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:18:13-51
-activity#com.example.sentimentanalysis.TherapyActivity
+		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:18:13-43
+activity#com.example.sentimentanalysis.ForgotPasswordActivity
 ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:20:9-22:40
 	android:exported
 		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:22:13-37
 	android:name
-		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:21:13-44
-activity#com.example.sentimentanalysis.ChartPopupActivity
+		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:21:13-51
+activity#com.example.sentimentanalysis.TherapyActivity
 ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:23:9-25:40
 	android:exported
 		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:25:13-37
 	android:name
-		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:24:13-47
-activity#com.example.sentimentanalysis.StartActivity
+		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:24:13-44
+activity#com.example.sentimentanalysis.ChartPopupActivity
 ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:26:9-28:40
 	android:exported
 		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:28:13-37
 	android:name
-		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:27:13-42
-activity#com.example.sentimentanalysis.UserDashboardActivity
+		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:27:13-47
+activity#com.example.sentimentanalysis.StartActivity
 ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:29:9-31:40
 	android:exported
 		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:31:13-37
 	android:name
-		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:30:13-50
-activity#com.example.sentimentanalysis.UserLoginActivity
+		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:30:13-42
+activity#com.example.sentimentanalysis.UserDashboardActivity
 ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:32:9-34:40
 	android:exported
 		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:34:13-37
 	android:name
-		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:33:13-46
-activity#com.example.sentimentanalysis.UserSignUpActivity
+		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:33:13-50
+activity#com.example.sentimentanalysis.UserLoginActivity
 ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:35:9-37:40
 	android:exported
 		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:37:13-37
 	android:name
-		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:36:13-47
-activity#com.example.sentimentanalysis.AdminDashboardActivity
+		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:36:13-46
+activity#com.example.sentimentanalysis.UserSignUpActivity
 ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:38:9-40:40
 	android:exported
 		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:40:13-37
 	android:name
-		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:39:13-51
-activity#com.example.sentimentanalysis.AdminSignUpActivity
+		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:39:13-47
+activity#com.example.sentimentanalysis.AdminDashboardActivity
 ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:41:9-43:40
 	android:exported
 		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:43:13-37
 	android:name
-		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:42:13-48
-activity#com.example.sentimentanalysis.AdminLoginActivity
+		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:42:13-51
+activity#com.example.sentimentanalysis.AdminSignUpActivity
 ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:44:9-46:40
 	android:exported
 		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:46:13-37
 	android:name
-		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:45:13-47
-activity#com.example.sentimentanalysis.UserActivity
+		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:45:13-48
+activity#com.example.sentimentanalysis.AdminLoginActivity
 ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:47:9-49:40
 	android:exported
 		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:49:13-37
 	android:name
-		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:48:13-41
-activity#com.example.sentimentanalysis.AdminActivity
+		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:48:13-47
+activity#com.example.sentimentanalysis.UserActivity
 ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:50:9-52:40
 	android:exported
 		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:52:13-37
 	android:name
-		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:51:13-42
-activity#com.example.sentimentanalysis.StartLoadingActivity
-ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:53:9-61:20
+		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:51:13-41
+activity#com.example.sentimentanalysis.AdminActivity
+ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:53:9-55:40
 	android:exported
-		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:55:13-36
+		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:55:13-37
 	android:name
-		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:54:13-49
+		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:54:13-42
+activity#com.example.sentimentanalysis.StartLoadingActivity
+ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:56:9-64:20
+	android:exported
+		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:58:13-36
+	android:name
+		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:57:13-49
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:56:13-60:29
+ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:59:13-63:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:57:17-69
+ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:60:17-69
 	android:name
-		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:57:25-66
+		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:60:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:59:17-77
+ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:62:17-77
 	android:name
-		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:59:27-74
+		ADDED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml:62:27-74
 uses-sdk
 INJECTED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis\app\src\main\AndroidManifest.xml

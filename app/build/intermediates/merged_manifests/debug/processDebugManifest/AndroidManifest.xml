@@ -33,6 +33,9 @@
         android:testOnly="true"
         android:theme="@style/Theme.SentimentAnalysis" >
         <activity
+            android:name="com.example.sentimentanalysis.GeminiActivity"
+            android:exported="false" />
+        <activity
             android:name="com.example.sentimentanalysis.ForgotPasswordActivity"
             android:exported="false" />
         <activity

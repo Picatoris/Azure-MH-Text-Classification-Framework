@@ -36,6 +36,8 @@ drawable account_c
 drawable background
 drawable background2
 drawable background_1
+drawable bg_ai_message
+drawable bg_user_message
 drawable btn_gradient
 drawable btn_outline
 drawable button_background
@@ -51,11 +53,14 @@ drawable gradient_background
 drawable gradient_bg
 drawable graph
 drawable ic_email
+drawable ic_google_gemini
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_lock
 drawable ic_phone
+drawable ic_regno
 drawable ic_reset_password
+drawable ic_send
 drawable ic_user
 drawable input_field_background
 drawable input_field_rounded
@@ -79,11 +84,13 @@ id btnAdmin
 id btnAnalyzeSentiment
 id btnBack
 id btnCallDoctor
+id btnConsultAI
 id btnConsultTherapy
 id btnLogin
 id btnRegister
 id btnResetPassword
 id btnUser
+id buttonSend
 id cardContainer
 id cardInput
 id cardLogin
@@ -95,6 +102,7 @@ id cardView
 id chartHeading
 id classification
 id dateTimeTextView
+id editTextMessage
 id etEmail
 id etNewPassword
 id etPassword
@@ -117,6 +125,7 @@ id progressBar
 id progressText
 id recyclerView
 id recyclerViewCard
+id recyclerViewChat
 id regNoSpinner
 id regNoTextView
 id resultsTextView
@@ -129,6 +138,7 @@ id tableLayout
 id textLabel
 id textSubtitle
 id textTitle
+id textViewMessage
 id tvAdminTitle
 id tvDashboardTitle
 id tvDoctorName
@@ -136,6 +146,7 @@ id tvDoctorPhone
 id tvForgotPassword
 id tvLogin
 id tvLoginLabel
+id tvMessage
 id tvResetTitle
 id tvSentimentResult
 id tvSignUp
@@ -151,6 +162,7 @@ layout activity_admin_dashboard
 layout activity_admin_login
 layout activity_admin_sign_up
 layout activity_forgot_password
+layout activity_gemini
 layout activity_popup_chart
 layout activity_start
 layout activity_start_loading
@@ -159,8 +171,10 @@ layout activity_user
 layout activity_user_dashboard
 layout activity_user_login
 layout activity_user_sign_up
+layout item_ai_message
 layout item_doctor
 layout item_user_data_entry
+layout item_user_message
 layout item_user_result
 layout popup_chart
 layout user_data_dialog
