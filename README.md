@@ -40,9 +40,3 @@ This Android app provides a modern AI-driven approach to sentiment analysis and 
 | Glide                 | Image loading and caching                    |
 
 ---
-
-## 🚀 Getting Started
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/your-username/your-repo-name.git
