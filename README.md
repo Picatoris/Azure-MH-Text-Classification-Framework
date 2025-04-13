@@ -3,7 +3,7 @@
 **AI-powered Android application for analyzing user sentiment and assessing mental health using Azure's NLP services.**
 
 ---
-[![Download APK](https://img.shields.io/badge/Download-APK-blue?style=for-the-badge&logo=android)](https://github.com/your-username/your-repo-name/raw/main/app-debug.apk)
+[![Download APK](https://img.shields.io/badge/Download-APK-blue?style=for-the-badge&logo=android)](https://github.com/ShashankS1011/Sentiment-Analysis/raw/main/app-debug.apk)
 
 
 ## 📱 Overview
