@@ -21,7 +21,6 @@ public class UserDashboardActivity extends AppCompatActivity {
     private EditText etUserSentence;
     private TextView tvSentimentResult, classification, suggestion, progressText;
     private ProgressBar progressBar;
-    private Button btnAnalyzeSentiment, btnConsultTherapy;
     private DatabaseReference databaseReference, newEntryRef;
     private String regNo;
 
@@ -39,8 +38,8 @@ public class UserDashboardActivity extends AppCompatActivity {
         suggestion = findViewById(R.id.suggestion);
         progressBar = findViewById(R.id.progressBar);
         progressText = findViewById(R.id.progressText);
-        btnAnalyzeSentiment = findViewById(R.id.btnAnalyzeSentiment);
-        btnConsultTherapy = findViewById(R.id.btnConsultTherapy);
+        Button btnAnalyzeSentiment = findViewById(R.id.btnAnalyzeSentiment);
+        Button btnConsultTherapy = findViewById(R.id.btnConsultTherapy);
 
         // Retrieve data from Intent
         Intent intent = getIntent();

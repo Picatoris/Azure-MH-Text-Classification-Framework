@@ -4,7 +4,7 @@
             "outputFile": "com.example.sentimentanalysis.app-mergeDebugResources-41:/values-watch-v20/values-watch-v20.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Shashank\\.gradle\\caches\\transforms-4\\78b4c02db725096b636ede2a823fbac8\\transformed\\play-services-auth-20.7.0\\res\\values-watch-v20\\values.xml",
+                    "source": "C:\\Users\\Shashank\\.gradle\\caches\\8.11.1\\transforms\\a6da332bb35076999daa774efa855c94\\transformed\\play-services-auth-20.7.0\\res\\values-watch-v20\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11",
                         "startColumns": "0,0,0,0,0,0,0,0",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Shashank\\.gradle\\caches\\transforms-4\\af7f5b5d36416b3d226fa8325157280c\\transformed\\appcompat-1.7.0\\res\\values-watch-v20\\values-watch-v20.xml",
+                    "source": "C:\\Users\\Shashank\\.gradle\\caches\\8.11.1\\transforms\\5e7ab8a9c0d8d66567c46c620a77a25d\\transformed\\appcompat-1.7.0\\res\\values-watch-v20\\values-watch-v20.xml",
                     "from": {
                         "startLines": "2,5,8",
                         "startColumns": "4,4,4",
