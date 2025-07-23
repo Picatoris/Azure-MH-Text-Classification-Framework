@@ -1,0 +1,21 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/nav_home" android:title="Home" android:icon="@drawable/ic_home" />
+        <item android:id="@+id/nav_guide" android:title="Guide" android:icon="@drawable/ic_guide" />
+        <item android:id="@+id/nav_chat" android:title="AI Chat" android:icon="@drawable/ic_chat" />
+        <item android:id="@+id/nav_helpline" android:title="Helpline" android:icon="@drawable/ic_helpline" />
+        <item
+            android:id="@+id/nav_mood_check"
+            android:title="Mood Check"
+            android:icon="@drawable/ic_mood" />
+    </group>
+
+    <item android:id="@+id/nav_book"
+        android:title="Book Consultation"
+        android:icon="@drawable/ic_book" />
+    <item
+        android:id="@+id/nav_logout"
+        android:title="Logout"
+        android:icon="@drawable/ic_logout" />
+
+</menu>

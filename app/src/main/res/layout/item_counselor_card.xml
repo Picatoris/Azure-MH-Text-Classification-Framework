@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:layout_margin="12dp"
+    android:background="@drawable/bg_card_gradient"
+    android:elevation="6dp"
+    android:gravity="center_horizontal"
+    android:clipToPadding="false">
+
+    <!-- Profile Image -->
+    <ImageView
+        android:id="@+id/profile_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_profile_placeholder"
+        android:scaleType="centerCrop"
+        android:background="@drawable/profile_circle"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Status -->
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Available Now"
+        android:textColor="#32CD32"
+        android:textSize="14sp"
+        android:layout_gravity="end"
+        android:layout_marginTop="-24dp"
+        android:layout_marginEnd="8dp" />
+
+    <!-- Name -->
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dr. Jane Smith"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#2C2F3B"
+        android:layout_marginTop="12dp" />
+
+    <!-- Bio -->
+    <TextView
+        android:id="@+id/bio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Brief counselor bio goes here..."
+        android:textSize="14sp"
+        android:textColor="#2C2F3B"
+        android:layout_marginTop="8dp" />
+
+    <!-- Languages -->
+    <TextView
+        android:id="@+id/languages"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Languages - English, Hindi"
+        android:textSize="14sp"
+        android:textColor="#2C2F3B"
+        android:layout_marginTop="8dp" />
+
+    <!-- Expertise -->
+    <TextView
+        android:id="@+id/expertise"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Expertise - CBT, DBT"
+        android:textSize="14sp"
+        android:textColor="#2C2F3B"
+        android:layout_marginTop="4dp" />
+
+    <!-- Availability -->
+    <TextView
+        android:id="@+id/availability"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Availability - Monday to Friday"
+        android:textSize="14sp"
+        android:textColor="#2C2F3B"
+        android:layout_marginTop="4dp" />
+
+    <!-- Rating Stars -->
+    <LinearLayout
+        android:id="@+id/rating_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="12dp"
+        android:gravity="center">
+
+        <ImageView android:id="@+id/star1" android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_star_outline"/>
+        <ImageView android:id="@+id/star2" android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_star_outline"/>
+        <ImageView android:id="@+id/star3" android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_star_outline"/>
+        <ImageView android:id="@+id/star4" android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_star_outline"/>
+        <ImageView android:id="@+id/star5" android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_star_outline"/>
+    </LinearLayout>
+</LinearLayout>

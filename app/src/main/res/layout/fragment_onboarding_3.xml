@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:padding="24dp"
+    android:gravity="center_horizontal">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MIND"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="#6D6D6D"
+        android:layout_marginTop="40dp" />
+
+    <ImageView
+        android:id="@+id/onboardingImage"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:src="@drawable/onboarding_image3"
+        android:layout_marginTop="32dp"
+        android:contentDescription="Happiness" />
+
+    <TextView
+        android:id="@+id/headline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Happiness"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#6D6D6D"
+        android:layout_marginTop="32dp" />
+
+    <TextView
+        android:id="@+id/subtext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Take the first step toward a happier you—personalized guidance is just a message away."
+        android:textSize="14sp"
+        android:gravity="center"
+        android:layout_marginTop="12dp"
+        android:textColor="#6D6D6D" />
+</LinearLayout>

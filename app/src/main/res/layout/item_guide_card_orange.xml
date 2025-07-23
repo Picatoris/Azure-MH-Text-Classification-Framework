@@ -1,0 +1,30 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:elevation="4dp"
+    android:backgroundTint="#FFF5E5"
+    app:cardCornerRadius="12dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reaching Out"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#2C2F3B" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="When to seek help &amp; talk to someone"
+            android:textSize="13sp"
+            android:textColor="#666666" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

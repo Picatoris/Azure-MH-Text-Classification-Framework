@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1A1A1A"
+    tools:context=".ChatActivity">
+
+    <!-- Header Section -->
+    <LinearLayout
+        android:id="@+id/chat_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@android:color/white"
+        android:padding="12dp"
+        android:elevation="4dp"
+        android:gravity="center_vertical">
+
+        <!-- Back Button -->
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_arrow_back"
+            android:contentDescription="Back"
+            android:padding="4dp"
+            android:layout_marginEnd="12dp" />
+
+        <!-- Bot Icon -->
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@mipmap/ic_launcher"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="Bot Icon" />
+
+        <!-- Title and Online Status -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MIND Chatbot"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#2C2F3B" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="• Online"
+                android:textSize="14sp"
+                android:textColor="#32CD32" />
+
+        </LinearLayout>
+
+        <!-- Sound Icon -->
+        <ImageView
+            android:id="@+id/btn_sound"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_volume"
+            android:layout_marginEnd="12dp"
+            android:contentDescription="Sound" />
+
+    </LinearLayout>
+
+    <!-- Chat Messages -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chatRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="8dp"
+        android:overScrollMode="never" />
+
+    <!-- Typing Spinner -->
+    <ProgressBar
+        android:id="@+id/loadingSpinner"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        style="?android:attr/progressBarStyleLarge" />
+
+    <!-- Input Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:background="#FFFFFF">
+
+        <!-- Mic Button -->
+        <ImageButton
+            android:id="@+id/micButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/ic_btn_speak_now"
+            android:contentDescription="Voice"
+            android:background="?android:attr/selectableItemBackgroundBorderless" />
+
+        <!-- Text Input -->
+        <EditText
+            android:id="@+id/inputEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Type your message"
+            android:textColor="#000000"
+            android:textColorHint="#888888" />
+
+        <!-- Send Button -->
+        <ImageButton
+            android:id="@+id/sendButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/ic_menu_send"
+            android:contentDescription="Send"
+            android:background="?android:attr/selectableItemBackgroundBorderless" />
+    </LinearLayout>
+</LinearLayout>

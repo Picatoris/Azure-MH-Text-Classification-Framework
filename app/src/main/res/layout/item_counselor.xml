@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/counselorCard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="4dp"
+    android:background="#E0F7FA"
+    android:layout_marginBottom="16dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/profileImage"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_profile_placeholder"
+            android:contentDescription="Profile Image" />
+
+        <TextView
+            android:id="@+id/nameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/profileImage"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/availabilityText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nameText"
+            android:layout_toEndOf="@id/profileImage"
+            android:textColor="#4CAF50"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/descriptionText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/availabilityText"
+            android:layout_toEndOf="@id/profileImage"
+            android:textSize="14sp"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/languagesText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/descriptionText"
+            android:layout_toEndOf="@id/profileImage"
+            android:textSize="14sp"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/expertiseText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/languagesText"
+            android:layout_toEndOf="@id/profileImage"
+            android:textSize="14sp"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/availabilityDaysText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/expertiseText"
+            android:layout_toEndOf="@id/profileImage"
+            android:textSize="14sp"
+            android:layout_marginTop="8dp" />
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/availabilityDaysText"
+            android:layout_toEndOf="@id/profileImage"
+            android:numStars="5"
+            android:stepSize="0.1"
+            android:layout_marginTop="8dp" />
+
+        <Button
+            android:id="@+id/bookNowButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ratingBar"
+            android:text="Book Now"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#3F51B5"
+            android:layout_marginTop="16dp" />
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

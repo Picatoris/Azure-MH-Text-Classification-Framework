@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="64dp"
+    android:height="64dp"
+    android:viewportWidth="64"
+    android:viewportHeight="64">
+
+    <!-- Outer circle (profile background) -->
+    <path
+        android:fillColor="#FADADD"
+        android:pathData="M32,0C49.673,0 64,14.327 64,32s-14.327,32 -32,32S0,49.673 0,32 14.327,0 32,0z" />
+
+    <!-- Head circle -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M32,32c4.418,0 8,-3.582 8,-8s-3.582,-8 -8,-8 -8,3.582 -8,8 3.582,8 8,8z" />
+
+    <!-- Shoulders / torso -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M16,48c0,-8.837 7.163,-16 16,-16s16,7.163 16,16v2H16v-2z" />
+</vector>
