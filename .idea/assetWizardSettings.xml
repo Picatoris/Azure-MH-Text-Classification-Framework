@@ -79,8 +79,8 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="D:\Downloads\sentiment1.jpg" />
-                                                <entry key="scalingPercent" value="71" />
+                                                <entry key="imagePath" value="D:\Downloads\Gemini_Generated_Image_fvgac9fvgac9fvga.png" />
+                                                <entry key="scalingPercent" value="99" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -301,7 +301,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/icons/material/materialicons/auto_graph/baseline_auto_graph_24.xml" />
+                                      <entry key="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/icons/material/materialsymbolsoutlined/comedy_mask/outline_comedy_mask_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -311,7 +311,7 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="graph" />
+                            <entry key="outputName" value="happy_icon" />
                             <entry key="sourceFile" value="C:\Users\Shashank\AndroidStudioProjects\SentimentAnalysis" />
                           </map>
                         </option>

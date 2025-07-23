@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Sentify</string>
+    <string name="app_name">MIND</string>
+    <string name="default_web_client_id">985268705508-agv9fp8dnarmo909cnjk1sl7qi2h8o2g.apps.googleusercontent.com</string>
 </resources>

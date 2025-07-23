@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -101,9 +100,7 @@ public class CustomClassificationTask {
 
     private void onPostExecute(String classificationResult) {
         if (classificationResult != null) {
-            ((UserDashboardActivity) context).updateClassificationResult(classificationResult);
-        } else {
-            Toast.makeText(context, "Failed to classify the text", Toast.LENGTH_SHORT).show();
+            ((SentimentAnalysisActivity) context).updateClassificationResult(classificationResult);
         }
     }
 }

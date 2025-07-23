@@ -1,163 +1,103 @@
 package com.example.sentimentanalysis;
 
 import android.content.Intent;
-import android.icu.text.SimpleDateFormat;
-import android.icu.util.Calendar;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ProgressBar;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class UserDashboardActivity extends AppCompatActivity {
 
-    private EditText etUserSentence;
-    private TextView tvSentimentResult, classification, suggestion, progressText;
-    private ProgressBar progressBar;
-    private DatabaseReference databaseReference, newEntryRef;
-    private String regNo;
-
-    private TextAnalyticsService textAnalyticsService;
+    private DrawerLayout drawerLayout;
+    private NavigationView navigationView;
+    private TextView moodResultTextView; // Not final anymore
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_dashboard);
 
-        // Initialize UI components
-        etUserSentence = findViewById(R.id.etUserSentence);
-        tvSentimentResult = findViewById(R.id.tvSentimentResult);
-        classification = findViewById(R.id.classification);
-        suggestion = findViewById(R.id.suggestion);
-        progressBar = findViewById(R.id.progressBar);
-        progressText = findViewById(R.id.progressText);
-        Button btnAnalyzeSentiment = findViewById(R.id.btnAnalyzeSentiment);
-        Button btnConsultTherapy = findViewById(R.id.btnConsultTherapy);
+        // Initialize views
+        TextView greetingText = findViewById(R.id.greetingText);
+        ImageView sideNavButton = findViewById(R.id.sideNavButton);
+        drawerLayout = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.nav_view);
 
-        // Retrieve data from Intent
-        Intent intent = getIntent();
-        String email = intent.getStringExtra("email");
-        regNo = intent.getStringExtra("regNo");
+        // Retrieve intent extras
+        String username = getIntent().getStringExtra("username");
+        String email = getIntent().getStringExtra("email");
+        String regNo = getIntent().getStringExtra("regNo");
+        String phone = getIntent().getStringExtra("phone");
 
-        // Initialize Firebase Database
-        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        assert email != null;
-        databaseReference = firebaseDatabase.getReference("sentiments")
-                .child(email.substring(0, email.indexOf('@')));
-
-        // Initialize Azure Text Analytics Service
-        String languageKey = "1dksluHlMYX1PTQvbU4xxj3lF3d52ZkodI6LhL2l6fF4ZyYA1cjgJQQJ99BBACYeBjFXJ3w3AAAaACOGXUUD";
-        String languageEndpoint = "https://sentidazzle123.cognitiveservices.azure.com/";
-        textAnalyticsService = new TextAnalyticsService(languageKey, languageEndpoint);
-
-        // Button Click Listeners
-        btnAnalyzeSentiment.setOnClickListener(view -> analyzeSentiment());
-        btnConsultTherapy.setOnClickListener(view -> openTherapyActivity());
-    }
-
-    private void analyzeSentiment() {
-        String userSentence = etUserSentence.getText().toString().trim();
-
-        if (userSentence.isEmpty()) {
-            Toast.makeText(this, "Please enter a sentence", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        // Perform sentiment analysis
-        String sentimentResult = textAnalyticsService.analyzeSentiment(userSentence);
-        String sentiment = extractSentiment(sentimentResult);
-
-        // Display sentiment result
-        tvSentimentResult.setText(sentimentResult);
-
-        // Get current date and time
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-        String currentDateTime = dateFormat.format(Calendar.getInstance().getTime());
-
-        // Create a new Firebase entry
-        newEntryRef = databaseReference.push();
-        newEntryRef.child("result").setValue(sentiment);
-        newEntryRef.child("sentence").setValue(userSentence);
-        newEntryRef.child("sentimentResult").setValue(sentimentResult);
-        newEntryRef.child("dateTime").setValue(currentDateTime);
-        newEntryRef.child("regNo").setValue(regNo);
-
-        // Handle sentiment classification
-        handleSentimentClassification(sentiment, userSentence);
-    }
-
-    private String extractSentiment(String sentimentResult) {
-        try {
-            return sentimentResult.substring(sentimentResult.indexOf(':') + 2, sentimentResult.indexOf(',')).trim();
-        } catch (Exception e) {
-            return "Unknown"; // In case of parsing errors
-        }
-    }
-
-    private void handleSentimentClassification(String sentiment, String userSentence) {
-        if (sentiment.equalsIgnoreCase("negative")) {
-            progressBar.setVisibility(View.VISIBLE);
-            progressText.setVisibility(View.VISIBLE);
-            new CustomClassificationTask(this).execute(userSentence);
+        // Set greeting
+        if (username != null && !username.isEmpty()) {
+            greetingText.setText("Hello, " + username);
         } else {
-            classification.setVisibility(View.GONE);
-            suggestion.setVisibility(View.VISIBLE);
-            String suggestionText = (sentiment.equalsIgnoreCase("neutral"))
-                    ? "Suggestion: Doing better. Continue your therapy. 😊"
-                    : "Suggestion: Doing good. Have a wonderful day ahead! 🎉";
-
-            suggestion.setText(suggestionText);
-            newEntryRef.child("SadClassification").setValue("Null");
-            newEntryRef.child("suggestion").setValue(suggestionText);
-
-            Toast.makeText(this, "Data Stored Successfully!", Toast.LENGTH_SHORT).show();
+            greetingText.setText("Hello, User");
         }
+
+        // Update the navigation header with the username
+        TextView navHeaderUsername = navigationView.getHeaderView(0).findViewById(R.id.nav_header_username);
+        if (username != null && !username.isEmpty()) {
+            navHeaderUsername.setText(username);
+        }
+
+        // Toggle drawer open/close
+        sideNavButton.setOnClickListener(v -> {
+            if (!drawerLayout.isDrawerOpen(navigationView)) {
+                drawerLayout.openDrawer(navigationView);
+            } else {
+                drawerLayout.closeDrawer(navigationView);
+            }
+        });
+
+        // Handle navigation item selection
+        navigationView.setNavigationItemSelectedListener(item -> {
+            int id = item.getItemId();
+
+            if (id == R.id.nav_home) {
+                // Handle Home
+            } else if (id == R.id.nav_guide) {
+                Intent intent = new Intent(UserDashboardActivity.this, GuideActivity.class);
+                startActivity(intent);
+            } else if (id == R.id.nav_chat) {
+                Intent intent  = new Intent(UserDashboardActivity.this, ChatActivity.class);
+                startActivity(intent);
+            } else if (id == R.id.nav_helpline) {
+                Intent intent = new Intent(UserDashboardActivity.this, HelplineActivity.class);
+                startActivity(intent);
+            } else if (id == R.id.nav_book){
+                Intent intent = new Intent(UserDashboardActivity.this, BookConsultationActivity.class);
+                startActivity(intent);
+            } else if (id == R.id.nav_mood_check) {
+                Intent intent = new Intent(UserDashboardActivity.this, SentimentAnalysisActivity.class);
+                intent.putExtra("email", email);
+                intent.putExtra("regNo", regNo);
+                startActivity(intent);
+            } else if (id == R.id.nav_logout) {
+                FirebaseAuth.getInstance().signOut();
+                getSharedPreferences("loginPrefs", MODE_PRIVATE).edit().clear().apply();
+                Toast.makeText(this, "Logged out successfully", Toast.LENGTH_SHORT).show();
+                Intent loginIntent = new Intent(this, UserLoginActivity.class);
+                loginIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(loginIntent);
+                finish();
+            }
+
+            drawerLayout.closeDrawers(); // Close after selection
+            return true;
+        });
     }
 
-    public void updateClassificationResult(String classificationResult) {
-        classification.setText("Classification result: " + classificationResult);
-        classification.setVisibility(View.VISIBLE);
-        progressBar.setVisibility(View.GONE);
-        progressText.setVisibility(View.GONE);
-
-        String sentiment = extractSentiment(tvSentimentResult.getText().toString());
-        String suggestionText = generateSuggestion(sentiment, classificationResult);
-
-        suggestion.setText(suggestionText);
-        suggestion.setVisibility(View.VISIBLE);
-
-        if (newEntryRef != null) {
-            newEntryRef.child("SadClassification").setValue(classificationResult);
-            newEntryRef.child("suggestion").setValue(suggestionText);
-            Toast.makeText(this, "Data Stored Successfully!", Toast.LENGTH_SHORT).show();
+    public void updateClassificationResult(String result) {
+        if (moodResultTextView != null) {
+            moodResultTextView.setText("Mood: " + result);
         }
-    }
-
-    private String generateSuggestion(String sentiment, String classificationResult) {
-        if (sentiment.equalsIgnoreCase("negative") &&
-                (classificationResult.equalsIgnoreCase("Anxiety") ||
-                        classificationResult.equalsIgnoreCase("Depression") ||
-                        classificationResult.equalsIgnoreCase("ADHD") ||
-                        classificationResult.equalsIgnoreCase("PTSD") ||
-                        classificationResult.equalsIgnoreCase("Suicidal Ideation and Behavior") ||
-                        classificationResult.equalsIgnoreCase("Social Anxiety and Disorder"))) {
-            return "Suggestion: Need Therapy! Consult a psychologist at the earliest. 😟";
-        } else {
-            return sentiment.equalsIgnoreCase("neutral") ?
-                    "Suggestion: Doing better. Continue your therapy. 😊" :
-                    "Suggestion: Doing good. Have a wonderful day ahead! 🎉";
-        }
-    }
-
-    public void openTherapyActivity() {
-        Intent intent = new Intent(this, TherapyActivity.class);
-        startActivity(intent);
     }
 }

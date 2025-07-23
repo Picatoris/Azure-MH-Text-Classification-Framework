@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -15,7 +16,30 @@
         android:theme="@style/Theme.SentimentAnalysis"
         tools:targetApi="31">
         <activity
-            android:name=".GeminiActivity"
+            android:name=".BookConsultationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HelplineActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ChatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".GuideActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PhoneAuthActivity"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.google.android.gms.auth.api.credentials.CredentialPickerConfig"
+            android:value="true" />
+
+        <activity
+            android:name=".SentimentAnalysisActivity"
+            android:exported="false" />
+        <activity
+            android:name=".OnboardingActivity"
             android:exported="false" />
         <activity
             android:name=".ForgotPasswordActivity"
