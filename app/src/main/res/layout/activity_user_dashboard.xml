@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#F8FAFC">
 
-    <!-- Main Content -->
+    <!-- MAIN CONTENT -->
     <ScrollView
         android:id="@+id/dashboardScroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#FFFFFF"
         android:padding="16dp">
 
         <LinearLayout
@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Top Bar -->
+            <!-- TOP BAR -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -30,7 +30,8 @@
                     android:id="@+id/sideNavButton"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:src="@drawable/ic_menu" />
+                    android:src="@drawable/ic_menu"
+                    android:contentDescription="Menu" />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -60,255 +61,398 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_marginEnd="16dp"
-                    android:src="@drawable/ic_notification" />
+                    android:src="@drawable/ic_notification"
+                    android:contentDescription="Notifications" />
 
                 <ImageView
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:src="@drawable/ic_profile"
                     android:scaleType="centerCrop"
-                    android:layout_marginStart="8dp"
-                    android:background="@drawable/profile_circle" />
+                    android:background="@drawable/profile_circle"
+                    android:contentDescription="Profile" />
+
+                <ImageView
+                    android:id="@+id/btnLanguage"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/ic_language"
+                    android:scaleType="centerInside"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="Change Language"
+                    android:layout_marginStart="8dp" />
             </LinearLayout>
 
-            <!-- Your existing layout continues here (e.g., cards, mood section, etc.) -->
-            <!-- For brevity, you can paste your existing dashboard content here below -->
+            <!-- DAILY MOTIVATIONAL QUOTE CARD -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp"
+                android:backgroundTint="#FFFFFF">
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Daily Motivation"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="#1E293B" />
+
+                    <TextView
+                        android:id="@+id/quoteText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Loading your daily inspiration..."
+                        android:textSize="16sp"
+                        android:textColor="#475569"
+                        android:lineSpacingExtra="6dp"
+                        android:layout_marginTop="12dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:alpha="0" />
+
+                    <TextView
+                        android:id="@+id/quoteAuthor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textSize="14sp"
+                        android:textColor="#64748B"
+                        android:gravity="end"
+                        android:layout_marginTop="12dp"
+                        android:alpha="0" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- BREATHING & STEP QUEST (SIDE BY SIDE) -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="24dp">
 
-                <!-- Recommended Section -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="16dp"
-                    android:layout_marginBottom="16dp"
-                    android:gravity="center_vertical"
-                    android:backgroundTint="#F2F2F2"
-                    android:elevation="2dp">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Recommended for you"
-                            android:textSize="14sp"
-                            android:textColor="#000000"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Start your day with some motivation."
-                            android:textColor="#666666"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_calendar" />
-                </LinearLayout>
-
-                <!-- Feature Cards -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginBottom="16dp">
-
-                    <!-- Water Plants -->
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginEnd="8dp"
-                        android:elevation="4dp"
-                        android:backgroundTint="#CBF3F0"
-                        app:cardCornerRadius="12dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:padding="16dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Water Plants"
-                                android:textStyle="bold"
-                                android:textSize="16sp"
-                                android:textColor="#2C2F3B" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Log daily relax &amp; unwind time."
-                                android:textSize="13sp"
-                                android:textColor="#666666"
-                                android:layout_marginBottom="8dp" />
-
-                            <Button
-                                android:text="Start Now"
-                                android:textColor="#FFFFFF"
-                                android:backgroundTint="#2C2F3B"
-                                android:textAllCaps="false"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
-
-                    <!-- Daily Exercise -->
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginStart="8dp"
-                        android:elevation="4dp"
-                        android:backgroundTint="#D0F4FF"
-                        app:cardCornerRadius="12dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:padding="16dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Daily Exercises"
-                                android:textStyle="bold"
-                                android:textSize="16sp"
-                                android:textColor="#2C2F3B" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="You have Walked for 30Mins"
-                                android:textSize="13sp"
-                                android:textColor="#666666" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Tue, 3 Feb"
-                                android:textColor="#666666"
-                                android:textSize="12sp"
-                                android:layout_marginTop="4dp" />
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
-                </LinearLayout>
-
-                <!-- Calendar Strip -->
-                <HorizontalScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:scrollbars="none"
-                    android:layout_marginBottom="16dp">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <include layout="@layout/item_day_card" />
-                        <include layout="@layout/item_day_card_selected" />
-                        <include layout="@layout/item_day_card" />
-                        <include layout="@layout/item_day_card" />
-                        <include layout="@layout/item_day_card" />
-                    </LinearLayout>
-                </HorizontalScrollView>
-
-                <!-- Appointments Card -->
+                <!-- Breathing Quest -->
                 <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
+                    android:id="@+id/cardBreathingQuest"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="24dp"
-                    android:elevation="4dp"
-                    android:backgroundTint="#FFF9E6"
-                    app:cardCornerRadius="12dp">
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="8dp"
+                    android:backgroundTint="#6366F1">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:padding="16dp">
+                        android:padding="20dp">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="May 12"
-                            android:textSize="20sp"
+                            android:text="Breathing Quest"
+                            android:textSize="17sp"
                             android:textStyle="bold"
-                            android:textColor="#2C2F3B" />
+                            android:textColor="#FFFFFF" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Upcoming appointments"
-                            android:textColor="#666666"
-                            android:textSize="14sp" />
+                            android:text="Calm your mind in 60 seconds"
+                            android:textSize="13sp"
+                            android:textColor="#E0E7FF"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="16dp" />
+
+                        <Button
+                            android:id="@+id/btnBreathingQuest"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Start Breathing"
+                            android:textColor="#6366F1"
+                            android:backgroundTint="#FFFFFF"
+                            android:textAllCaps="false"
+                            android:textStyle="bold" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
-<!--                &lt;!&ndash; Mood Check Card &ndash;&gt;-->
-<!--                <androidx.cardview.widget.CardView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginBottom="24dp"-->
-<!--                    android:elevation="4dp"-->
-<!--                    android:backgroundTint="#E6F0FF"-->
-<!--                    app:cardCornerRadius="12dp">-->
+                <!-- Step Quest -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardStepQuest"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="8dp"
+                    android:backgroundTint="#10B981">
 
-<!--                    <LinearLayout-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:orientation="vertical"-->
-<!--                        android:padding="16dp"-->
-<!--                        android:gravity="center_horizontal">-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
 
-<!--                        <TextView-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:text="How are you feeling today?"-->
-<!--                            android:textSize="16sp"-->
-<!--                            android:textStyle="bold"-->
-<!--                            android:textColor="#2C2F3B"-->
-<!--                            android:layout_marginBottom="12dp" />-->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Step Quest Game"
+                            android:textSize="17sp"
+                            android:textStyle="bold"
+                            android:textColor="#FFFFFF" />
 
-<!--                        <Button-->
-<!--                            android:id="@+id/btnCheckMood"-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="48dp"-->
-<!--                            android:text="Check Your Mood"-->
-<!--                            android:textAllCaps="false"-->
-<!--                            android:textColor="#FFFFFF"-->
-<!--                            android:textSize="16sp"-->
-<!--                            android:backgroundTint="#2C2F3B"-->
-<!--                            android:fontFamily="sans-serif-medium"-->
-<!--                            android:layout_marginTop="4dp"-->
-<!--                            android:layout_marginBottom="4dp"/>-->
-<!--                    </LinearLayout>-->
-<!--                </androidx.cardview.widget.CardView>-->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Walk, shake &amp; win rewards!"
+                            android:textSize="13sp"
+                            android:textColor="#ECFDF5"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="16dp" />
 
+                        <Button
+                            android:id="@+id/btnStepQuest"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Play Now"
+                            android:textColor="#10B981"
+                            android:backgroundTint="#FFFFFF"
+                            android:textAllCaps="false"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
 
+            <!-- PREMIUM CALENDAR STRIP -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="12dp"
+                android:backgroundTint="#FFFFFF">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:id="@+id/weekRangeText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="Week of 10–16 Apr"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#1E293B"
+                        android:layout_marginBottom="20dp" />
+
+                    <HorizontalScrollView
+                        android:id="@+id/weekScrollView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="none"
+                        android:overScrollMode="never">
+
+                        <LinearLayout
+                            android:id="@+id/weekContainer"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical" />
+                    </HorizontalScrollView>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:layout_marginTop="16dp">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnPrevWeek"
+                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Previous"
+                            android:textSize="13sp"
+                            app:cornerRadius="24dp"
+                            app:strokeWidth="1.5dp"
+                            app:strokeColor="#CBD5E1"
+                            app:icon="@drawable/ic_chevron_left"
+                            app:iconGravity="textStart"
+                            app:iconTint="#64748B"
+                            android:layout_marginEnd="24dp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnNextWeek"
+                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Next"
+                            android:textSize="13sp"
+                            app:cornerRadius="24dp"
+                            app:strokeWidth="1.5dp"
+                            app:strokeColor="#CBD5E1"
+                            app:icon="@drawable/ic_chevron_right"
+                            app:iconGravity="textEnd"
+                            app:iconTint="#64748B" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- TODAY'S PLAN -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="8dp"
+                android:backgroundTint="#FFFFFF">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Today's Plan"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#1E293B" />
+
+                    <TextView
+                        android:id="@+id/selectedDateEvents"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Tap a day to add your notes &amp; tasks"
+                        android:textSize="15sp"
+                        android:textColor="#475569"
+                        android:lineSpacingExtra="4dp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- WATER + GRATITUDE PREVIEW CARDS (CLICK TO OPEN FULL ACTIVITY) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="32dp">
+
+                <!-- WATER QUEST PREVIEW -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardWaterQuest"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="10dp"
+                    android:backgroundTint="#3B82F6"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Water Quest"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="#FFFFFF" />
+
+                        <TextView
+                            android:id="@+id/tvWaterPreview"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0 / 8"
+                            android:textSize="18sp"
+                            android:textColor="#FFFFFF"
+                            android:layout_marginTop="8dp" />
+
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="80dp"
+                            android:src="@drawable/ic_water_glass_outline"
+                            android:layout_marginTop="8dp" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- GRATITUDE GARDEN PREVIEW -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardGratitudeGarden"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="10dp"
+                    android:backgroundTint="#10B981"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Gratitude Garden"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="#FFFFFF" />
+
+                        <TextView
+                            android:id="@+id/tvGratitudePreview"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0 flowers"
+                            android:textSize="18sp"
+                            android:textColor="#FFFFFF"
+                            android:layout_marginTop="8dp" />
+
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="80dp"
+                            android:src="@drawable/ic_flower_seed"
+                            android:layout_marginTop="8dp" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
 
-    <!-- Navigation Drawer -->
+    <!-- NAVIGATION DRAWER -->
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
@@ -317,5 +461,4 @@
         android:background="#FDFDFD"
         app:headerLayout="@layout/drawer_header"
         app:menu="@menu/drawer_menu" />
-
 </androidx.drawerlayout.widget.DrawerLayout>

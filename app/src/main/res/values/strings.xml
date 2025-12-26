@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">MIND</string>
-    <string name="default_web_client_id">985268705508-agv9fp8dnarmo909cnjk1sl7qi2h8o2g.apps.googleusercontent.com</string>
+    <string name="hello_user">Hello, %1$s</string>
+    <string name="week_of">Week of %1$s - %2$s</string>
+    <string name="events_for">Events for %1$s:</string>
+    <string name="event_meditation">Meditation session</string>
+    <string name="event_walk">Evening walk</string>
+    <string name="event_reading">Reading time</string>
+    <string name="previous_week">Previous Week</string>
+    <string name="next_week">Next Week</string>
+    <string name="logged_out">Logged out successfully</string>
+    <string name="change_language">Change Language</string>
 </resources>
