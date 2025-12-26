@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0D1B2A">
+
+    <!-- KONFETTI (Full screen) -->
+    <nl.dionsegijn.konfetti.KonfettiView
+        android:id="@+id/konfettiView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- MAIN CONTENT -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="32dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Breathing Quest"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:textColor="#E0E1DD"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:id="@+id/streakText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Streak: 0 days"
+            android:textSize="18sp"
+            android:textColor="#FFD700"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/sessionText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sessions today: 1/5"
+            android:textSize="16sp"
+            android:textColor="#B0BEC5"
+            android:layout_marginBottom="24dp" />
+
+        <TextView
+            android:id="@+id/scoreText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Score: 0/10"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#4FC3F7"
+            android:layout_marginBottom="40dp" />
+
+        <!-- BREATHING CIRCLE + PROGRESS RING (NO CLIPPING!) -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="48dp"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+
+            <!-- Progress Ring (fixed size) -->
+            <ProgressBar
+                android:id="@+id/progressRing"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="280dp"
+                android:layout_height="280dp"
+                android:layout_gravity="center"
+                android:max="100"
+                android:progress="0"
+                android:progressDrawable="@drawable/circular_progress"
+                android:background="@drawable/circle_background" />
+
+            <!-- Breathing Circle — Can grow BIGGER than parent! -->
+            <View
+                android:id="@+id/breathingCircle"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:layout_gravity="center"
+                android:background="@drawable/breathing_circle_gradient"
+                android:elevation="12dp"
+                android:outlineAmbientShadowColor="#000000"
+                android:outlineSpotShadowColor="#000000" />
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/instructionText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Get Ready..."
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:textColor="#E0E1DD"
+            android:layout_marginBottom="48dp" />
+
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="200dp"
+            android:layout_height="56dp"
+            android:text="Back to Dashboard"
+            android:textSize="16sp"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#778DA9"
+            android:elevation="8dp" />
+
+    </LinearLayout>
+</FrameLayout>

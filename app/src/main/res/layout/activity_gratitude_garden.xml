@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ECFDF5"
+    android:gravity="center"
+    android:padding="32dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gratitude Garden"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="#166534" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Every entry grows your peace"
+        android:textSize="16sp"
+        android:textColor="#166534"
+        android:layout_marginTop="8dp" />
+
+    <ImageView
+        android:id="@+id/imgFlower"
+        android:layout_width="220dp"
+        android:layout_height="280dp"
+        android:src="@drawable/ic_flower_full"
+        android:layout_marginTop="40dp" />
+
+    <TextView
+        android:id="@+id/tvCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0 flowers planted"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#166534"
+        android:layout_marginTop="20dp" />
+
+    <Button
+        android:id="@+id/btnAddGratitude"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:text="I'm Grateful For..."
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#10B981"
+        android:layout_marginTop="32dp"
+        android:paddingHorizontal="32dp" />
+
+</LinearLayout>

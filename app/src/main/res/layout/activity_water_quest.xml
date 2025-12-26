@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E0F2FE"
+    android:padding="24dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Water Quest"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="#1E40AF"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp" />
+
+    <TextView
+        android:id="@+id/tvGoal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Keep going!"
+        android:textSize="18sp"
+        android:textColor="#1E40AF"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp" />
+
+    <!-- Glass Container -->
+    <FrameLayout
+        android:layout_width="180dp"
+        android:layout_height="400dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="160dp"
+        android:background="@drawable/glass_border">
+
+        <View
+            android:id="@+id/viewWaterLevel"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="bottom"
+            android:background="#3B82F6"
+            android:alpha="0.7" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_water_glass_outline"
+            android:scaleType="fitXY" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tvWaterCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0 / 8"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:textColor="#1E40AF"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="580dp" />
+
+    <Button
+        android:id="@+id/btnDrinkWater"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:text="I Drank Water"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#3B82F6"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="660dp"
+        android:paddingHorizontal="32dp" />
+
+    <!-- Confetti Container -->
+    <LinearLayout
+        android:id="@+id/confettiContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone" />
+
+</RelativeLayout>
