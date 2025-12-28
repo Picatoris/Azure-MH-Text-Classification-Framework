@@ -10,7 +10,6 @@ import android.os.Looper;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -19,6 +18,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
+import androidx.core.util.TypedValueCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -26,6 +26,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
@@ -51,8 +52,6 @@ public class UserDashboardActivity extends BaseActivity {
     private final SimpleDateFormat dateFormat = new SimpleDateFormat("EEE\ndd", Locale.getDefault());
     private final SimpleDateFormat fullDateFormat = new SimpleDateFormat("dd MMM yyyy", Locale.getDefault());
     private final SimpleDateFormat weekHeaderFormat = new SimpleDateFormat("dd MMM", Locale.getDefault());
-    private HorizontalScrollView weekScrollView;
-
     // Quote System
     private RequestQueue requestQueue;
     private final Handler quoteHandler = new Handler(Looper.getMainLooper());
@@ -73,6 +72,11 @@ public class UserDashboardActivity extends BaseActivity {
             "You are stronger than you think. Keep going."
     };
     private final String[] fallbackAuthors = {"Unknown", "Unknown", "Unknown", "Oprah Winfrey", "Alice Morse Earle", "Unknown"};
+    private int dpToPx(float dp) {
+        return Math.round(
+                TypedValueCompat.dpToPx(dp, getResources().getDisplayMetrics())
+        );
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,7 +104,6 @@ public class UserDashboardActivity extends BaseActivity {
         weekContainer = findViewById(R.id.weekContainer);
         weekRangeText = findViewById(R.id.weekRangeText);
         TextView selectedDateEvents = findViewById(R.id.selectedDateEvents);
-        weekScrollView = findViewById(R.id.weekScrollView);
         Button btnPrevWeek = findViewById(R.id.btnPrevWeek);
         Button btnNextWeek = findViewById(R.id.btnNextWeek);
 
@@ -251,66 +254,79 @@ public class UserDashboardActivity extends BaseActivity {
     // ==================== CALENDAR + NOTES ====================
     private void displayCurrentWeek() {
         weekContainer.removeAllViews();
+
         Calendar tempCal = (Calendar) currentWeekStart.clone();
         Calendar endWeek = (Calendar) tempCal.clone();
         endWeek.add(Calendar.DAY_OF_MONTH, 6);
 
-        String label = "Week of " + weekHeaderFormat.format(tempCal.getTime()) + " - " + weekHeaderFormat.format(endWeek.getTime());
-        LocaleHelper.translate(label, t -> weekRangeText.setText(t));
+        String label = "Week of " + weekHeaderFormat.format(tempCal.getTime()) + " – " + weekHeaderFormat.format(endWeek.getTime());
+        LocaleHelper.translate(label, weekRangeText::setText);
 
         Calendar today = Calendar.getInstance();
 
         for (int i = 0; i < 7; i++) {
+            MaterialCardView card = new MaterialCardView(this);
+
             boolean isToday = isSameDay(tempCal, today);
             String dateKey = fullDateFormat.format(tempCal.getTime());
 
-            LinearLayout dayLayout = new LinearLayout(this);
-            dayLayout.setOrientation(LinearLayout.VERTICAL);
-            dayLayout.setGravity(Gravity.CENTER);
+            card.setRadius(dpToPx(18));
+            card.setCardElevation(isToday ? dpToPx(6) : dpToPx(2));
+            card.setStrokeWidth(0);
+            card.setCardBackgroundColor(
+                    ContextCompat.getColor(this,
+                            isToday ? R.color.purple_500 : android.R.color.white)
+            );
 
-            TextView dayView = new TextView(this);
-            dayView.setText(dateFormat.format(tempCal.getTime()));
-            dayView.setGravity(Gravity.CENTER);
-            dayView.setTextSize(15);
-            dayView.setTypeface(null, Typeface.BOLD);
-            dayView.setTextColor(isToday ? Color.WHITE : Color.parseColor("#1E293B"));
-            dayView.setPadding(42, 42, 42, 42);
-            dayView.setBackgroundResource(isToday ? R.drawable.day_card_selected : R.drawable.day_card_normal);
-            dayView.setElevation(isToday ? 20 : 10);
-            dayView.setTag(dateKey);
+            card.setClickable(true);
+            card.setFocusable(true);
 
-            View dot = new View(this);
-            LinearLayout.LayoutParams dotParams = new LinearLayout.LayoutParams(14, 14);
-            dotParams.topMargin = 12;
-            dot.setLayoutParams(dotParams);
-            dot.setBackgroundResource(R.drawable.ic_note_dot);
-            dot.setVisibility(notesJson.has(dateKey) && !notesJson.optString(dateKey, "").isEmpty() ? View.VISIBLE : View.INVISIBLE);
+// Inner container
+            LinearLayout layout = new LinearLayout(this);
+            layout.setOrientation(LinearLayout.VERTICAL);
+            layout.setGravity(Gravity.CENTER);
+            layout.setLayoutParams(new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.MATCH_PARENT
+            ));
+            layout.setPadding(8, 12, 8, 12);
 
-            dayLayout.addView(dayView);
-            dayLayout.addView(dot);
-            dayLayout.setOnClickListener(v -> showNoteDialog(dateKey));
-            dayLayout.setClickable(true);
-            dayLayout.setForeground(ContextCompat.getDrawable(this, android.R.drawable.dialog_holo_light_frame));
+// Day name (MON, TUE...)
+            TextView dayName = new TextView(this);
+            dayName.setText(new SimpleDateFormat("EEE", Locale.getDefault())
+                    .format(tempCal.getTime()).toUpperCase());
+            dayName.setTextSize(11);
+            dayName.setTypeface(Typeface.DEFAULT_BOLD);
+            dayName.setLetterSpacing(0.08f);
+            dayName.setTextColor(isToday ? Color.WHITE : Color.parseColor("#94A3B8"));
 
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-            params.setMargins(24, 0, 24, 0);
-            dayLayout.setLayoutParams(params);
+// Date number (22)
+            TextView dateNumber = new TextView(this);
+            dateNumber.setText(String.valueOf(tempCal.get(Calendar.DAY_OF_MONTH)));
+            dateNumber.setTextSize(22);
+            dateNumber.setTypeface(Typeface.DEFAULT_BOLD);
+            dateNumber.setTextColor(isToday ? Color.WHITE : Color.parseColor("#0F172A"));
+            dateNumber.setPadding(0, 4, 0, 0);
 
-            weekContainer.addView(dayLayout);
+// Assemble
+            layout.addView(dayName);
+            layout.addView(dateNumber);
+            card.addView(layout);
+
+// Equal width for 7 days
+            LinearLayout.LayoutParams params =
+                    new LinearLayout.LayoutParams(0, dpToPx(96), 1f);
+            params.setMargins(6, 0, 6, 0);
+            card.setLayoutParams(params);
+
+// Click → open note
+            card.setOnClickListener(v -> showNoteDialog(dateKey));
+
+            weekContainer.addView(card);
+
+// Move to next day
             tempCal.add(Calendar.DAY_OF_MONTH, 1);
         }
-
-        weekScrollView.post(() -> {
-            int idx = today.get(Calendar.DAY_OF_WEEK) - currentWeekStart.getFirstDayOfWeek();
-            if (idx >= 0 && idx < 7) {
-                View v = weekContainer.getChildAt(idx);
-                if (v != null) {
-                    int x = v.getLeft() - (weekScrollView.getWidth() / 2) + (v.getWidth() / 2);
-                    weekScrollView.smoothScrollTo(x, 0);
-                }
-            }
-        });
     }
 
     private void showNoteDialog(String date) {

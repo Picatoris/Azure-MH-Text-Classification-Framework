@@ -1661,6 +1661,7 @@ color fui_bgTwitter
 color fui_bgYahoo
 color fui_transparent
 color gray
+color gray_100
 color gray_dark
 color highlighted_text_material_dark
 color highlighted_text_material_light
@@ -3690,6 +3691,7 @@ drawable card_bg
 drawable chart
 drawable circle_background
 drawable circle_bg
+drawable circle_small
 drawable circular_progress
 drawable common_full_open_on_phone
 drawable common_google_signin_btn_icon_dark
@@ -4710,7 +4712,6 @@ id visible
 id visible_removing_fragment_view_tag
 id weekContainer
 id weekRangeText
-id weekScrollView
 id weeklyChart
 id welcome_back_email_link_body
 id welcome_back_idp_button

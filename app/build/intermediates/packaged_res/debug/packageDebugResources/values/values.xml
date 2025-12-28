@@ -18,6 +18,7 @@
     <color name="dark_gray">#666666</color>
     <color name="divider_color">#D3D3D3</color>
     <color name="gray">#BDBDBD</color>
+    <color name="gray_100">#F1F5F9</color>
     <color name="gray_dark">#555555</color>
     <color name="iconColor">#6C757D</color>
     <color name="lavender">#AD2BC5</color>

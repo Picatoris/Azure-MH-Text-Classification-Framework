@@ -79,11 +79,11 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.7.1")
     implementation("com.google.android.material:material:1.13.0")
     implementation("androidx.drawerlayout:drawerlayout:1.2.0")
-// ML Kit Translate (FREE + OFFLINE)
     implementation("com.google.mlkit:translate:17.0.3")
     implementation("com.github.lecho:hellocharts-library:1.5.8@aar")
     implementation("com.google.android.gms:play-services-fitness:21.3.0")
     implementation("com.google.android.gms:play-services-auth:21.4.0")
     implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
     implementation("nl.dionsegijn:konfetti:1.3.2")
+    implementation("com.google.android.material:material:1.13.0")
 }

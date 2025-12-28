@@ -1660,6 +1660,7 @@ int color fui_bgTwitter 0x7f060086
 int color fui_bgYahoo 0x7f060087
 int color fui_transparent 0x7f060088
 int color gray 0x7f060089
+int color gray_100 0x7f0603eb
 int color gray_dark 0x7f06008a
 int color highlighted_text_material_dark 0x7f06008b
 int color highlighted_text_material_light 0x7f06008c
@@ -3689,6 +3690,7 @@ int drawable card_bg 0x7f080097
 int drawable chart 0x7f080098
 int drawable circle_background 0x7f080099
 int drawable circle_bg 0x7f08009a
+int drawable circle_small 0x7f08017b
 int drawable circular_progress 0x7f08009b
 int drawable common_full_open_on_phone 0x7f08009c
 int drawable common_google_signin_btn_icon_dark 0x7f08009d
@@ -4709,7 +4711,6 @@ int id visible 0x7f090318
 int id visible_removing_fragment_view_tag 0x7f090319
 int id weekContainer 0x7f09031a
 int id weekRangeText 0x7f09031b
-int id weekScrollView 0x7f09031c
 int id weeklyChart 0x7f09031d
 int id welcome_back_email_link_body 0x7f09031e
 int id welcome_back_idp_button 0x7f09031f

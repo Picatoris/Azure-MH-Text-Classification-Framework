@@ -20,6 +20,7 @@ color dark_blue
 color dark_gray
 color divider_color
 color gray
+color gray_100
 color gray_dark
 color iconColor
 color lavender
@@ -58,6 +59,7 @@ drawable card_bg
 drawable chart
 drawable circle_background
 drawable circle_bg
+drawable circle_small
 drawable circular_progress
 drawable day_card_bg
 drawable day_card_normal
@@ -355,7 +357,6 @@ id viewPager
 id viewWaterLevel
 id weekContainer
 id weekRangeText
-id weekScrollView
 id weeklyChart
 layout activity_admin
 layout activity_admin_dashboard

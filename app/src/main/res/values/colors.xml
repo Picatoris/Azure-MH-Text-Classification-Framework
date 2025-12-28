@@ -34,7 +34,8 @@
     <color name="textPrimary">#333333</color>
     <color name="buttonColor">#007BFF</color>
     <color name="iconColor">#6C757D</color>
-
+    <!-- res/color/gray_100.xml -->
+    <color name="gray_100">#F1F5F9</color>
 
 
 
