@@ -1,58 +1,47 @@
 package com.example.sentimentanalysis;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.widget.Toast;
-import androidx.appcompat.app.AppCompatActivity;
-import com.google.mlkit.nl.translate.TranslateLanguage;
-import com.google.mlkit.nl.translate.Translation;
-import com.google.mlkit.nl.translate.Translator;
-import com.google.mlkit.nl.translate.TranslatorOptions;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+
 import java.util.Locale;
 
 public class LocaleHelper {
 
-    private static Translator translator;
-    private static String currentLang = "en";
+    private static final String PREF_NAME = "language_pref";
+    private static final String KEY_LANGUAGE = "selected_language";
 
-    public static void setLocale(Context context, String langCode) {
-        currentLang = langCode;
-        Locale locale = new Locale(langCode);
+    public static Context setLocale(Context context, String languageCode) {
+        saveLanguage(context, languageCode);
+        return updateResources(context, languageCode);
+    }
+
+    public static Context applySavedLocale(Context context) {
+        String lang = getSavedLanguage(context);
+        return updateResources(context, lang);
+    }
+
+    private static void saveLanguage(Context context, String language) {
+        SharedPreferences prefs = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        prefs.edit().putString(KEY_LANGUAGE, language).apply();
+    }
+
+    public static String getSavedLanguage(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        return prefs.getString(KEY_LANGUAGE, "en");
+    }
+
+    @SuppressLint("NewApi")
+    private static Context updateResources(Context context, String language) {
+        Locale locale = new Locale(language);
         Locale.setDefault(locale);
 
-        TranslatorOptions options = new TranslatorOptions.Builder()
-                .setSourceLanguage(TranslateLanguage.ENGLISH)
-                .setTargetLanguage(langCode)
-                .build();
-        translator = Translation.getClient(options);
+        Resources res = context.getResources();
+        Configuration config = new Configuration(res.getConfiguration());
+        config.setLocale(locale);
 
-        translator.downloadModelIfNeeded()
-                .addOnSuccessListener(unused -> {
-                    Toast.makeText(context, "Language ready (offline)", Toast.LENGTH_SHORT).show();
-                })
-                .addOnFailureListener(e -> {
-                    Toast.makeText(context, "Using online mode", Toast.LENGTH_SHORT).show();
-                });
-
-        if (context instanceof AppCompatActivity) {
-            ((AppCompatActivity) context).recreate();
-        }
-    }
-
-    public static void translate(String englishText, TranslateCallback callback) {
-        if (translator == null || currentLang.equals("en")) {
-            callback.onResult(englishText);
-            return;
-        }
-        translator.translate(englishText)
-                .addOnSuccessListener(callback::onResult)
-                .addOnFailureListener(e -> callback.onResult(englishText));
-    }
-
-    public interface TranslateCallback {
-        void onResult(String translatedText);
-    }
-
-    public static String getCurrentLang() {
-        return currentLang;
+        return context.createConfigurationContext(config);
     }
 }

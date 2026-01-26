@@ -1,37 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.sentimentanalysis.app-mergeDebugResources-56:/values-v24/values-v24.xml",
+            "outputFile": "com.example.sentimentanalysis.app-mergeDebugResources-57:/values-v24/values-v24.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Shashank\\.gradle\\caches\\8.13\\transforms\\232fa781c8e5b7b3c656c70d8ef73d7b\\transformed\\media-1.0.0\\res\\values-v24\\values-v24.xml",
-                    "from": {
-                        "startLines": "2,3,4,5",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "55,121,182,248",
-                        "endColumns": "65,60,65,66",
-                        "endOffsets": "116,177,243,310"
-                    },
-                    "to": {
-                        "startLines": "20,21,22,23",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "1547,1613,1674,1740",
-                        "endColumns": "65,60,65,66",
-                        "endOffsets": "1608,1669,1735,1802"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Shashank\\.gradle\\caches\\8.13\\transforms\\514b5ef0e1105fc7ed50a61b3c5a3eb7\\transformed\\appcompat-1.7.1\\res\\values-v24\\values-v24.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,212",
-                        "endColumns": "156,134",
-                        "endOffsets": "207,342"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Shashank\\.gradle\\caches\\8.13\\transforms\\d83ecb6c480c777c400ea7185bb11c2b\\transformed\\material-1.13.0\\res\\values-v24\\values-v24.xml",
+                    "source": "C:\\Users\\Shashank\\.gradle\\caches\\9.1.0\\transforms\\69e527a84cc2b3c4822a812e5424d2e9\\workspace\\transformed\\material-1.13.0\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,9,12,15",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -47,6 +20,33 @@
                         "endLines": "4,5,6,7,10,13,16,19",
                         "endColumns": "84,98,86,100,10,10,10,10",
                         "endOffsets": "427,526,613,714,913,1126,1327,1542"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Shashank\\.gradle\\caches\\9.1.0\\transforms\\942bf70a192ebd626fa7442b6565a127\\workspace\\transformed\\appcompat-1.7.1\\res\\values-v24\\values-v24.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,212",
+                        "endColumns": "156,134",
+                        "endOffsets": "207,342"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Shashank\\.gradle\\caches\\9.1.0\\transforms\\555d130e6012fb97f767455e44b4a794\\workspace\\transformed\\media-1.0.0\\res\\values-v24\\values-v24.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,121,182,248",
+                        "endColumns": "65,60,65,66",
+                        "endOffsets": "116,177,243,310"
+                    },
+                    "to": {
+                        "startLines": "20,21,22,23",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "1547,1613,1674,1740",
+                        "endColumns": "65,60,65,66",
+                        "endOffsets": "1608,1669,1735,1802"
                     }
                 }
             ]

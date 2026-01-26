@@ -3658,6 +3658,9 @@ drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable abcd
 drawable account_c
+drawable adx_ic_other_sign_in
+drawable adx_ic_passkey
+drawable adx_ic_password
 drawable avd_hide_password
 drawable avd_show_password
 drawable back_icon
@@ -3798,9 +3801,6 @@ drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_note_dot
 drawable ic_notification
-drawable ic_other_sign_in
-drawable ic_passkey
-drawable ic_password
 drawable ic_phone
 drawable ic_profile
 drawable ic_profile_placeholder
@@ -4705,6 +4705,7 @@ id view_offset_helper
 id view_transition
 id view_tree_disjoint_parent
 id view_tree_lifecycle_owner
+id view_tree_navigation_event_dispatcher_owner
 id view_tree_on_back_pressed_dispatcher_owner
 id view_tree_saved_state_registry_owner
 id view_tree_view_model_store_owner

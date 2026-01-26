@@ -40,6 +40,7 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.Random;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class UserDashboardActivity extends BaseActivity {
 
@@ -123,14 +124,18 @@ public class UserDashboardActivity extends BaseActivity {
         String regNo = getIntent().getStringExtra("regNo");
 
         // ==================== GREETING & NAV ====================
-        LocaleHelper.translate("Hello, " + (username != null ? username : "User"),
-                greetingText::setText);
+        String greeting = "Hello, " + (username != null ? username : "User");
+        AtomicReference<String> lang = new AtomicReference<>(LocaleHelper.getSavedLanguage(this));
+        MLTranslator.translate(this, greeting, lang.get(), greetingText::setText);
 
         View header = navigationView.getHeaderView(0);
         TextView navHeaderUsername = header.findViewById(R.id.nav_header_username);
         if (navHeaderUsername != null) {
-            LocaleHelper.translate(username != null ? username : "User",
-                    navHeaderUsername::setText);
+            String name = username != null ? username : "User";
+            lang.set(LocaleHelper.getSavedLanguage(this));
+
+            MLTranslator.translate(this, name, lang.get(), navHeaderUsername::setText);
+
         }
 
         // ==================== CALENDAR ====================
@@ -145,8 +150,8 @@ public class UserDashboardActivity extends BaseActivity {
         btnStepQuest.setOnClickListener(v -> openActivity(StepCounterGameActivity.class));
 
         // Week Navigation
-        LocaleHelper.translate("Previous", btnPrevWeek::setText);
-        LocaleHelper.translate("Next", btnNextWeek::setText);
+        MLTranslator.translate(this, "Previous", lang.get(), btnPrevWeek::setText);
+        MLTranslator.translate(this, "Next", lang.get(), btnNextWeek::setText);
         btnPrevWeek.setOnClickListener(v -> {
             currentWeekStart.add(Calendar.WEEK_OF_YEAR, -1);
             displayCurrentWeek();
@@ -200,7 +205,11 @@ public class UserDashboardActivity extends BaseActivity {
             } else if (id == R.id.nav_logout) {
                 FirebaseAuth.getInstance().signOut();
                 getSharedPreferences("loginPrefs", MODE_PRIVATE).edit().clear().apply();
-                Toast.makeText(this, "Logged out", Toast.LENGTH_SHORT).show();
+                lang.set(LocaleHelper.getSavedLanguage(this));
+
+                MLTranslator.translate(this, "Logged out", lang.get(),
+                        text -> Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
+                );
                 startActivity(new Intent(this, UserLoginActivity.class)
                         .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
                 finish();
@@ -226,7 +235,17 @@ public class UserDashboardActivity extends BaseActivity {
         String url = "https://api.quotable.io/random?maxLength=120";
         JsonObjectRequest req = new JsonObjectRequest(Request.Method.GET, url, null,
                 response -> {
-                    try { updateQuote(response.getString("content"), response.getString("author")); }
+                    try {String quote = response.getString("content");
+                        String author = response.getString("author");
+
+                        String lang = LocaleHelper.getSavedLanguage(this);
+
+                        MLTranslator.translate(this, quote, lang, tq ->
+                                MLTranslator.translate(this, "- " + author, lang, ta ->
+                                        updateQuote(tq, ta)
+                                )
+                        );
+                    }
                     catch (JSONException e) { showRandomFallbackQuote(); }
                 },
                 error -> showRandomFallbackQuote()
@@ -243,12 +262,16 @@ public class UserDashboardActivity extends BaseActivity {
     private void updateQuote(String quote, String author) {
         quoteText.setAlpha(0f);
         quoteAuthor.setAlpha(0f);
-        LocaleHelper.translate(quote, tq -> LocaleHelper.translate("- " + author, ta -> {
-            quoteText.setText("\"" + tq + "\"");
-            quoteAuthor.setText(ta);
-            quoteText.animate().alpha(1f).setDuration(800).start();
-            quoteAuthor.animate().alpha(1f).setDuration(1000).start();
-        }));
+        String lang = LocaleHelper.getSavedLanguage(this);
+
+        MLTranslator.translate(this, quote, lang, tq ->
+                MLTranslator.translate(this, "- " + author, lang, ta -> {
+                    quoteText.setText("\"" + tq + "\"");
+                    quoteAuthor.setText(ta);
+                    quoteText.animate().alpha(1f).setDuration(800).start();
+                    quoteAuthor.animate().alpha(1f).setDuration(1000).start();
+                })
+        );
     }
 
     // ==================== CALENDAR + NOTES ====================
@@ -260,8 +283,8 @@ public class UserDashboardActivity extends BaseActivity {
         endWeek.add(Calendar.DAY_OF_MONTH, 6);
 
         String label = "Week of " + weekHeaderFormat.format(tempCal.getTime()) + " – " + weekHeaderFormat.format(endWeek.getTime());
-        LocaleHelper.translate(label, weekRangeText::setText);
-
+        String lang = LocaleHelper.getSavedLanguage(this);
+        MLTranslator.translate(this, label, lang, weekRangeText::setText);
         Calendar today = Calendar.getInstance();
 
         for (int i = 0; i < 7; i++) {
@@ -336,7 +359,8 @@ public class UserDashboardActivity extends BaseActivity {
 
         TextInputEditText input = view.findViewById(R.id.inputNote);
         TextView title = view.findViewById(R.id.dialogTitle);
-        LocaleHelper.translate("Note for " + date, title::setText);
+        String lang = LocaleHelper.getSavedLanguage(this);
+        MLTranslator.translate(this, "Note for " + date, lang, title::setText);
 
         String existing = notesJson.optString(date, "");
         if (!existing.isEmpty()) input.setText(existing);
@@ -380,7 +404,10 @@ public class UserDashboardActivity extends BaseActivity {
         String[] codes = {"en", "hi", "ta", "te", "kn", "ml", "mr", "gu"};
         new AlertDialog.Builder(this)
                 .setTitle("Choose Language")
-                .setItems(langs, (d, w) -> { LocaleHelper.setLocale(this, codes[w]); recreate(); })
+                .setItems(langs, (d, w) -> {LocaleHelper.setLocale(this, codes[w]);
+                    Intent intent = getIntent();
+                    finish();
+                    startActivity(intent); })
                 .show();
     }
 

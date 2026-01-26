@@ -234,6 +234,24 @@
             android:exported="false"
             android:initOrder="90" />
 
+        <service
+            android:name="com.google.mlkit.common.internal.MlKitComponentDiscoveryService"
+            android:directBootAware="true"
+            android:exported="false" >
+            <meta-data
+                android:name="com.google.firebase.components:com.google.mlkit.nl.translate.NaturalLanguageTranslateRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+            <meta-data
+                android:name="com.google.firebase.components:com.google.mlkit.common.internal.CommonComponentRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+        </service>
+
+        <provider
+            android:name="com.google.mlkit.common.internal.MlKitInitProvider"
+            android:authorities="com.example.sentimentanalysis.mlkitinitprovider"
+            android:exported="false"
+            android:initOrder="99" />
+
         <activity
             android:name="com.google.firebase.auth.internal.GenericIdpActivity"
             android:excludeFromRecents="true"
@@ -298,7 +316,7 @@
         </service>
 
         <activity
-            android:name="androidx.credentials.playservices.HiddenActivity"
+            android:name="androidx.credentials.playservices.controllers.identityauth.HiddenActivity"
             android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
             android:enabled="true"
             android:exported="false"
@@ -306,32 +324,13 @@
             android:theme="@style/Theme.Hidden" >
         </activity>
         <activity
-            android:name="androidx.credentials.playservices.IdentityCredentialApiHiddenActivity"
+            android:name="androidx.credentials.playservices.controllers.identitycredentials.IdentityCredentialApiHiddenActivity"
             android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
             android:enabled="true"
             android:exported="false"
             android:fitsSystemWindows="true"
             android:theme="@style/Theme.Hidden" >
         </activity>
-
-        <service
-            android:name="com.google.mlkit.common.internal.MlKitComponentDiscoveryService"
-            android:directBootAware="true"
-            android:exported="false" >
-            <meta-data
-                android:name="com.google.firebase.components:com.google.mlkit.nl.translate.NaturalLanguageTranslateRegistrar"
-                android:value="com.google.firebase.components.ComponentRegistrar" />
-            <meta-data
-                android:name="com.google.firebase.components:com.google.mlkit.common.internal.CommonComponentRegistrar"
-                android:value="com.google.firebase.components.ComponentRegistrar" />
-        </service>
-
-        <provider
-            android:name="com.google.mlkit.common.internal.MlKitInitProvider"
-            android:authorities="com.example.sentimentanalysis.mlkitinitprovider"
-            android:exported="false"
-            android:initOrder="99" />
-
         <activity
             android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
             android:excludeFromRecents="true"

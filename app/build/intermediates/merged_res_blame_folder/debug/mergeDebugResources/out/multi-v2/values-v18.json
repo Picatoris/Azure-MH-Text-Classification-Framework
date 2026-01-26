@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.sentimentanalysis.app-mergeDebugResources-56:/values-v18/values-v18.xml",
+            "outputFile": "com.example.sentimentanalysis.app-mergeDebugResources-57:/values-v18/values-v18.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Shashank\\.gradle\\caches\\8.13\\transforms\\514b5ef0e1105fc7ed50a61b3c5a3eb7\\transformed\\appcompat-1.7.1\\res\\values-v18\\values-v18.xml",
+                    "source": "C:\\Users\\Shashank\\.gradle\\caches\\9.1.0\\transforms\\942bf70a192ebd626fa7442b6565a127\\workspace\\transformed\\appcompat-1.7.1\\res\\values-v18\\values-v18.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Shashank\\.gradle\\caches\\8.13\\transforms\\3ff55ed81b950874b4e79010b250a904\\transformed\\core-1.7.0\\res\\values-v18\\values.xml",
+                    "source": "C:\\Users\\Shashank\\.gradle\\caches\\9.1.0\\transforms\\c672099cca4113145098d35c40d0da74\\workspace\\transformed\\core-1.7.0\\res\\values-v18\\values.xml",
                     "from": {
                         "startLines": "4,12",
                         "startColumns": "0,0",
