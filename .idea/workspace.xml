@@ -511,23 +511,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93ca2988-2ae4-4c8e-95fc-13d7cc804d88" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/apk/debug/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/apk/debug/app-debug.apk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/apk_ide_redirect_file/debug/createDebugApkListingFileRedirect/redirect.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/apk_ide_redirect_file/debug/createDebugApkListingFileRedirect/redirect.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/zip-cache/androidResources" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/zip-cache/androidResources" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/manifest_merge_blame_file/debug/processDebugMainManifest/manifest-merger-blame-debug-report.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/manifest_merge_blame_file/debug/processDebugMainManifest/manifest-merger-blame-debug-report.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/sentimentanalysis/ChatActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/sentimentanalysis/ChatActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/sentimentanalysis/ChatAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/sentimentanalysis/ChatAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/sentimentanalysis/ChatMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/sentimentanalysis/ChatMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/sentimentanalysis/GeminiHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/sentimentanalysis/GeminiHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/sentimentanalysis/MLTranslator.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/sentimentanalysis/MLTranslator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/bot_bubble.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/bot_bubble.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/user_bubble.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/user_bubble.xml" afterDir="false" />
-    </list>
+    <list default="true" id="93ca2988-2ae4-4c8e-95fc-13d7cc804d88" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -539,7 +523,7 @@
   <component name="CodeInsightWorkspaceSettings">
     <option name="optimizeImportsOnTheFly" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[PhysicalDevice::serial=RZ8R91VTDEM]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -914,7 +898,23 @@
       <option name="project" value="LOCAL" />
       <updated>1769439786550</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="minor changes regarding the AI chatbot and langauge selection">
+      <option name="closed" value="true" />
+      <created>1769618178275</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1769618178275</updated>
+    </task>
+    <task id="LOCAL-00019" summary="changes">
+      <option name="closed" value="true" />
+      <created>1769618350099</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1769618350099</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -950,7 +950,9 @@
     <MESSAGE value="updating language selection" />
     <MESSAGE value="language selection update" />
     <MESSAGE value="lanauge selection update" />
-    <option name="LAST_COMMIT_MESSAGE" value="lanauge selection update" />
+    <MESSAGE value="minor changes regarding the AI chatbot and langauge selection" />
+    <MESSAGE value="changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
