@@ -3669,8 +3669,10 @@ drawable background2
 drawable background_1
 drawable bell_icon
 drawable bg_ai_message
+drawable bg_bot_bubble
 drawable bg_card_blue
 drawable bg_card_gradient
+drawable bg_user_bubble
 drawable bg_user_message
 drawable bot_bubble_bg
 drawable breathing_circle_bg
@@ -4367,6 +4369,7 @@ id matrix
 id media_actions
 id message
 id message_text
+id message_time
 id micButton
 id middle
 id mini
@@ -4633,6 +4636,7 @@ id textTop
 id textViewMessage
 id textViewTitle
 id text_bot
+id text_bot_time
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon

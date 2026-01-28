@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
+import android.text.Html;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -18,7 +19,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Locale;
 
 public class ChatActivity extends AppCompatActivity {
@@ -27,6 +30,7 @@ public class ChatActivity extends AppCompatActivity {
     private static final int FILE_PICKER_REQUEST = 2;
 
     private ChatAdapter chatAdapter;
+    private RecyclerView recyclerView;
     private EditText userInput;
     private ProgressBar loadingIndicator;
     private TextToSpeech tts;
@@ -37,7 +41,7 @@ public class ChatActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
 
-        RecyclerView recyclerView = findViewById(R.id.chatRecyclerView);
+        recyclerView = findViewById(R.id.chatRecyclerView);
         userInput = findViewById(R.id.inputEditText);
         ImageButton sendButton = findViewById(R.id.sendButton);
         ImageButton micButton = findViewById(R.id.micButton);
@@ -52,17 +56,16 @@ public class ChatActivity extends AppCompatActivity {
         sendButton.setOnClickListener(v -> {
             String message = userInput.getText().toString().trim();
             if (!message.isEmpty()) {
-                chatAdapter.addMessage(new ChatMessage(message, ChatMessage.SENDER_USER));
+                addUserMessage(message);
                 userInput.setText("");
+                addTypingIndicator();
                 fetchGeminiResponse(message);
             }
         });
 
         micButton.setOnClickListener(v -> startVoiceInput());
 
-        backButton.setOnClickListener(v ->
-                finish()
-        );
+        backButton.setOnClickListener(v -> finish());
 
         soundButton.setOnClickListener(v -> {
             if (!lastBotResponse.isEmpty()) {
@@ -77,6 +80,50 @@ public class ChatActivity extends AppCompatActivity {
         });
     }
 
+    // ---------------- USER MESSAGE ----------------
+    private void addUserMessage(String message) {
+        ChatMessage userMsg = new ChatMessage(message, ChatMessage.SENDER_USER, System.currentTimeMillis());
+        chatAdapter.addMessage(userMsg);
+        scrollToBottom();
+    }
+
+    // ---------------- TYPING INDICATOR ----------------
+    private void addTypingIndicator() {
+        ChatMessage typingMsg = new ChatMessage("Gemini is thinking...", ChatMessage.SENDER_BOT_TYPING, System.currentTimeMillis());
+        chatAdapter.addMessage(typingMsg);
+        scrollToBottom();
+    }
+
+    private void removeTypingIndicator() {
+        int index = chatAdapter.getTypingMessageIndex();
+        if (index != -1) {
+            chatAdapter.removeMessage(index);
+        }
+    }
+
+    // ---------------- SCROLL TO BOTTOM ----------------
+    private void scrollToBottom() {
+        recyclerView.scrollToPosition(chatAdapter.getItemCount() - 1);
+    }
+
+    // ---------------- FETCH GEMINI RESPONSE ----------------
+    private void fetchGeminiResponse(String prompt) {
+        loadingIndicator.setVisibility(View.VISIBLE);
+
+        GeminiHelper.generateGeminiResponse(prompt, response -> runOnUiThread(() -> {
+            loadingIndicator.setVisibility(View.GONE);
+            lastBotResponse = response;
+
+            // Remove typing indicator before adding real message
+            removeTypingIndicator();
+
+            ChatMessage botMsg = new ChatMessage(response, ChatMessage.SENDER_BOT, System.currentTimeMillis());
+            chatAdapter.addMessage(botMsg);
+            scrollToBottom();
+        }));
+    }
+
+    // ---------------- VOICE INPUT ----------------
     private void startVoiceInput() {
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
@@ -84,6 +131,7 @@ public class ChatActivity extends AppCompatActivity {
         startActivityForResult(intent, VOICE_INPUT_REQUEST);
     }
 
+    // ---------------- FILE PICKER ----------------
     private void openFilePicker() {
         Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
         intent.setType("*/*");
@@ -109,6 +157,7 @@ public class ChatActivity extends AppCompatActivity {
         }
     }
 
+    // ---------------- FILE EXTRACTION ----------------
     private void extractTextFromUri(Uri uri) {
         try {
             StringBuilder fileText = new StringBuilder();
@@ -121,25 +170,17 @@ public class ChatActivity extends AppCompatActivity {
             }
             reader.close();
 
-            chatAdapter.addMessage(new ChatMessage("Uploaded:\n" + fileText.toString(), ChatMessage.SENDER_USER));
+            addUserMessage("Uploaded:\n" + fileText.toString());
+            addTypingIndicator();
             fetchGeminiResponse(fileText.toString());
 
         } catch (Exception e) {
             e.printStackTrace();
-            chatAdapter.addMessage(new ChatMessage("Failed to read file.", ChatMessage.SENDER_BOT));
+            chatAdapter.addMessage(new ChatMessage("Failed to read file.", ChatMessage.SENDER_BOT, System.currentTimeMillis()));
         }
     }
 
-    private void fetchGeminiResponse(String prompt) {
-        loadingIndicator.setVisibility(View.VISIBLE);
-
-        GeminiHelper.generateGeminiResponse(prompt, response -> runOnUiThread(() -> {
-            loadingIndicator.setVisibility(View.GONE);
-            lastBotResponse = response;
-            chatAdapter.addMessage(new ChatMessage(response, ChatMessage.SENDER_BOT));
-        }));
-    }
-
+    // ---------------- TTS ----------------
     private void speakText(String text) {
         if (tts != null && !tts.isSpeaking()) {
             tts.speak(text, TextToSpeech.QUEUE_FLUSH, null, null);

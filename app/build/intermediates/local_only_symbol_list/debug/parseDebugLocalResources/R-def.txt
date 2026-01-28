@@ -42,8 +42,10 @@ drawable background2
 drawable background_1
 drawable bell_icon
 drawable bg_ai_message
+drawable bg_bot_bubble
 drawable bg_card_blue
 drawable bg_card_gradient
+drawable bg_user_bubble
 drawable bg_user_message
 drawable bot_bubble_bg
 drawable breathing_circle_bg
@@ -266,6 +268,7 @@ id logo
 id main
 id mainLayout
 id message_text
+id message_time
 id micButton
 id name
 id nameText
@@ -326,6 +329,7 @@ id textLabel
 id textViewMessage
 id textViewTitle
 id text_bot
+id text_bot_time
 id title
 id titleText
 id tvAdminTitle

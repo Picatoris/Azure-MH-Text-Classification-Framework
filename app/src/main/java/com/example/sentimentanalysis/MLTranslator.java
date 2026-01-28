@@ -1,6 +1,7 @@
 package com.example.sentimentanalysis;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.google.mlkit.common.model.DownloadConditions;
 import com.google.mlkit.nl.translate.TranslateLanguage;
@@ -13,7 +14,8 @@ import java.util.Map;
 
 public class MLTranslator {
 
-    private static final Map<String, Translator> translatorCache = new HashMap<>();
+    private static final String TAG = "MLTranslator";
+    private static final Map<String, Translator> cache = new HashMap<>();
 
     public interface TranslationCallback {
         void onTranslated(String text);
@@ -25,12 +27,26 @@ public class MLTranslator {
             String targetLang,
             TranslationCallback callback
     ) {
-        if (text == null || text.trim().isEmpty() || "en".equals(targetLang)) {
+        if (callback == null) return;
+
+        if (text == null || text.trim().isEmpty()) {
             callback.onTranslated(text);
             return;
         }
 
-        Translator translator = getTranslator(targetLang);
+        if (targetLang == null || targetLang.equals("en")) {
+            callback.onTranslated(text);
+            return;
+        }
+
+        String mlKitLang = getMlKitLanguage(targetLang);
+        if (mlKitLang == null) {
+            Log.w(TAG, "Language not supported by ML Kit: " + targetLang);
+            callback.onTranslated(text); // fallback
+            return;
+        }
+
+        Translator translator = getTranslator(mlKitLang);
 
         DownloadConditions conditions = new DownloadConditions.Builder()
                 .requireWifi()
@@ -40,27 +56,35 @@ public class MLTranslator {
                 .addOnSuccessListener(unused ->
                         translator.translate(text)
                                 .addOnSuccessListener(callback::onTranslated)
-                                .addOnFailureListener(e -> callback.onTranslated(text))
+                                .addOnFailureListener(e -> {
+                                    Log.e(TAG, "Translation failed", e);
+                                    callback.onTranslated(text);
+                                })
                 )
-                .addOnFailureListener(e -> callback.onTranslated(text));
+                .addOnFailureListener(e -> {
+                    Log.e(TAG, "Model download failed", e);
+                    callback.onTranslated(text);
+                });
     }
 
     private static Translator getTranslator(String targetLang) {
-        Translator cached = translatorCache.get(targetLang);
-        if (cached != null) {
-            return cached;
+        if (cache.containsKey(targetLang)) {
+            return cache.get(targetLang);
         }
 
         TranslatorOptions options = new TranslatorOptions.Builder()
                 .setSourceLanguage(TranslateLanguage.ENGLISH)
-                .setTargetLanguage(getMlKitLanguage(targetLang))
+                .setTargetLanguage(targetLang)
                 .build();
 
         Translator translator = Translation.getClient(options);
-        translatorCache.put(targetLang, translator);
+        cache.put(targetLang, translator);
         return translator;
     }
 
+    /**
+     * Returns ML Kit language code or null if unsupported
+     */
     private static String getMlKitLanguage(String code) {
         switch (code) {
             case "hi": return TranslateLanguage.HINDI;
@@ -70,12 +94,10 @@ public class MLTranslator {
             case "mr": return TranslateLanguage.MARATHI;
             case "gu": return TranslateLanguage.GUJARATI;
 
-            case "ml": return TranslateLanguage.fromLanguageTag("ml");
-            case "bn": return TranslateLanguage.fromLanguageTag("bn");
-            case "pa": return TranslateLanguage.fromLanguageTag("pa");
-            case "ur": return TranslateLanguage.fromLanguageTag("ur");
+            // ❌ Malayalam NOT supported by ML Kit
+            case "ml": return null;
 
-            default: return TranslateLanguage.ENGLISH;
+            default: return null;
         }
     }
 }
