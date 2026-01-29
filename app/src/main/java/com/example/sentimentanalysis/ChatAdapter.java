@@ -25,30 +25,25 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         notifyItemInserted(messages.size() - 1);
     }
 
-    // ---------------- REMOVE MESSAGE ----------------
-    public void removeMessage(int index) {
-        if (index >= 0 && index < messages.size()) {
-            messages.remove(index);
-            notifyItemRemoved(index);
-        }
-    }
-
-    // ---------------- UPDATE MESSAGE ----------------
-    public void updateMessage(int index, ChatMessage newMessage) {
-        if (index >= 0 && index < messages.size()) {
-            messages.set(index, newMessage);
-            notifyItemChanged(index);
-        }
-    }
-
-    // ---------------- GET TYPING MESSAGE INDEX ----------------
-    public int getTypingMessageIndex() {
+    // ---------------- HELPER: REMOVE TYPING INDICATOR ----------------
+    public void removeTypingMessage() {
         for (int i = 0; i < messages.size(); i++) {
             if (messages.get(i).getSenderType() == ChatMessage.SENDER_BOT_TYPING) {
-                return i;
+                messages.remove(i);
+                notifyItemRemoved(i);
+                return; // Stop after removing the first one found
             }
         }
-        return -1;
+    }
+
+    // ---------------- HELPER: CHECK IF TYPING ----------------
+    public boolean hasTypingMessage() {
+        for (ChatMessage msg : messages) {
+            if (msg.getSenderType() == ChatMessage.SENDER_BOT_TYPING) {
+                return true;
+            }
+        }
+        return false;
     }
 
     // ---------------- VIEW TYPE ----------------
@@ -65,12 +60,8 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             View view = LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.user_bubble, parent, false);
             return new UserViewHolder(view);
-        } else if (viewType == ChatMessage.SENDER_BOT_TYPING) {
-            // Use the same bot layout but show typing differently
-            View view = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.bot_bubble, parent, false);
-            return new BotViewHolder(view);
         } else {
+            // Both SENDER_BOT and SENDER_BOT_TYPING use the bot bubble layout
             View view = LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.bot_bubble, parent, false);
             return new BotViewHolder(view);
@@ -92,25 +83,45 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             ((UserViewHolder) holder).timeView.setText(timestamp);
 
         } else if (holder instanceof BotViewHolder) {
-            // Typing indicator shows animated dots
+            BotViewHolder botHolder = (BotViewHolder) holder;
+
+            // Check if this is the "Typing..." message
             if (message.getSenderType() == ChatMessage.SENDER_BOT_TYPING) {
-                ((BotViewHolder) holder).textView.setText("MIND is thinking...");
+
+                // ✅ UPDATED: Hardcoded to exactly what you requested
+                botHolder.textView.setText("MIND is thinking...");
+
+                // Optional: Make it italic so it looks like a status
+                botHolder.textView.setTypeface(null, android.graphics.Typeface.ITALIC);
+
             } else {
-                // Convert markdown-style bold to HTML <b>
-                rawText = rawText.replaceAll("\\*\\*(.*?)\\*\\*", "<b>$1</b>");
-                // Handle bullet points
-                rawText = rawText.replaceAll("(?m)^\\s*[-–•*]\\s+", "&#8226; ");
-                // Handle numbered lists
-                rawText = rawText.replaceAll("(?m)^\\s*(\\d+)\\.\\s+", "<br><b>$1.</b> ");
-                // Convert line breaks
-                rawText = rawText.replaceAll("\n", "<br>");
-                // Handle inline code blocks with ``
-                rawText = rawText.replaceAll("`(.*?)`", "<code>$1</code>");
+                // Reset typeface for normal messages
+                botHolder.textView.setTypeface(null, android.graphics.Typeface.NORMAL);
+
+                // --- MARKDOWN PARSING ---
+                String parsedText = rawText;
+
+                // Bold (**text**) -> <b>text</b>
+                parsedText = parsedText.replaceAll("\\*\\*(.*?)\\*\\*", "<b>$1</b>");
+
+                // Bullet points
+                parsedText = parsedText.replaceAll("(?m)^\\s*[-–•*]\\s+", "&#8226; ");
+
+                // Numbered lists
+                parsedText = parsedText.replaceAll("(?m)^\\s*(\\d+)\\.\\s+", "<br><b>$1.</b> ");
+
+                // Line breaks
+                parsedText = parsedText.replaceAll("\n", "<br>");
+
+                // Inline code (`code`)
+                parsedText = parsedText.replaceAll("`(.*?)`", "<font color='#D81B60'><code>$1</code></font>");
+
                 // Parse as HTML
-                Spanned formattedText = Html.fromHtml(rawText, Html.FROM_HTML_MODE_LEGACY);
-                ((BotViewHolder) holder).textView.setText(formattedText);
+                Spanned formattedText = Html.fromHtml(parsedText, Html.FROM_HTML_MODE_LEGACY);
+                botHolder.textView.setText(formattedText);
             }
-            ((BotViewHolder) holder).timeView.setText(timestamp);
+
+            botHolder.timeView.setText(timestamp);
         }
     }
 
