@@ -40,6 +40,17 @@ android {
             excludes += "/META-INF/{*}"
         }
     }
+
+    // ✅ CUSTOM APK NAMING LOGIC
+    applicationVariants.all {
+        outputs.all {
+            // Safe cast to access outputFileName in Kotlin DSL
+            val output = this as? com.android.build.gradle.internal.api.BaseVariantOutputImpl
+
+            // Set the name: "AppName_Version_Type.apk"
+            output?.outputFileName = "MIND_v${versionName}_${buildType.name}.apk"
+        }
+    }
 }
 
 dependencies {

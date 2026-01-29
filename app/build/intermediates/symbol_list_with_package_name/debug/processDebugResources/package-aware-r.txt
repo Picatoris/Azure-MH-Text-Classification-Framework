@@ -3674,6 +3674,7 @@ drawable bg_card_blue
 drawable bg_card_gradient
 drawable bg_user_bubble
 drawable bg_user_message
+drawable border_bottle
 drawable bot_bubble_bg
 drawable breathing_circle_bg
 drawable breathing_circle_gradient
@@ -3773,6 +3774,7 @@ drawable ic_chevron_right
 drawable ic_clear_black_24
 drawable ic_clock_black_24dp
 drawable ic_confetti
+drawable ic_confetti_dot
 drawable ic_email
 drawable ic_expand_less_22px
 drawable ic_expand_more_22px
@@ -3780,6 +3782,10 @@ drawable ic_eye_off
 drawable ic_eye_on
 drawable ic_flower_full
 drawable ic_flower_seed
+drawable ic_garden_0_seed
+drawable ic_garden_1_sprout
+drawable ic_garden_2_bud
+drawable ic_garden_3_bloom
 drawable ic_google
 drawable ic_google_gemini
 drawable ic_guide
@@ -4054,6 +4060,7 @@ id btnBack
 id btnBreathingQuest
 id btnCallDoctor
 id btnDrinkWater
+id btnHistory
 id btnLanguage
 id btnLeaderboard
 id btnLogin
@@ -4069,6 +4076,7 @@ id btnResetPassword
 id btnStepQuest
 id btnSubmitRemarks
 id btnTellUsMore
+id btnUndo
 id btnUser
 id btn_back
 id btn_get_started
@@ -4322,6 +4330,7 @@ id labeled
 id languages
 id languagesText
 id layout
+id layoutControls
 id left
 id leftToRight
 id legacy
@@ -4681,6 +4690,7 @@ id tvDoctorPhone
 id tvForgotPassword
 id tvGoal
 id tvGratitudePreview
+id tvLastEntry
 id tvLogin
 id tvLoginLabel
 id tvMessage
@@ -4715,6 +4725,7 @@ id view_tree_saved_state_registry_owner
 id view_tree_view_model_store_owner
 id visible
 id visible_removing_fragment_view_tag
+id waterContainer
 id weekContainer
 id weekRangeText
 id weeklyChart

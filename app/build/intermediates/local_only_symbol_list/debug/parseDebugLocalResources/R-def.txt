@@ -47,6 +47,7 @@ drawable bg_card_blue
 drawable bg_card_gradient
 drawable bg_user_bubble
 drawable bg_user_message
+drawable border_bottle
 drawable bot_bubble_bg
 drawable breathing_circle_bg
 drawable breathing_circle_gradient
@@ -90,11 +91,16 @@ drawable ic_chat
 drawable ic_chevron_left
 drawable ic_chevron_right
 drawable ic_confetti
+drawable ic_confetti_dot
 drawable ic_email
 drawable ic_eye_off
 drawable ic_eye_on
 drawable ic_flower_full
 drawable ic_flower_seed
+drawable ic_garden_0_seed
+drawable ic_garden_1_sprout
+drawable ic_garden_2_bud
+drawable ic_garden_3_bloom
 drawable ic_google
 drawable ic_google_gemini
 drawable ic_guide
@@ -168,6 +174,7 @@ id btnBack
 id btnBreathingQuest
 id btnCallDoctor
 id btnDrinkWater
+id btnHistory
 id btnLanguage
 id btnLeaderboard
 id btnLogin
@@ -183,6 +190,7 @@ id btnResetPassword
 id btnStepQuest
 id btnSubmitRemarks
 id btnTellUsMore
+id btnUndo
 id btnUser
 id btn_back
 id btn_get_started
@@ -260,6 +268,7 @@ id instructionText
 id konfettiView
 id languages
 id languagesText
+id layoutControls
 id lineChart
 id loadingSpinner
 id loginButton
@@ -342,6 +351,7 @@ id tvDoctorPhone
 id tvForgotPassword
 id tvGoal
 id tvGratitudePreview
+id tvLastEntry
 id tvLogin
 id tvLoginLabel
 id tvMessage
@@ -359,6 +369,7 @@ id tvWaterPreview
 id userDataRecyclerView
 id viewPager
 id viewWaterLevel
+id waterContainer
 id weekContainer
 id weekRangeText
 id weeklyChart

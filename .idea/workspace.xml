@@ -25,6 +25,11 @@
           <theme>@style/Theme.SentimentAnalysis</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/border_bottle.xml">
+        <config>
+          <theme>@style/Theme.SentimentAnalysis</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/bot_bubble_bg.xml">
         <config>
           <theme>@style/Theme.SentimentAnalysis</theme>
@@ -135,6 +140,11 @@
           <theme>@style/Theme.SentimentAnalysis</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_confetti_dot.xml">
+        <config>
+          <theme>@style/Theme.SentimentAnalysis</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_eye_off.xml">
         <config>
           <theme>@style/Theme.SentimentAnalysis</theme>
@@ -151,6 +161,26 @@
         </config>
       </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_flower_seed.xml">
+        <config>
+          <theme>@style/Theme.SentimentAnalysis</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_garden_0_seed.xml">
+        <config>
+          <theme>@style/Theme.SentimentAnalysis</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_garden_1_sprout.xml">
+        <config>
+          <theme>@style/Theme.SentimentAnalysis</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_garden_2_bud.xml">
+        <config>
+          <theme>@style/Theme.SentimentAnalysis</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_garden_3_bloom.xml">
         <config>
           <theme>@style/Theme.SentimentAnalysis</theme>
         </config>
@@ -291,6 +321,11 @@
         </config>
       </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_gemini.xml">
+        <config>
+          <theme>@style/Theme.SentimentAnalysis</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_gratitude_garden.xml">
         <config>
           <theme>@style/Theme.SentimentAnalysis</theme>
         </config>
@@ -516,7 +551,22 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93ca2988-2ae4-4c8e-95fc-13d7cc804d88" name="Changes" comment="" />
+    <list default="true" id="93ca2988-2ae4-4c8e-95fc-13d7cc804d88" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/apk/debug/app-debug.apk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/apk/debug/output-metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/apk/debug/output-metadata.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/apk_ide_redirect_file/debug/createDebugApkListingFileRedirect/redirect.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/apk_ide_redirect_file/debug/createDebugApkListingFileRedirect/redirect.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/zip-cache/androidResources" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/zip-cache/androidResources" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/manifest_merge_blame_file/debug/processDebugMainManifest/manifest-merger-blame-debug-report.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/manifest_merge_blame_file/debug/processDebugMainManifest/manifest-merger-blame-debug-report.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/stable_resource_ids_file/debug/processDebugResources/stableIds.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/stable_resource_ids_file/debug/processDebugResources/stableIds.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/sentimentanalysis/GratitudeGardenActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/sentimentanalysis/GratitudeGardenActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/sentimentanalysis/WaterQuestActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/sentimentanalysis/WaterQuestActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_gratitude_garden.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_gratitude_garden.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_water_quest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_water_quest.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -940,7 +990,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769677097477</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="fixes">
+      <option name="closed" value="true" />
+      <created>1769677166711</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1769677166711</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -979,7 +1037,8 @@
     <MESSAGE value="minor changes regarding the AI chatbot and langauge selection" />
     <MESSAGE value="changes" />
     <MESSAGE value="gemini fix and step counting activity updates" />
-    <option name="LAST_COMMIT_MESSAGE" value="gemini fix and step counting activity updates" />
+    <MESSAGE value="fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -997,12 +1056,12 @@
       <map>
         <entry key="com.example.sentimentanalysis">
           <value>
-            <CheckInfo lastCheckTimestamp="1769616380057" />
+            <CheckInfo lastCheckTimestamp="1769713601007" />
           </value>
         </entry>
         <entry key="com.example.sentimentanalysis.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1769616380056" />
+            <CheckInfo lastCheckTimestamp="1769713601007" />
           </value>
         </entry>
       </map>

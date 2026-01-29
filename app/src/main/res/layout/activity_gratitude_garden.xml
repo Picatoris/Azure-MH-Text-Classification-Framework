@@ -28,27 +28,50 @@
         android:layout_width="220dp"
         android:layout_height="280dp"
         android:src="@drawable/ic_flower_full"
-        android:layout_marginTop="40dp" />
+        android:layout_marginTop="24dp" />
 
     <TextView
         android:id="@+id/tvCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0 flowers planted"
-        android:textSize="20sp"
+        android:textSize="22sp"
         android:textStyle="bold"
         android:textColor="#166534"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="16dp" />
+
+    <TextView
+        android:id="@+id/tvLastEntry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Plant a seed to start..."
+        android:textSize="14sp"
+        android:textColor="#047857"
+        android:textStyle="italic"
+        android:gravity="center"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp" />
 
     <Button
         android:id="@+id/btnAddGratitude"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="60dp"
         android:text="I'm Grateful For..."
         android:textSize="18sp"
+        android:textStyle="bold"
         android:textColor="#FFFFFF"
         android:backgroundTint="#10B981"
-        android:layout_marginTop="32dp"
-        android:paddingHorizontal="32dp" />
+        android:elevation="4dp"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/btnHistory"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View My Garden History"
+        android:textColor="#059669"
+        android:textSize="14sp"
+        android:layout_marginTop="8dp" />
 
 </LinearLayout>
