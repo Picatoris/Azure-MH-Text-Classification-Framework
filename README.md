@@ -173,6 +173,5 @@ This project is licensed under the MIT License. See [LICENSE](LICENSE) for detai
 For questions or requests for additional materials, contact:
 
 - **Thamizh Mani R** — thamizh.mani@learner.manipal.edu
-- **Dazzle A J** — dazzle.aj2021@vitstudent.ac.in
-
-Department of Forensic Medicine and Toxicology, Kasturba Medical College, Manipal Academy of Higher Education, Manipal, India.
+- **Dazzle A J** — dazzlejolly@gmail.com
+- **Shashank Singh** — shashanksingh631@gmail.com
