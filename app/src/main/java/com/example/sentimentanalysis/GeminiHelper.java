@@ -14,10 +14,10 @@ public class GeminiHelper {
 
     // ⚠️ SECURITY WARNING: Never commit your real API key to GitHub!
     // Ideally, read this from BuildConfig.API_KEY in a real app.
-    private static final String API_KEY = "AIzaSyC_SvW_sevKCdf62GM5EZWwbRj20w78t7c";
+    private static final String API_KEY = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
 
     private static final String MODEL_URL =
-            "https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=" + API_KEY;
+            "https://XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" + API_KEY;
     private static final int MAX_INPUT_LENGTH = 4000;
 
     // 🆕 CONSTANTS FOR RETRY LOGIC
