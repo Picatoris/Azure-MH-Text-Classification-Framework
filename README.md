@@ -1,102 +1,178 @@
-# 🧠 MIND - Multilingual AI System for Mental Health Assessment & Support
+# Azure-Powered Hybrid Sentiment Analysis for Mental Health Assessment
 
-[![Patent Published](https://img.shields.io/badge/Patent-Published-blue?style=flat-square)](http://ipindiaservices.gov.in/publicsearch)
-[![Copyright Registered](https://img.shields.io/badge/Copyright-Registered-green?style=flat-square)](https://copyright.gov.in/)
-[![Platform](https://img.shields.io/badge/Platform-Android-3DDC84?style=flat-square&logo=android)](https://developer.android.com)
-[![AI Backend](https://img.shields.io/badge/Backend-Microsoft%20Azure-0078D4?style=flat-square&logo=microsoft-azure)](https://azure.microsoft.com)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-A clinically grounded, AI-powered Android application designed to democratize access to mental health support. This system utilizes a **transformer-based deep learning architecture** and **Azure NLP services** to interpret user sentiment in real-time. It employs a novel hierarchical classification method to distinguish between general emotional states and critical clinical markers—such as anxiety, depression, and suicidal ideation—across a plurality of regional languages.
+## Overview
 
----
+This repository contains the source code, synthetic dataset, Azure Language Studio configuration, and preprocessing pipeline for the two-stage cloud-based framework described in:
 
-## 📥 Download App
+> **A Cloud-Based Two-Layer Text Classification Framework for Mental Health Screening with Sarcasm and Emoji-Aware Sentiment Analysis**
+>
+> Thamizh Mani R, Vikram Palimar, Shashank Singh, Dazzle A J, R. Sujithra Kanmani, Mamatha Shivanandha Pai, Shwetha T S, Nirmal Krishnan M, Ramana Vinjamuri, Lata Satyen
+>
+> *Scientific Reports* (under review)
 
-Get the latest stable version of the application directly.
+The framework combines **Azure Sentiment Analysis** (Layer 1) and **Azure Custom Text Classification** (Layer 2) to classify user-generated text into five mental health-related categories: Anxiety, Depression, PTSD, Social Anxiety Disorder, and Suicidal Ideation and Behaviour.
 
-<a href="https://github.com/ShashankS1011/MIND/blob/main/MIND_v1.0_debug.apk?raw=true">
-  <img src="https://img.shields.io/badge/Download-APK%20File-00C853?style=for-the-badge&logo=android&logoColor=white" height="50">
-</a>
+## Repository Structure
 
-> *Note: If the download does not start automatically, please view the file in the [repository source](https://github.com/ShashankS1011/MIND/blob/main/MIND_v1.0_debug.apk) and click "Download".*
+```
+├── README.md
+├── LICENSE
+├── CITATION.cff
+│
+├── android-app/
+│   ├── MainActivity.java              # Core app logic and UI handling
+│   ├── SentimentAnalysisHelper.java    # Azure Sentiment Analysis API integration
+│   ├── CustomClassificationHelper.java # Azure Custom Text Classification API integration
+│   ├── FirebaseHelper.java             # Firebase Auth and Realtime Database operations
+│   ├── FeedbackGenerator.java          # Category-specific feedback generation
+│   ├── AdminDashboardActivity.java     # Admin monitoring and analytics interface
+│   ├── res/
+│   │   ├── layout/                     # XML layout files
+│   │   └── values/                     # Strings, colors, themes
+│   └── build.gradle                    # Dependencies (Azure SDK, OkHttp, Firebase)
+│
+├── azure-config/
+│   ├── language-studio-setup.md        # Step-by-step Azure Language Studio configuration
+│   ├── project-settings.json           # Category labels, split ratios, project parameters
+│   ├── endpoint-template.env           # API endpoint and key template (credentials redacted)
+│   └── sentiment-analysis-config.md    # Azure Sentiment Analysis service setup
+│
+├── data/
+│   ├── training-dataset/
+│   │   └── synthetic_training_data.json    # 400 labeled synthetic samples (80 per category)
+│   ├── testing-dataset/
+│   │   └── synthetic_testing_data.json     # 100 labeled synthetic samples (20 per category)
+│   ├── clinical-validation/
+│   │   └── clinical_validation_data.json   # 125 samples reviewed by clinical psychologists
+│   └── data-dictionary.md                  # Category definitions and labeling guidelines
+│
+├── preprocessing/
+│   ├── text_preprocessing.py           # Normalization, lowercasing, punctuation, token standardization
+│   └── requirements.txt                # Python dependencies
+│
+├── evaluation/
+│   ├── confusion_matrix_primary.png    # Confusion matrix from primary test dataset
+│   ├── confusion_matrix_clinical.png   # Confusion matrix from clinical validation dataset
+│   └── evaluation_metrics.md           # Detailed performance metrics and class-level results
+│
+├── figures/
+│   ├── Figure_1_Architecture.png       # System architecture overview
+│   └── Figure_2_Workflow.png           # Sentiment analysis and classification workflow
+│
+└── docs/
+    ├── PATH_checklist.pdf              # Completed PATH protocol checklist
+    └── annotation_guidelines.md        # Guidelines used by clinical reviewers
+```
 
----
+## System Architecture
 
-## 📜 Intellectual Property: Patents
+The framework operates as a two-stage classification pipeline deployed within an Android application:
 
-This technology is protected under Indian Patent laws. The core methods for sentiment assessment and multilingual processing have been officially published.
+**Stage 1 — Sentiment Analysis:** User-generated text is submitted to Azure Sentiment Analysis, which classifies input as positive, neutral, or negative. Positive and neutral inputs are stored with corresponding feedback. Negative inputs proceed to Stage 2.
 
-| Document | Application No. | Publication Date | Status |
-| :--- | :--- | :--- | :--- |
-| **Sentiment Assessment System and Method** | 202541055583 A | 13/06/2025 | **Published** |
-| **Multilingual AI System for Mental Health** | 202541076810 A | 05/09/2025 | **Published** |
+**Stage 2 — Mental Health Classification:** Text classified as negative is forwarded to Azure Custom Text Classification (trained via Azure Language Studio) for categorization into one of five mental health-related classes.
 
-<p align="center">
-  <img src="legal/patent1.jpg" width="45%" alt="Patent Publication 1">
-  <img src="legal/patent2.png" width="45%" alt="Patent Publication 2">
-</p>
+**Backend:** Firebase Authentication handles user management. Firebase Realtime Database stores submissions, classifications, and feedback records with real-time synchronization.
 
----
+## Requirements
 
-## ©️ Copyrighted Architecture & Designs
+### Android Application
+- Android Studio (Arctic Fox or later)
+- Java 11+
+- Minimum SDK: API 24 (Android 7.0)
+- Dependencies listed in `android-app/build.gradle`:
+  - `com.azure:azure-ai-textanalytics`
+  - `com.squareup.okhttp3:okhttp`
+  - `com.google.firebase:firebase-auth`
+  - `com.google.firebase:firebase-database`
 
-The specific architectural logic, data flow pathways, and system layouts presented below are registered works under the **Copyright Office, Government of India**. These diagrams define the unique intellectual property of the MIND system.
+### Azure Services
+- Microsoft Azure subscription
+- Azure Language Resource (S tier recommended for production)
+- Azure Language Studio access for Custom Text Classification
 
-### 1. Detailed System Architecture
-**Registration No:** `LD-28616/2025-CO` | **Date:** 23/09/2025
+### Preprocessing
+- Python 3.8+
+- Dependencies: `pip install -r preprocessing/requirements.txt`
 
-This work illustrates the granular component interactions within the system, including the **Secure API Gateway**, **Ephemeral Processing Module**, and the **Database Synchronization Logic**. It legally defines how user data transitions from the frontend interface to the cloud inference engine while maintaining privacy compliance.
+## Reproducing Results
 
-<p align="center">
-  <img src="legal/copyright1_page1.jpg" width="45%" alt="Detailed Arch Page 1">
-  <img src="legal/copyright1_page2.jpg" width="45%" alt="Detailed Arch Page 2">
-</p>
+### 1. Azure Language Studio Setup
 
-### 2. Overview Architecture Diagram
-**Registration No:** `LD-28615/2025-CO` | **Date:** 09/09/2025
+Follow the instructions in `azure-config/language-studio-setup.md`:
 
-This work encompasses the high-level macro-architecture, defining the relationship between the **Android Client (User Device)**, the **Firebase Realtime Backend**, and the **Azure Cognitive Services**. It protects the unique "Two-Tier" methodology used to route requests based on preliminary sentiment scoring.
+1. Create an Azure Language Resource in the Azure Portal.
+2. Navigate to [Language Studio](https://language.cognitive.azure.com/).
+3. Create a new **Custom Text Classification** project (single-label).
+4. Import the training dataset from `data/training-dataset/synthetic_training_data.json`.
+5. Configure five category labels: `Anxiety`, `Depression`, `PTSD`, `Social_Anxiety_Disorder`, `Suicidal_Ideation_and_Behaviour`.
+6. Set training/testing split to 80/20.
+7. Train the model and deploy to an endpoint.
+8. Record the endpoint URL and API key in `azure-config/endpoint-template.env`.
 
-<p align="center">
-  <img src="legal/copyright2_page1.jpg" width="45%" alt="Overview Arch Page 1">
-  <img src="legal/copyright2_page2.jpg" width="45%" alt="Overview Arch Page 2">
-</p>
+### 2. Running the Preprocessing Pipeline
 
----
+```bash
+cd preprocessing
+pip install -r requirements.txt
+python text_preprocessing.py --input ../data/training-dataset/synthetic_training_data.json --output preprocessed_output.json
+```
 
-## 🔬 Scientific Methodology
+### 3. Building the Android Application
 
-As detailed in patent applications **202541055583 A** and **202541076810 A**, the system operates on a sophisticated **"Two-Tier" Clinical NLP Pipeline (106A)** designed to filter, analyze, and triage user emotional states with high precision.
+1. Open the `android-app/` directory in Android Studio.
+2. Copy `azure-config/endpoint-template.env` values into your local `gradle.properties` or `local.properties`.
+3. Configure Firebase by adding your `google-services.json` to the app module.
+4. Build and run on an emulator or physical device (API 24+).
 
-### 1. Latency-Aware Multilingual Processing
-The system is architected to support **10 to 30 regional languages** dynamically.
-* **Input Normalization:** Raw text inputs via the secure interface (104) undergo tokenization and normalization.
-* **Smart Translation Caching:** To minimize API latency, the system utilizes a heuristic caching mechanism for frequently occurring phrases, reducing the reliance on real-time external translation services for common expressions.
+### 4. Evaluating Classification Performance
 
-### 2. Tier-1: Polarity Classification
-The first layer of analysis utilizes an **Azure Sentiment Analysis Model (202-2)** for immediate emotional baselining.
-* **Confidence Scoring:** The model assigns a confidence score (0.0 - 1.0) to the input.
-* **Outcome:** Inputs are classified into **Positive**, **Neutral**, or **Negative**.
-* *Optimization:* Positive and Neutral inputs trigger immediate reinforcement loops, bypassing the computationally expensive clinical tier to optimize resource allocation.
+The trained Azure Custom Text Classification model achieved the following on the held-out test dataset:
 
-### 3. Tier-2: Clinical Sub-Classification
-Inputs flagged as **Negative** with high confidence are routed to a custom-trained **Azure Text Classification Model (202-4)**. This model is fine-tuned on clinical datasets to perform multi-label classification, distinguishing between:
-* **Anxiety Markers**
-* **Depressive Symptoms**
-* **Suicidal Ideation / Crisis Signals**
+| Category | Precision (%) | Recall (%) | F1 Score |
+|---|---|---|---|
+| Anxiety | 95.24 | 100.00 | 0.976 |
+| Depression | 100.00 | 100.00 | 1.000 |
+| PTSD | 100.00 | 95.00 | 0.974 |
+| Social Anxiety Disorder | 90.48 | 100.00 | 0.950 |
+| Suicidal Ideation and Behaviour | 100.00 | 90.00 | 0.947 |
+| **Overall** | **96.97** | **96.97** | **0.9697** |
 
-### 4. Dynamic Triaging Engine (108)
-The core logic resides in the Triaging Engine, which synthesizes the classification outputs to determine the intervention pathway:
-* **Low Severity:** Delivers automated, clinically validated questionnaires or therapeutic video content.
-* **High Severity:** Activates "Red Flag" protocols, recommending immediate professional consultation.
-* **Nuance Detection:** The engine includes sub-routines for **Sarcasm Detection** and **Emoji Interpretation**, preventing false positives in mixed-context user statements.
+Additional validation using 125 clinically reviewed samples is documented in `evaluation/evaluation_metrics.md`.
 
-### 5. Privacy-Preserving Ephemeral Architecture
-To comply with medical data standards, the system incorporates an **Ephemeral Module (110)**. This ensures that sensitive triage data used for real-time inference is processed in memory and is not persistently stored in the raw format, ensuring user anonymity and data security.
+## Important Notes
 
----
+- **Azure Managed Services:** Azure Sentiment Analysis and Azure Custom Text Classification are fully managed cloud services. Azure Language Studio performs feature extraction, model training, optimization, and evaluation internally. Internal model architecture, weights, and hyperparameters are not exposed to end users. Consequently, no custom model training code exists beyond the platform configuration provided in this repository.
+- **Synthetic Dataset:** All training and evaluation data are synthetically generated. No real user posts, clinical records, or personally identifiable information were collected or used.
+- **Not a Diagnostic Tool:** This framework is intended for text classification and screening support. It is not a clinical diagnostic system, medical device, or substitute for professional healthcare services.
 
-## ⚖️ Disclaimer
+## Citation
 
-**Medical Disclaimer:** This AI system is designed for **assessment, support, and screening purposes only**. It does not constitute a professional medical diagnosis. In instances of severe distress, self-harm, or emergency, users are strictly advised to contact local emergency services or a certified medical professional immediately.
+If you use this code or dataset, please cite:
 
----
+```bibtex
+@article{mani2026cloudbased,
+  title={A Cloud-Based Two-Layer Text Classification Framework for Mental Health Screening with Sarcasm and Emoji-Aware Sentiment Analysis},
+  author={Mani R, Thamizh and Palimar, Vikram and Singh, Shashank and A J, Dazzle and Kanmani, R. Sujithra and Pai, Mamatha Shivanandha and T S, Shwetha and Krishnan M, Nirmal and Vinjamuri, Ramana and Satyen, Lata},
+  journal={Scientific Reports},
+  year={2026},
+  publisher={Nature Publishing Group},
+  doi={10.5281/zenodo.XXXXXXX}
+}
+```
+
+## License
+
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+
+## Contact
+
+For questions or requests for additional materials, contact:
+
+- **Thamizh Mani R** — thamizh.mani@learner.manipal.edu
+- **Dazzle A J** — dazzle.aj2021@vitstudent.ac.in
+
+Department of Forensic Medicine and Toxicology, Kasturba Medical College, Manipal Academy of Higher Education, Manipal, India.
