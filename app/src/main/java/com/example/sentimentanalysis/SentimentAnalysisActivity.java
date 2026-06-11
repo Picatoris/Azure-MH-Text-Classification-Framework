@@ -52,8 +52,8 @@ public class SentimentAnalysisActivity extends AppCompatActivity {
                 .child(email.substring(0, email.indexOf('@')));
 
         // Initialize Azure Text Analytics Service
-        String languageKey = "1dksluHlMYX1PTQvbU4xxj3lF3d52ZkodI6LhL2l6fF4ZyYA1cjgJQQJ99BBACYeBjFXJ3w3AAAaACOGXUUD";
-        String languageEndpoint = "https://sentidazzle123.cognitiveservices.azure.com/";
+        String languageKey = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+        String languageEndpoint = "https://XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/";
         textAnalyticsService = new TextAnalyticsService(languageKey, languageEndpoint);
 
         // Button Click Listeners
