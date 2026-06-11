@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.InputType;
-import android.util.Log;
 import android.util.Patterns;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -38,7 +37,7 @@ public class UserLoginActivity extends AppCompatActivity {
 
     EditText emailInput, passwordInput;
     ImageView eyeIcon;
-    Button loginButton, phoneButton;
+    Button loginButton;
     LinearLayout googleButton;
     TextView forgotPassword, signupText;
     CheckBox rememberMeCheckBox;
@@ -54,6 +53,7 @@ public class UserLoginActivity extends AppCompatActivity {
     private static final String KEY_REMEMBER = "remember";
     private static final int RC_SIGN_IN = 1001;
     private GoogleSignInClient mGoogleSignInClient;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,18 +65,10 @@ public class UserLoginActivity extends AppCompatActivity {
 
         // Configure Google Sign-In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))  // from google-services.json
+                .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-
-        googleButton = findViewById(R.id.googleButton);
-
-        // Google Button Click
-        googleButton.setOnClickListener(v -> {
-            Intent signInIntent = mGoogleSignInClient.getSignInIntent();
-            startActivityForResult(signInIntent, RC_SIGN_IN);
-        });
 
         // View bindings
         emailInput = findViewById(R.id.emailInput);
@@ -90,12 +82,13 @@ public class UserLoginActivity extends AppCompatActivity {
 
         sharedPreferences = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
 
-        // Auto-fill if remembered
+        // Auto-fill logic
         if (sharedPreferences.getBoolean(KEY_REMEMBER, false)) {
             emailInput.setText(sharedPreferences.getString(KEY_EMAIL, ""));
             passwordInput.setText(sharedPreferences.getString(KEY_PASSWORD, ""));
             rememberMeCheckBox.setChecked(true);
-            loginUser();  // Auto-login
+            // Optional: Auto-login immediately
+            loginUser();
         }
 
         // Toggle password visibility
@@ -112,6 +105,11 @@ public class UserLoginActivity extends AppCompatActivity {
         });
 
         loginButton.setOnClickListener(v -> loginUser());
+
+        googleButton.setOnClickListener(v -> {
+            Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+            startActivityForResult(signInIntent, RC_SIGN_IN);
+        });
 
         forgotPassword.setOnClickListener(v -> {
             EditText resetEmail = new EditText(this);
@@ -136,73 +134,83 @@ public class UserLoginActivity extends AppCompatActivity {
         });
 
         signupText.setOnClickListener(v -> startActivity(new Intent(this, UserSignUpActivity.class)));
-
-
     }
 
+    // ---------------------------------------------------------
+    //  FIX 1: UPDATED LOGIN METHOD (Uses FirebaseAuth)
+    // ---------------------------------------------------------
     private void loginUser() {
         String inputEmail = emailInput.getText().toString().trim();
         String inputPassword = passwordInput.getText().toString().trim();
 
         if (!Patterns.EMAIL_ADDRESS.matcher(inputEmail).matches()) {
             emailInput.setError("Enter a valid email");
+            emailInput.requestFocus();
             return;
         }
         if (inputPassword.isEmpty()) {
             passwordInput.setError("Enter your password");
+            passwordInput.requestFocus();
             return;
         }
 
-        usersRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                boolean found = false;
+        // authenticate with Firebase Auth
+        mAuth.signInWithEmailAndPassword(inputEmail, inputPassword)
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        // Login Success! Now fetch extra user details (like username/phone) from DB
+                        fetchUserDetailsAndRedirect(inputEmail);
 
-                for (DataSnapshot usernameSnap : snapshot.getChildren()) {
-                    String email = usernameSnap.child("email").getValue(String.class);
-                    String password = usernameSnap.child("password").getValue(String.class);
-
-                    if (email != null && password != null &&
-                            email.equals(inputEmail) && password.equals(inputPassword)) {
-
-                        String username = usernameSnap.getKey();
-                        String phone = usernameSnap.child("phone").getValue(String.class);
-                        String regNo = usernameSnap.child("regNo").getValue(String.class);
-
+                        // Handle "Remember Me"
                         if (rememberMeCheckBox.isChecked()) {
-                            SharedPreferences.Editor editor = sharedPreferences.edit();
-                            editor.putString(KEY_EMAIL, inputEmail);
-                            editor.putString(KEY_PASSWORD, inputPassword);
-                            editor.putBoolean(KEY_REMEMBER, true);
-                            editor.apply();
+                            sharedPreferences.edit()
+                                    .putString(KEY_EMAIL, inputEmail)
+                                    .putString(KEY_PASSWORD, inputPassword)
+                                    .putBoolean(KEY_REMEMBER, true)
+                                    .apply();
                         } else {
                             sharedPreferences.edit().clear().apply();
                         }
-
-                        Toast.makeText(UserLoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
-
-                        Intent intent = new Intent(UserLoginActivity.this, UserDashboardActivity.class);
-                        intent.putExtra("username", username);
-                        intent.putExtra("email", email);
-                        intent.putExtra("phone", phone);
-                        intent.putExtra("regNo", regNo);
-                        startActivity(intent);
-                        finish();
-                        found = true;
-                        break;
+                    } else {
+                        Toast.makeText(UserLoginActivity.this, "Login Failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
-                }
+                });
+    }
 
-                if (!found) {
-                    Toast.makeText(UserLoginActivity.this, "Invalid credentials", Toast.LENGTH_SHORT).show();
-                }
-            }
+    private void fetchUserDetailsAndRedirect(String email) {
+        // We need to find the user in the DB to get their username/phone
+        // NOTE: This query assumes you saved users with "email" as a child node
+        usersRef.orderByChild("email").equalTo(email)
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            for (DataSnapshot userSnap : snapshot.getChildren()) {
+                                String username = userSnap.getKey(); // Assuming Key is Username
+                                String phone = userSnap.child("phone").getValue(String.class);
+                                String regNo = userSnap.child("regNo").getValue(String.class);
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(UserLoginActivity.this, "Database error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
+                                Intent intent = new Intent(UserLoginActivity.this, UserDashboardActivity.class);
+                                intent.putExtra("username", username);
+                                intent.putExtra("email", email);
+                                intent.putExtra("phone", phone);
+                                intent.putExtra("regNo", regNo);
+                                startActivity(intent);
+                                finish();
+                                return; // Stop after finding the user
+                            }
+                        } else {
+                            // Auth successful, but data missing in DB (Rare edge case)
+                            startActivity(new Intent(UserLoginActivity.this, UserDashboardActivity.class));
+                            finish();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Toast.makeText(UserLoginActivity.this, "DB Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 
     @Override
@@ -214,13 +222,14 @@ public class UserLoginActivity extends AppCompatActivity {
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 firebaseAuthWithGoogle(account);
             } catch (ApiException e) {
-                Log.e("GOOGLE_SIGN_IN", "signInResult:failed code=" + e.getStatusCode(), e);
-                Toast.makeText(this, "Google Sign In failed: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Google Sign In failed", Toast.LENGTH_SHORT).show();
             }
-
         }
     }
 
+    // ---------------------------------------------------------
+    //  FIX 2: SAFER GOOGLE AUTH (Prevents data overwrite)
+    // ---------------------------------------------------------
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
         mAuth.signInWithCredential(credential)
@@ -231,25 +240,36 @@ public class UserLoginActivity extends AppCompatActivity {
                             String username = firebaseUser.getDisplayName();
                             String email = firebaseUser.getEmail();
 
-                            // Save to Firebase Realtime Database
+                            // CHECK if user exists before overwriting!
                             assert username != null;
-                            usersRef.child(username).child("username").setValue(username);
-                            usersRef.child(username).child("email").setValue(email);
-                            usersRef.child(username).child("password").setValue("NA");
-                            usersRef.child(username).child("phone").setValue("0");
-                            usersRef.child(username).child("regNo").setValue("NA");
+                            usersRef.child(username).addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    if (!snapshot.exists()) {
+                                        // Only create new data if user is NEW
+                                        usersRef.child(username).child("username").setValue(username);
+                                        usersRef.child(username).child("email").setValue(email);
+                                        usersRef.child(username).child("phone").setValue("0");
+                                        usersRef.child(username).child("regNo").setValue("NA");
+                                    }
 
-                            // Navigate to dashboard
-                            Intent intent = new Intent(UserLoginActivity.this, UserDashboardActivity.class);
-                            intent.putExtra("username", username);
-                            intent.putExtra("email", email);
-                            intent.putExtra("phone", "0");
-                            intent.putExtra("regNo", "NA");
-                            startActivity(intent);
-                            finish();
+                                    // Proceed to Dashboard
+                                    Intent intent = new Intent(UserLoginActivity.this, UserDashboardActivity.class);
+                                    intent.putExtra("username", username);
+                                    intent.putExtra("email", email);
+                                    // Pass existing data if available, else defaults
+                                    intent.putExtra("phone", snapshot.child("phone").exists() ? snapshot.child("phone").getValue(String.class) : "0");
+                                    intent.putExtra("regNo", snapshot.child("regNo").exists() ? snapshot.child("regNo").getValue(String.class) : "NA");
+                                    startActivity(intent);
+                                    finish();
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {}
+                            });
                         }
                     } else {
-                        Toast.makeText(UserLoginActivity.this, "Firebase Auth failed", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(UserLoginActivity.this, "Authentication Failed.", Toast.LENGTH_SHORT).show();
                     }
                 });
     }

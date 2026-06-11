@@ -146,43 +146,105 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginEnd="8dp"
-                    app:cardCornerRadius="16dp"
+                    app:cardCornerRadius="24dp"
                     app:cardElevation="8dp"
-                    android:backgroundTint="#6366F1">
+                    app:cardBackgroundColor="#7C4DFF"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true">
 
-                    <LinearLayout
+                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="20dp">
+                        android:padding="16dp">
 
-                        <TextView
+                        <LinearLayout
+                            android:id="@+id/headerLayoutBreathing"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_wind"
+                                android:alpha="0.8"
+                                app:tint="#FFFFFF"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Mindfulness"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:textAllCaps="true"
+                                android:letterSpacing="0.05"
+                                android:textColor="#CCFFFFFF"
+                                android:layout_marginStart="8dp" />
+                        </LinearLayout>
+
+                        <FrameLayout
+                            android:id="@+id/progressContainerBreathing"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Breathing Quest"
-                            android:textSize="17sp"
-                            android:textStyle="bold"
-                            android:textColor="#FFFFFF" />
+                            android:layout_centerHorizontal="true"
+                            android:layout_below="@id/headerLayoutBreathing"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="16dp">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Calm your mind in 60 seconds"
-                            android:textSize="13sp"
-                            android:textColor="#E0E7FF"
-                            android:layout_marginTop="4dp"
-                            android:layout_marginBottom="16dp" />
+                            <ProgressBar
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:max="100"
+                                android:progress="100"
+                                android:progressDrawable="@drawable/circle_background_alpha" />
 
-                        <Button
-                            android:id="@+id/btnBreathingQuest"
-                            android:layout_width="wrap_content"
+                            <ProgressBar
+                                android:id="@+id/breathingProgressBar"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:max="5"
+                                android:progress="0"
+                                android:rotation="-90"
+                                android:progressDrawable="@drawable/circular_progress_white" />
+
+                            <ImageView
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:src="@drawable/ic_lungs"
+                                android:layout_gravity="center"
+                                app:tint="#FFFFFF" />
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Start Breathing"
-                            android:textColor="#6366F1"
-                            android:backgroundTint="#FFFFFF"
-                            android:textAllCaps="false"
-                            android:textStyle="bold" />
-                    </LinearLayout>
+                            android:layout_below="@id/progressContainerBreathing"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <TextView
+                                android:id="@+id/tvBreathingPreview"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Start Now"
+                                android:textSize="22sp"
+                                android:textStyle="bold"
+                                android:textColor="#FFFFFF" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Daily Session"
+                                android:textSize="12sp"
+                                android:alpha="0.7"
+                                android:textColor="#FFFFFF" />
+                        </LinearLayout>
+
+                    </RelativeLayout>
                 </androidx.cardview.widget.CardView>
 
                 <!-- Step Quest -->
@@ -192,43 +254,105 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginStart="8dp"
-                    app:cardCornerRadius="16dp"
+                    app:cardCornerRadius="24dp"
                     app:cardElevation="8dp"
-                    android:backgroundTint="#10B981">
+                    app:cardBackgroundColor="#F59E0B"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true">
 
-                    <LinearLayout
+                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="20dp">
+                        android:padding="16dp">
 
-                        <TextView
+                        <LinearLayout
+                            android:id="@+id/headerLayoutStep"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_lightning"
+                                android:alpha="0.8"
+                                app:tint="#FFFFFF"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Movement"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:textAllCaps="true"
+                                android:letterSpacing="0.05"
+                                android:textColor="#CCFFFFFF"
+                                android:layout_marginStart="8dp" />
+                        </LinearLayout>
+
+                        <FrameLayout
+                            android:id="@+id/progressContainerStep"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Step Quest Game"
-                            android:textSize="17sp"
-                            android:textStyle="bold"
-                            android:textColor="#FFFFFF" />
+                            android:layout_centerHorizontal="true"
+                            android:layout_below="@id/headerLayoutStep"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="16dp">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Walk, shake &amp; win rewards!"
-                            android:textSize="13sp"
-                            android:textColor="#ECFDF5"
-                            android:layout_marginTop="4dp"
-                            android:layout_marginBottom="16dp" />
+                            <ProgressBar
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:max="100"
+                                android:progress="100"
+                                android:progressDrawable="@drawable/circle_background_alpha" />
 
-                        <Button
-                            android:id="@+id/btnStepQuest"
-                            android:layout_width="wrap_content"
+                            <ProgressBar
+                                android:id="@+id/stepProgressBar"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:max="10000"
+                                android:progress="4500"
+                                android:rotation="-90"
+                                android:progressDrawable="@drawable/circular_progress_white" />
+
+                            <ImageView
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:src="@drawable/ic_shoe"
+                                android:layout_gravity="center"
+                                app:tint="#FFFFFF" />
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Play Now"
-                            android:textColor="#10B981"
-                            android:backgroundTint="#FFFFFF"
-                            android:textAllCaps="false"
-                            android:textStyle="bold" />
-                    </LinearLayout>
+                            android:layout_below="@id/progressContainerStep"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <TextView
+                                android:id="@+id/tvStepPreview"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="4,500"
+                                android:textSize="22sp"
+                                android:textStyle="bold"
+                                android:textColor="#FFFFFF" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Steps Today"
+                                android:textSize="12sp"
+                                android:alpha="0.7"
+                                android:textColor="#FFFFFF" />
+                        </LinearLayout>
+
+                    </RelativeLayout>
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
 
@@ -361,42 +485,105 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginEnd="8dp"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="10dp"
-                    android:backgroundTint="#3B82F6"
+                    app:cardCornerRadius="24dp"
+                    app:cardElevation="8dp"
+                    app:cardBackgroundColor="#2962FF"
+                    android:foreground="?attr/selectableItemBackground"
                     android:clickable="true"
                     android:focusable="true">
 
-                    <LinearLayout
+                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="16dp"
-                        android:gravity="center">
+                        android:padding="16dp">
 
-                        <TextView
+                        <LinearLayout
+                            android:id="@+id/headerLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_water_drop"
+                                android:alpha="0.8"
+                                app:tint="#FFFFFF"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Hydration"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:textAllCaps="true"
+                                android:letterSpacing="0.05"
+                                android:textColor="#CCFFFFFF"
+                                android:layout_marginStart="8dp" />
+                        </LinearLayout>
+
+                        <FrameLayout
+                            android:id="@+id/progressContainer"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Water Quest"
-                            android:textSize="16sp"
-                            android:textStyle="bold"
-                            android:textColor="#FFFFFF" />
+                            android:layout_centerHorizontal="true"
+                            android:layout_below="@id/headerLayout"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="16dp">
 
-                        <TextView
-                            android:id="@+id/tvWaterPreview"
-                            android:layout_width="wrap_content"
+                            <ProgressBar
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:max="100"
+                                android:progress="100"
+                                android:progressDrawable="@drawable/circle_background_alpha" />
+
+                            <ProgressBar
+                                android:id="@+id/waterProgressBar"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:max="8"
+                                android:progress="5"
+                                android:rotation="-90"
+                                android:progressDrawable="@drawable/circular_progress_white" />
+
+                            <ImageView
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:src="@drawable/ic_water_glass_outline"
+                                android:layout_gravity="center"
+                                app:tint="#FFFFFF" />
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="0 / 8"
-                            android:textSize="18sp"
-                            android:textColor="#FFFFFF"
-                            android:layout_marginTop="8dp" />
+                            android:layout_below="@id/progressContainer"
+                            android:orientation="vertical"
+                            android:gravity="center">
 
-                        <ImageView
-                            android:layout_width="60dp"
-                            android:layout_height="80dp"
-                            android:src="@drawable/ic_water_glass_outline"
-                            android:layout_marginTop="8dp" />
-                    </LinearLayout>
+                            <TextView
+                                android:id="@+id/tvWaterPreview"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="5 / 8"
+                                android:textSize="22sp"
+                                android:textStyle="bold"
+                                android:textColor="#FFFFFF" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Glasses Today"
+                                android:textSize="12sp"
+                                android:alpha="0.7"
+                                android:textColor="#FFFFFF" />
+                        </LinearLayout>
+
+                    </RelativeLayout>
                 </androidx.cardview.widget.CardView>
 
                 <!-- GRATITUDE GARDEN PREVIEW -->
@@ -406,42 +593,105 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginStart="8dp"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="10dp"
-                    android:backgroundTint="#10B981"
+                    app:cardCornerRadius="24dp"
+                    app:cardElevation="8dp"
+                    app:cardBackgroundColor="#10B981"
+                    android:foreground="?attr/selectableItemBackground"
                     android:clickable="true"
                     android:focusable="true">
 
-                    <LinearLayout
+                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="16dp"
-                        android:gravity="center">
+                        android:padding="16dp">
 
-                        <TextView
+                        <LinearLayout
+                            android:id="@+id/headerLayoutGratitude"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_leaf"
+                                android:alpha="0.8"
+                                app:tint="#FFFFFF"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Gratitude"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:textAllCaps="true"
+                                android:letterSpacing="0.05"
+                                android:textColor="#CCFFFFFF"
+                                android:layout_marginStart="8dp" />
+                        </LinearLayout>
+
+                        <FrameLayout
+                            android:id="@+id/progressContainerGratitude"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Gratitude Garden"
-                            android:textSize="16sp"
-                            android:textStyle="bold"
-                            android:textColor="#FFFFFF" />
+                            android:layout_centerHorizontal="true"
+                            android:layout_below="@id/headerLayoutGratitude"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="16dp">
 
-                        <TextView
-                            android:id="@+id/tvGratitudePreview"
-                            android:layout_width="wrap_content"
+                            <ProgressBar
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:max="100"
+                                android:progress="100"
+                                android:progressDrawable="@drawable/circle_background_alpha" />
+
+                            <ProgressBar
+                                android:id="@+id/gratitudeProgressBar"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:max="10"
+                                android:progress="3"
+                                android:rotation="-90"
+                                android:progressDrawable="@drawable/circular_progress_white" />
+
+                            <ImageView
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:src="@drawable/ic_flower_seed"
+                                android:layout_gravity="center"
+                                app:tint="#FFFFFF" />
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="0 flowers"
-                            android:textSize="18sp"
-                            android:textColor="#FFFFFF"
-                            android:layout_marginTop="8dp" />
+                            android:layout_below="@id/progressContainerGratitude"
+                            android:orientation="vertical"
+                            android:gravity="center">
 
-                        <ImageView
-                            android:layout_width="60dp"
-                            android:layout_height="80dp"
-                            android:src="@drawable/ic_flower_seed"
-                            android:layout_marginTop="8dp" />
-                    </LinearLayout>
+                            <TextView
+                                android:id="@+id/tvGratitudePreview"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="3 Flowers"
+                                android:textSize="22sp"
+                                android:textStyle="bold"
+                                android:textColor="#FFFFFF" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Planted Today"
+                                android:textSize="12sp"
+                                android:alpha="0.7"
+                                android:textColor="#FFFFFF" />
+                        </LinearLayout>
+
+                    </RelativeLayout>
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
 

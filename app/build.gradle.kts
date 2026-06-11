@@ -73,7 +73,7 @@ dependencies {
     implementation ("com.squareup.retrofit2:converter-gson:3.0.0")
     implementation("androidx.test:monitor:1.8.0")
     implementation("androidx.test.ext:junit:1.3.0")
-    implementation("androidx.activity:activity:1.12.2")
+    implementation("androidx.activity:activity:1.12.3")
     implementation("androidx.credentials:credentials:1.5.0")
     implementation("androidx.credentials:credentials-play-services-auth:1.5.0")
     implementation("com.google.android.libraries.identity.googleid:googleid:1.2.0")
@@ -94,7 +94,7 @@ dependencies {
     implementation("com.google.android.gms:play-services-fitness:21.3.0")
     implementation("com.google.android.gms:play-services-auth:21.5.0")
     implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
-    implementation("nl.dionsegijn:konfetti:1.3.2")
+    implementation("nl.dionsegijn:konfetti-xml:2.0.5")
     implementation("com.google.android.material:material:1.13.0")
     implementation("com.google.mlkit:translate:17.0.3")
 }

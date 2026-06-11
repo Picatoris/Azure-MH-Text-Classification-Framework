@@ -31,10 +31,21 @@ public class WaterQuestActivity extends AppCompatActivity {
     private int currentGlasses = 0;
     private final int GOAL = 8;
 
+    // --- FIX 1: Add variable to hold the current user ---
+    private String currentUsername;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_water_quest);
+
+        // --- FIX 2: Retrieve the username passed from UserDashboardActivity ---
+        currentUsername = getIntent().getStringExtra("username");
+
+        // Safety check: Fallback if username is missing (prevents crashes)
+        if (currentUsername == null) {
+            currentUsername = "guest";
+        }
 
         // UI Initialization
         if (getSupportActionBar() != null) {
@@ -51,8 +62,12 @@ public class WaterQuestActivity extends AppCompatActivity {
 
         // Load Data
         prefs = getSharedPreferences("wellness", MODE_PRIVATE);
-        checkDailyReset();
-        currentGlasses = prefs.getInt("water_today", 0);
+
+        checkDailyReset(); // Checks date and resets if needed
+
+        // --- FIX 3: Load data using the USER-SPECIFIC key ---
+        // Instead of just "water_today", we use "water_today_username"
+        currentGlasses = prefs.getInt("water_today_" + currentUsername, 0);
 
         // 1. DYNAMIC HEIGHT CALCULATION
         // We must wait for the layout to be drawn to get the actual height in pixels
@@ -67,7 +82,7 @@ public class WaterQuestActivity extends AppCompatActivity {
         btnDrink.setOnClickListener(v -> {
             if (currentGlasses < GOAL) {
                 currentGlasses++;
-                saveProgress();
+                saveProgress(); // Save changes
                 updateUIText();
                 updateWaterLevel(currentGlasses, true); // Animate
 
@@ -83,7 +98,7 @@ public class WaterQuestActivity extends AppCompatActivity {
         btnUndo.setOnClickListener(v -> {
             if (currentGlasses > 0) {
                 currentGlasses--;
-                saveProgress();
+                saveProgress(); // Save changes
                 updateUIText();
                 updateWaterLevel(currentGlasses, true);
             }
@@ -92,15 +107,27 @@ public class WaterQuestActivity extends AppCompatActivity {
 
     private void checkDailyReset() {
         String today = new SimpleDateFormat("yyyyMMdd", Locale.getDefault()).format(new Date());
-        String lastDay = prefs.getString("last_day", "");
+
+        // --- FIX 4: Use user-specific key for the date check ---
+        String lastDayKey = "last_day_" + currentUsername;
+        String waterKey = "water_today_" + currentUsername;
+
+        String lastDay = prefs.getString(lastDayKey, "");
+
         if (!today.equals(lastDay)) {
-            prefs.edit().putInt("water_today", 0).putString("last_day", today).apply();
+            // It's a new day! Reset this specific user's data
+            prefs.edit()
+                    .putInt(waterKey, 0)
+                    .putString(lastDayKey, today)
+                    .apply();
+
             currentGlasses = 0;
         }
     }
 
     private void saveProgress() {
-        prefs.edit().putInt("water_today", currentGlasses).apply();
+        // --- FIX 5: Save using the user-specific key ---
+        prefs.edit().putInt("water_today_" + currentUsername, currentGlasses).apply();
     }
 
     private void updateUIText() {
@@ -119,6 +146,10 @@ public class WaterQuestActivity extends AppCompatActivity {
 
         // Calculate target height based on percentage of container
         float percentage = (float) glasses / GOAL;
+
+        // Cap percentage at 1.0 (100%) so water doesn't overflow visually
+        if (percentage > 1.0f) percentage = 1.0f;
+
         int targetHeight = (int) (maxContainerHeight * percentage);
 
         if (animate) {
@@ -151,6 +182,8 @@ public class WaterQuestActivity extends AppCompatActivity {
 
     private void showConfetti() {
         LinearLayout container = findViewById(R.id.confettiContainer);
+        if (container == null) return; // Safety check in case layout ID changes
+
         container.removeAllViews(); // Clear previous runs
         container.setVisibility(View.VISIBLE);
 

@@ -8,7 +8,6 @@
     android:background="@color/light_blue_bg"
     tools:context=".UserSignUpActivity">
 
-    <!-- Title Text -->
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
@@ -27,7 +26,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="48dp"/>
 
-    <!-- CardView Container -->
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -38,125 +36,114 @@
         app:layout_constraintTop_toBottomOf="@id/tvTitle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"> <!-- Centering the form -->
+        app:layout_constraintBottom_toBottomOf="parent"> <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
 
-        <LinearLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="24dp">
+            android:hint="Username">
 
-            <!-- Username Field -->
-            <com.google.android.material.textfield.TextInputLayout
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etUsername"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Username">
+                android:inputType="text"
+                android:drawableStart="@drawable/ic_user"
+                android:drawablePadding="12dp"
+                android:padding="14dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etUsername"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="text"
-                    android:drawableStart="@drawable/ic_user"
-                    android:drawablePadding="12dp"
-                    android:padding="14dp"/>
-            </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="Registration Number">
 
-            <!-- Registration Number Field -->
-            <com.google.android.material.textfield.TextInputLayout
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etRegno"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:hint="Registration Number">
+                android:inputType="text"
+                android:drawableStart="@drawable/ic_regno"
+                android:drawablePadding="12dp"
+                android:padding="14dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etRegno"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="text"
-                    android:drawableStart="@drawable/ic_regno"
-                    android:drawablePadding="12dp"
-                    android:padding="14dp"/>
-            </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="Email Address">
 
-            <!-- Email Field -->
-            <com.google.android.material.textfield.TextInputLayout
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:hint="Email Address">
+                android:inputType="textEmailAddress"
+                android:drawableStart="@drawable/ic_email"
+                android:drawablePadding="12dp"
+                android:padding="14dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etEmail"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textEmailAddress"
-                    android:drawableStart="@drawable/ic_email"
-                    android:drawablePadding="12dp"
-                    android:padding="14dp"/>
-            </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="Password">
 
-            <!-- Password Field -->
-            <com.google.android.material.textfield.TextInputLayout
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:hint="Password">
+                android:inputType="textPassword"
+                android:drawableStart="@drawable/ic_lock"
+                android:drawablePadding="12dp"
+                android:padding="14dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etPassword"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPassword"
-                    android:drawableStart="@drawable/ic_lock"
-                    android:drawablePadding="12dp"
-                    android:padding="14dp"/>
-            </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="Mobile Number">
 
-            <!-- Phone Number Field -->
-            <com.google.android.material.textfield.TextInputLayout
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPhone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:hint="Mobile Number">
+                android:inputType="phone"
+                android:drawableStart="@drawable/ic_phone"
+                android:drawablePadding="12dp"
+                android:padding="14dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etPhone"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="phone"
-                    android:drawableStart="@drawable/ic_phone"
-                    android:drawablePadding="12dp"
-                    android:padding="14dp"/>
-            </com.google.android.material.textfield.TextInputLayout>
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="Register"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:background="@drawable/rounded_button"
+            android:textColor="@color/white"
+            android:layout_marginTop="24dp"/>
 
-            <!-- Register Button -->
-            <Button
-                android:id="@+id/btnRegister"
-                android:layout_width="match_parent"
-                android:layout_height="52dp"
-                android:text="Register"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:background="@drawable/rounded_button"
-                android:textColor="@color/white"
-                android:layout_marginTop="24dp"
-                android:onClick="registerUser"/>
-
-            <!-- Login Link -->
-            <TextView
-                android:id="@+id/tvLogin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Already a User? Log In"
-                android:textSize="16sp"
-                android:textColor="@color/dark_blue"
-                android:fontFamily="sans-serif-medium"
-                android:gravity="center"
-                android:layout_marginTop="16dp"
-                android:layout_gravity="center_horizontal"
-                android:onClick="openLoginActivity"/>
-        </LinearLayout>
+        <TextView
+            android:id="@+id/tvLoginLink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Already a User? Log In"
+            android:textSize="16sp"
+            android:textColor="@color/dark_blue"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:layout_marginTop="16dp"
+            android:layout_gravity="center_horizontal"/>
+    </LinearLayout>
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

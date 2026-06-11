@@ -3696,9 +3696,11 @@ drawable card_background
 drawable card_bg
 drawable chart
 drawable circle_background
+drawable circle_background_alpha
 drawable circle_bg
 drawable circle_small
 drawable circular_progress
+drawable circular_progress_white
 drawable common_full_open_on_phone
 drawable common_google_signin_btn_icon_dark
 drawable common_google_signin_btn_icon_dark_focused
@@ -3795,8 +3797,11 @@ drawable ic_keyboard_black_24dp
 drawable ic_language
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable ic_leaf
+drawable ic_lightning
 drawable ic_lock
 drawable ic_logout
+drawable ic_lungs
 drawable ic_m3_chip_check
 drawable ic_m3_chip_checked_circle
 drawable ic_m3_chip_close
@@ -3816,6 +3821,7 @@ drawable ic_regno
 drawable ic_reset_password
 drawable ic_search_black_24
 drawable ic_send
+drawable ic_shoe
 drawable ic_star_filled
 drawable ic_star_half
 drawable ic_star_outline
@@ -3824,6 +3830,7 @@ drawable ic_user
 drawable ic_volume
 drawable ic_water_drop
 drawable ic_water_glass_outline
+drawable ic_wind
 drawable input_bg
 drawable input_field_background
 drawable input_field_rounded
@@ -4047,6 +4054,7 @@ id bounceBoth
 id bounceEnd
 id bounceStart
 id breathingCircle
+id breathingProgressBar
 id browser_actions_header_text
 id browser_actions_menu_item_icon
 id browser_actions_menu_item_text
@@ -4057,7 +4065,6 @@ id btnAddGratitude
 id btnAdmin
 id btnAnalyzeSentiment
 id btnBack
-id btnBreathingQuest
 id btnCallDoctor
 id btnDrinkWater
 id btnHistory
@@ -4073,7 +4080,6 @@ id btnRead4
 id btnRead5
 id btnRegister
 id btnResetPassword
-id btnStepQuest
 id btnSubmitRemarks
 id btnTellUsMore
 id btnUndo
@@ -4269,6 +4275,7 @@ id gone
 id googleButton
 id graph
 id graph_wrap
+id gratitudeProgressBar
 id greetingText
 id group_divider
 id grouping
@@ -4279,6 +4286,10 @@ id guidesLayout
 id hardware
 id header
 id headerBar
+id headerLayout
+id headerLayoutBreathing
+id headerLayoutGratitude
+id headerLayoutStep
 id header_text
 id header_title
 id heading
@@ -4498,6 +4509,10 @@ id profileImage
 id profile_image
 id progressBar
 id progressBarLayout
+id progressContainer
+id progressContainerBreathing
+id progressContainerGratitude
+id progressContainerStep
 id progressRing
 id progressText
 id progress_circular
@@ -4607,6 +4622,7 @@ id staticLayout
 id staticPostLayout
 id status
 id status_bar_latest_event_content
+id stepProgressBar
 id stepsText
 id stop
 id streakText
@@ -4681,6 +4697,7 @@ id transition_transform
 id triangle
 id trouble_signing_in
 id tvAdminTitle
+id tvBreathingPreview
 id tvCount
 id tvDashboardTitle
 id tvDate
@@ -4693,11 +4710,13 @@ id tvGratitudePreview
 id tvLastEntry
 id tvLogin
 id tvLoginLabel
+id tvLoginLink
 id tvMessage
 id tvResetTitle
 id tvSentimentResult
 id tvSignUp
 id tvSignUpLabel
+id tvStepPreview
 id tvTherapyTitle
 id tvTitle
 id tvUserLoginLabel
@@ -4726,6 +4745,7 @@ id view_tree_view_model_store_owner
 id visible
 id visible_removing_fragment_view_tag
 id waterContainer
+id waterProgressBar
 id weekContainer
 id weekRangeText
 id weeklyChart

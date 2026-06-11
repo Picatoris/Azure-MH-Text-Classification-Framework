@@ -5,7 +5,7 @@
     android:background="#F8FAFC">
 
     <!-- KONFETTI EXPLOSION - Full screen overlay -->
-    <nl.dionsegijn.konfetti.KonfettiView
+    <nl.dionsegijn.konfetti.xml.KonfettiView
         android:id="@+id/konfettiView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

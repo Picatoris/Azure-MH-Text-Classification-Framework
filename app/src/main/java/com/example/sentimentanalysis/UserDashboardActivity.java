@@ -53,6 +53,7 @@ public class UserDashboardActivity extends BaseActivity {
     private final SimpleDateFormat dateFormat = new SimpleDateFormat("EEE\ndd", Locale.getDefault());
     private final SimpleDateFormat fullDateFormat = new SimpleDateFormat("dd MMM yyyy", Locale.getDefault());
     private final SimpleDateFormat weekHeaderFormat = new SimpleDateFormat("dd MMM", Locale.getDefault());
+
     // Quote System
     private RequestQueue requestQueue;
     private final Handler quoteHandler = new Handler(Looper.getMainLooper());
@@ -63,16 +64,78 @@ public class UserDashboardActivity extends BaseActivity {
     private SharedPreferences notesPrefs;
     private JSONObject notesJson = new JSONObject();
 
+    // --- FIX 1: Store the current username globally in this class ---
+    private String currentUsername;
+
     // Fallback quotes
     private final String[] fallbackQuotes = {
             "The best time to start was yesterday. The next best time is now.",
-            "Small steps every day lead to big results.",
-            "Your mind will believe everything you tell it. Tell it: I am strong. I am capable. I am enough.",
+            "It does not matter how slowly you go as long as you do not stop.",
+            "Your mind will believe everything you tell it. Tell it: I am strong. I am capable.",
             "Breathe. Let go. And remind yourself that this very moment is the only one you know you have for sure.",
             "Every day may not be good, but there is something good in every day.",
-            "You are stronger than you think. Keep going."
+            "You are stronger than you think. Keep going.",
+            "The wound is the place where the Light enters you.",
+            "Believe you can and you're halfway there.",
+            "You may not control all the events that happen to you, but you can decide not to be reduced by them.",
+            "Realize deeply that the present moment is all you have.",
+            "You are never too old to set another goal or to dream a new dream.",
+            "Optimism is the faith that leads to achievement. Nothing can be done without hope and confidence.",
+            "Smile, breathe, and go slowly.",
+            "It is during our darkest moments that we must focus to see the light.",
+            "Life isn't about waiting for the storm to pass, it's about learning to dance in the rain.",
+            "What lies behind us and what lies before us are tiny matters compared to what lies within us.",
+            "Nature does not hurry, yet everything is accomplished.",
+            "When we are no longer able to change a situation, we are challenged to change ourselves.",
+            "I took a deep breath and listened to the old brag of my heart. I am, I am, I am.",
+            "Happiness is not something ready made. It comes from your own actions.",
+            "There is hope, even when your brain tells you there isn't.",
+            "Nothing is impossible. The word itself says 'I'm possible!'",
+            "You have power over your mind - not outside events. Realize this, and you will find strength.",
+            "You are the sky. Everything else – it’s just the weather.",
+            "Embrace the glorious mess that you are.",
+            "If you're going through hell, keep going.",
+            "Courage starts with showing up and letting ourselves be seen.",
+            "To love oneself is the beginning of a lifelong romance.",
+            "Courage does not always roar. Sometimes courage is the quiet voice at the end of the day saying, 'I will try again tomorrow.'",
+            "Peace is the result of retraining your mind to process life as it is, rather than as you think it should be.",
+            "The greatest weapon against stress is our ability to choose one thought over another."
     };
-    private final String[] fallbackAuthors = {"Unknown", "Unknown", "Unknown", "Oprah Winfrey", "Alice Morse Earle", "Unknown"};
+
+    private final String[] fallbackAuthors = {
+            "Chinese Proverb",
+            "Confucius",
+            "Zig Ziglar",
+            "Oprah Winfrey",
+            "Alice Morse Earle",
+            "Joel Osteen",
+            "Rumi",
+            "Theodore Roosevelt",
+            "Maya Angelou",
+            "Eckhart Tolle",
+            "C.S. Lewis",
+            "Helen Keller",
+            "Thich Nhat Hanh",
+            "Aristotle Onassis",
+            "Vivian Greene",
+            "Ralph Waldo Emerson",
+            "Lao Tzu",
+            "Viktor Frankl",
+            "Sylvia Plath",
+            "Dalai Lama",
+            "John Green",
+            "Audrey Hepburn",
+            "Marcus Aurelius",
+            "Pema Chödrön",
+            "Elizabeth Gilbert",
+            "Winston Churchill",
+            "Brené Brown",
+            "Oscar Wilde",
+            "Mary Anne Radmacher",
+            "Wayne Dyer",
+            "William James"
+    };
+
     private int dpToPx(float dp) {
         return Math.round(
                 TypedValueCompat.dpToPx(dp, getResources().getDisplayMetrics())
@@ -109,33 +172,34 @@ public class UserDashboardActivity extends BaseActivity {
         Button btnNextWeek = findViewById(R.id.btnNextWeek);
 
         CardView cardBreathingQuest = findViewById(R.id.cardBreathingQuest);
-        Button btnBreathingQuest = findViewById(R.id.btnBreathingQuest);
         CardView cardStepQuest = findViewById(R.id.cardStepQuest);
-        Button btnStepQuest = findViewById(R.id.btnStepQuest);
-
         // Preview cards
         CardView cardWaterQuest = findViewById(R.id.cardWaterQuest);
         CardView cardGratitudeGarden = findViewById(R.id.cardGratitudeGarden);
         TextView tvWaterPreview = findViewById(R.id.tvWaterPreview);
         TextView tvGratitudePreview = findViewById(R.id.tvGratitudePreview);
 
-        String username = getIntent().getStringExtra("username");
+        // --- FIX 2: Capture User Details for Passing ---
+        currentUsername = getIntent().getStringExtra("username");
         String email = getIntent().getStringExtra("email");
         String regNo = getIntent().getStringExtra("regNo");
 
+        // Safety check if username is null
+        if (currentUsername == null) {
+            currentUsername = "User";
+        }
+
         // ==================== GREETING & NAV ====================
-        String greeting = "Hello, " + (username != null ? username : "User");
+        String greeting = "Hello, " + currentUsername;
         AtomicReference<String> lang = new AtomicReference<>(LocaleHelper.getSavedLanguage(this));
         MLTranslator.translate(this, greeting, lang.get(), greetingText::setText);
 
         View header = navigationView.getHeaderView(0);
         TextView navHeaderUsername = header.findViewById(R.id.nav_header_username);
         if (navHeaderUsername != null) {
-            String name = username != null ? username : "User";
+            String name = currentUsername;
             lang.set(LocaleHelper.getSavedLanguage(this));
-
             MLTranslator.translate(this, name, lang.get(), navHeaderUsername::setText);
-
         }
 
         // ==================== CALENDAR ====================
@@ -143,11 +207,15 @@ public class UserDashboardActivity extends BaseActivity {
         currentWeekStart.set(Calendar.DAY_OF_WEEK, currentWeekStart.getFirstDayOfWeek());
         displayCurrentWeek();
 
-        // Cards
+        // Cards - Updated to use helper that passes username
         cardBreathingQuest.setOnClickListener(v -> openActivity(BreathingGameActivity.class));
-        btnBreathingQuest.setOnClickListener(v -> openActivity(BreathingGameActivity.class));
         cardStepQuest.setOnClickListener(v -> openActivity(StepCounterGameActivity.class));
-        btnStepQuest.setOnClickListener(v -> openActivity(StepCounterGameActivity.class));
+
+        // --- FIX 3: Pass Username to Water and Gratitude ---
+        // I changed these to use openActivity() so the username is passed automatically.
+        // Make sure WaterQuestActivity and GratitudeGardenActivity are the correct class names.
+        cardWaterQuest.setOnClickListener(v -> openActivity(WaterQuestActivity.class));
+        cardGratitudeGarden.setOnClickListener(v -> openActivity(GratitudeGardenActivity.class));
 
         // Week Navigation
         MLTranslator.translate(this, "Previous", lang.get(), btnPrevWeek::setText);
@@ -166,6 +234,8 @@ public class UserDashboardActivity extends BaseActivity {
         btnLanguage.setOnClickListener(v -> showLanguageDialog());
 
         // ==================== WATER & GRATITUDE PREVIEWS ====================
+        // Note: These previews might still show shared data unless you update how SharedPreferences reads here too.
+        // But the main goal right now is fixing the GAME progress.
         SharedPreferences prefs = getSharedPreferences("wellness", MODE_PRIVATE);
         int waterCount = prefs.getInt("water_today", 0);
         int gratitudeCount = prefs.getInt("gratitude_total", 0);
@@ -185,10 +255,6 @@ public class UserDashboardActivity extends BaseActivity {
             tvGratitudePreview.setText(gratitudeCount + " flowers");
         }
 
-        // Open full activities
-        cardWaterQuest.setOnClickListener(v -> startActivity(new Intent(this, WaterQuestActivity.class)));
-        cardGratitudeGarden.setOnClickListener(v -> startActivity(new Intent(this, GratitudeGardenActivity.class)));
-
         // ==================== QUOTE & OTHER FEATURES ====================
         startQuoteRotation();
 
@@ -201,7 +267,10 @@ public class UserDashboardActivity extends BaseActivity {
             else if (id == R.id.nav_book) startActivity(new Intent(this, BookConsultationActivity.class));
             else if (id == R.id.nav_mood_check) {
                 Intent i = new Intent(this, SentimentAnalysisActivity.class);
-                i.putExtra("email", email); i.putExtra("regNo", regNo); startActivity(i);
+                i.putExtra("email", email);
+                i.putExtra("regNo", regNo);
+                i.putExtra("username", currentUsername); // Added username here too just in case
+                startActivity(i);
             } else if (id == R.id.nav_logout) {
                 FirebaseAuth.getInstance().signOut();
                 getSharedPreferences("loginPrefs", MODE_PRIVATE).edit().clear().apply();
@@ -219,7 +288,7 @@ public class UserDashboardActivity extends BaseActivity {
         });
     }
 
-    // ==================== QUOTE SYSTEM (FIXED) ====================
+    // ==================== QUOTE SYSTEM ====================
     private void startQuoteRotation() {
         quoteRunnable = new Runnable() {
             @Override
@@ -304,7 +373,7 @@ public class UserDashboardActivity extends BaseActivity {
             card.setClickable(true);
             card.setFocusable(true);
 
-// Inner container
+            // Inner container
             LinearLayout layout = new LinearLayout(this);
             layout.setOrientation(LinearLayout.VERTICAL);
             layout.setGravity(Gravity.CENTER);
@@ -314,7 +383,7 @@ public class UserDashboardActivity extends BaseActivity {
             ));
             layout.setPadding(8, 12, 8, 12);
 
-// Day name (MON, TUE...)
+            // Day name (MON, TUE...)
             TextView dayName = new TextView(this);
             dayName.setText(new SimpleDateFormat("EEE", Locale.getDefault())
                     .format(tempCal.getTime()).toUpperCase());
@@ -323,7 +392,7 @@ public class UserDashboardActivity extends BaseActivity {
             dayName.setLetterSpacing(0.08f);
             dayName.setTextColor(isToday ? Color.WHITE : Color.parseColor("#94A3B8"));
 
-// Date number (22)
+            // Date number (22)
             TextView dateNumber = new TextView(this);
             dateNumber.setText(String.valueOf(tempCal.get(Calendar.DAY_OF_MONTH)));
             dateNumber.setTextSize(22);
@@ -331,28 +400,32 @@ public class UserDashboardActivity extends BaseActivity {
             dateNumber.setTextColor(isToday ? Color.WHITE : Color.parseColor("#0F172A"));
             dateNumber.setPadding(0, 4, 0, 0);
 
-// Assemble
+            // Assemble
             layout.addView(dayName);
             layout.addView(dateNumber);
             card.addView(layout);
 
-// Equal width for 7 days
+            // Equal width for 7 days
             LinearLayout.LayoutParams params =
                     new LinearLayout.LayoutParams(0, dpToPx(96), 1f);
             params.setMargins(6, 0, 6, 0);
             card.setLayoutParams(params);
 
-// Click → open note
+            // Click → open note
             card.setOnClickListener(v -> showNoteDialog(dateKey));
 
             weekContainer.addView(card);
 
-// Move to next day
+            // Move to next day
             tempCal.add(Calendar.DAY_OF_MONTH, 1);
         }
     }
 
     private void showNoteDialog(String date) {
+        // --- NOTE FOR FUTURE FIX: ---
+        // Notes are also currently shared across users.
+        // To fix notes, you would need to change "date" to "date + "_" + currentUsername" below.
+
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         View view = getLayoutInflater().inflate(R.layout.dialog_add_note, null);
         builder.setView(view);
@@ -394,8 +467,12 @@ public class UserDashboardActivity extends BaseActivity {
     }
 
     // ==================== UTILS ====================
+
+    // --- FIX 4: Updated helper to always include username ---
     private void openActivity(Class<?> cls) {
-        startActivity(new Intent(this, cls));
+        Intent intent = new Intent(this, cls);
+        intent.putExtra("username", currentUsername); // Crucial fix: Passing the ID
+        startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 

@@ -27,15 +27,25 @@ public class GratitudeGardenActivity extends AppCompatActivity {
     private SharedPreferences prefs;
     private int gratitudeCount = 0;
 
+    // --- FIX 1: Add variable to hold the current user ---
+    private String currentUsername;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gratitude_garden);
 
+        // --- FIX 2: Retrieve the username passed from UserDashboardActivity ---
+        currentUsername = getIntent().getStringExtra("username");
+        if (currentUsername == null) {
+            currentUsername = "guest";
+        }
+
         // 1. Initialize Views (Matching your XML IDs)
         imgFlower = findViewById(R.id.imgFlower);
         tvCount = findViewById(R.id.tvCount);
         Button btnAdd = findViewById(R.id.btnAddGratitude);
+        // Note: tvLastEntry was defined but not used in logic, keeping it safe
         TextView tvLastEntry = findViewById(R.id.tvLastEntry);
         Button btnHistory = findViewById(R.id.btnHistory);
 
@@ -55,7 +65,6 @@ public class GratitudeGardenActivity extends AppCompatActivity {
         btnAdd.setOnClickListener(v -> showAddGratitudeDialog());
 
         // 5. HIDDEN FEATURE: Long press the flower to see your history!
-        // (Since your XML didn't have a history button, I added this secret shortcut)
         imgFlower.setOnLongClickListener(v -> {
             showHistoryDialog();
             return true;
@@ -63,8 +72,11 @@ public class GratitudeGardenActivity extends AppCompatActivity {
     }
 
     private void loadGratitudeData() {
+        // --- FIX 3: Load data using USER-SPECIFIC key ---
+        String key = "gratitude_history_" + currentUsername;
+
         // We use a Set to store history. Size of set = Number of flowers.
-        Set<String> history = prefs.getStringSet("gratitude_history", new HashSet<>());
+        Set<String> history = prefs.getStringSet(key, new HashSet<>());
         gratitudeCount = history.size();
         updateGardenUI();
     }
@@ -95,8 +107,11 @@ public class GratitudeGardenActivity extends AppCompatActivity {
     }
 
     private void saveEntry(String text) {
-        // 1. Get existing history
-        Set<String> history = new HashSet<>(prefs.getStringSet("gratitude_history", new HashSet<>()));
+        // --- FIX 4: Save data using USER-SPECIFIC key ---
+        String key = "gratitude_history_" + currentUsername;
+
+        // 1. Get existing history (Must create new HashSet to modify safely)
+        Set<String> history = new HashSet<>(prefs.getStringSet(key, new HashSet<>()));
 
         // 2. Create formatted entry with timestamp
         String timestamp = new SimpleDateFormat("MMM dd, hh:mm a", Locale.getDefault()).format(new Date());
@@ -104,7 +119,7 @@ public class GratitudeGardenActivity extends AppCompatActivity {
 
         // 3. Save to SharedPreferences
         history.add(fullEntry);
-        prefs.edit().putStringSet("gratitude_history", history).apply();
+        prefs.edit().putStringSet(key, history).apply();
 
         // 4. Update local count and UI
         gratitudeCount = history.size();
@@ -113,8 +128,6 @@ public class GratitudeGardenActivity extends AppCompatActivity {
 
         Toast.makeText(this, "Seed planted successfully!", Toast.LENGTH_SHORT).show();
     }
-
-    // Replace your existing updateGardenUI() method with this one:
 
     private void updateGardenUI() {
         tvCount.setText(gratitudeCount + " flowers planted");
@@ -129,14 +142,13 @@ public class GratitudeGardenActivity extends AppCompatActivity {
             // Optional: Dim it slightly to show it's inactive
             imgFlower.setAlpha(0.6f);
         } else if (gratitudeCount < 10) {
-            // Stage 1: A small sprout appears (1-2 entries)
+            // Stage 1: A small sprout appears (1-9 entries)
             imgFlower.setImageResource(R.drawable.ic_garden_1_sprout);
         } else if (gratitudeCount < 20) {
-            // Stage 2: It grows into a bud (3-6 entries)
+            // Stage 2: It grows into a bud (10-19 entries)
             imgFlower.setImageResource(R.drawable.ic_garden_2_bud);
         } else {
-            // Stage 3: Full Bloom! (7+ entries)
-            // Use the new bloom vector, or your original ic_flower_full here
+            // Stage 3: Full Bloom! (20+ entries)
             imgFlower.setImageResource(R.drawable.ic_garden_3_bloom);
         }
     }
@@ -157,7 +169,10 @@ public class GratitudeGardenActivity extends AppCompatActivity {
 
     // Displays the list of saved gratitude notes
     private void showHistoryDialog() {
-        Set<String> historySet = prefs.getStringSet("gratitude_history", new HashSet<>());
+        // --- FIX 5: Retrieve history using USER-SPECIFIC key ---
+        String key = "gratitude_history_" + currentUsername;
+
+        Set<String> historySet = prefs.getStringSet(key, new HashSet<>());
 
         if (historySet.isEmpty()) {
             Toast.makeText(this, "No memories yet. Plant one!", Toast.LENGTH_SHORT).show();

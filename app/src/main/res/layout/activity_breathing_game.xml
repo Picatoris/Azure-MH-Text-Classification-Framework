@@ -4,19 +4,14 @@
     android:layout_height="match_parent"
     android:background="#0D1B2A">
 
-    <!-- KONFETTI (Full screen) -->
-    <nl.dionsegijn.konfetti.KonfettiView
-        android:id="@+id/konfettiView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-    <!-- MAIN CONTENT -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center"
-        android:padding="32dp">
+        android:padding="32dp"
+        android:clipChildren="false"
+        android:clipToPadding="false">
 
         <TextView
             android:layout_width="wrap_content"
@@ -55,27 +50,25 @@
             android:textColor="#4FC3F7"
             android:layout_marginBottom="40dp" />
 
-        <!-- BREATHING CIRCLE + PROGRESS RING (NO CLIPPING!) -->
         <FrameLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="48dp"
             android:clipChildren="false"
             android:clipToPadding="false">
 
-            <!-- Progress Ring (fixed size) -->
             <ProgressBar
                 android:id="@+id/progressRing"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="280dp"
                 android:layout_height="280dp"
                 android:layout_gravity="center"
+                android:indeterminate="false"
                 android:max="100"
                 android:progress="0"
                 android:progressDrawable="@drawable/circular_progress"
                 android:background="@drawable/circle_background" />
 
-            <!-- Breathing Circle — Can grow BIGGER than parent! -->
             <View
                 android:id="@+id/breathingCircle"
                 android:layout_width="180dp"
@@ -110,4 +103,11 @@
             android:elevation="8dp" />
 
     </LinearLayout>
+
+    <nl.dionsegijn.konfetti.xml.KonfettiView
+        android:id="@+id/konfettiView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="10dp"/>
+
 </FrameLayout>
