@@ -20,8 +20,8 @@ import okhttp3.ResponseBody;
 
 public class CustomClassificationTask {
     private final Context context;
-    private final String subscriptionKey = "1dksluHlMYX1PTQvbU4xxj3lF3d52ZkodI6LhL2l6fF4ZyYA1cjgJQQJ99BBACYeBjFXJ3w3AAAaACOGXUUD";
-    private static final String BASE_URL = "https://sentidazzle123.cognitiveservices.azure.com/language/analyze-text/jobs?api-version=2022-10-01-preview";
+    private final String subscriptionKey = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+    private static final String BASE_URL = "https://XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
 
     private final ExecutorService executorService = Executors.newSingleThreadExecutor();
     private final Handler handler = new Handler(Looper.getMainLooper());
