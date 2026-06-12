@@ -232,6 +232,7 @@ This repository is provided under an **Academic Inspection License (All Rights R
 For licensing enquiries, collaboration proposals, or permission requests, contact:
 
 - **Thamizh Mani R** — thamizh.mani@learner.manipal.edu
-- **Dazzle A J** — dazzle.aj2021@vitstudent.ac.in
+- **Dazzle A J** — dazzlejolly@gmail.com
+- **Shashank Singh** — shashanksingh631@gmail.com
 
 Department of Forensic Medicine and Toxicology, Kasturba Medical College, Manipal Academy of Higher Education, Manipal, Karnataka, India.
