@@ -23,7 +23,6 @@ The framework combines **Azure Sentiment Analysis** (Layer 1) and **Azure Custom
 ```
 ├── README.md
 ├── LICENSE
-├── CITATION.cff
 ├── .gitignore
 ├── .github/workflows/
 │   └── gradle.yml                          # CI build workflow
