@@ -1,6 +1,6 @@
 # Azure-Powered Hybrid Sentiment Analysis for Mental Health Assessment
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20652065.svg)](https://doi.org/10.5281/zenodo.29652965)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20652066.svg)](https://doi.org/10.5281/zenodo.29652966)
 ![License: Academic Inspection](https://img.shields.io/badge/License-Academic%20Inspection-red.svg)
 ![Rights: All Rights Reserved](https://img.shields.io/badge/Rights-All%20Rights%20Reserved-red.svg)
 
@@ -216,7 +216,7 @@ If you reference this work, please cite:
   journal={Scientific Reports},
   year={2026},
   publisher={Nature Publishing Group},
-  doi={10.5281/zenodo.20652065}
+  doi={10.5281/zenodo.20652066}
 }
 ```
 
