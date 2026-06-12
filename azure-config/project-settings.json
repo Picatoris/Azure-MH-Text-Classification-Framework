@@ -1,0 +1,49 @@
+{
+  "projectName": "MentalHealthClassification",
+  "projectType": "CustomSingleLabelClassification",
+  "language": "en",
+  "description": "Single-label classification of mental health-related text into five categories using Azure Language Studio Custom Text Classification.",
+  "categories": [
+    {
+      "name": "Anxiety",
+      "description": "Text expressing generalized anxiety, worry, panic, nervousness, or excessive fear about everyday situations."
+    },
+    {
+      "name": "Depression",
+      "description": "Text expressing persistent sadness, hopelessness, loss of interest, fatigue, or low mood."
+    },
+    {
+      "name": "PTSD",
+      "description": "Text expressing trauma-related distress, flashbacks, hypervigilance, nightmares, or avoidance behaviours."
+    },
+    {
+      "name": "Social_Anxiety_Disorder",
+      "description": "Text expressing fear of social situations, social withdrawal, fear of judgment, or social evaluation anxiety."
+    },
+    {
+      "name": "Suicidal_Ideation_and_Behaviour",
+      "description": "Text expressing thoughts of self-harm, suicidal ideation, desire to end life, or hopelessness about the future."
+    }
+  ],
+  "trainingConfig": {
+    "trainingSplitPercentage": 80,
+    "testingSplitPercentage": 20,
+    "datasetSize": {
+      "totalSamples": 500,
+      "samplesPerCategory": 100,
+      "trainingSamples": 400,
+      "testingSamples": 100
+    }
+  },
+  "preprocessingPipeline": [
+    "text_normalization",
+    "lowercasing",
+    "punctuation_normalization",
+    "token_standardization",
+    "formatting_cleanup"
+  ],
+  "deploymentConfig": {
+    "deploymentName": "mh-classifier-v1",
+    "apiVersion": "2022-05-01"
+  }
+}
