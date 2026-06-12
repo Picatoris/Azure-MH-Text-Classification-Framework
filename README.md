@@ -234,5 +234,3 @@ For licensing enquiries, collaboration proposals, or permission requests, contac
 - **Thamizh Mani R** — thamizh.mani@learner.manipal.edu
 - **Dazzle A J** — dazzlejolly@gmail.com
 - **Shashank Singh** — shashanksingh631@gmail.com
-
-Department of Forensic Medicine and Toxicology, Kasturba Medical College, Manipal Academy of Higher Education, Manipal, Karnataka, India.
