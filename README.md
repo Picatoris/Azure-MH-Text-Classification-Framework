@@ -171,7 +171,6 @@ Follow the instructions in `azure-config/language-studio-setup.md`:
 5. Configure five category labels: `Anxiety`, `Depression`, `PTSD`, `Social_Anxiety_Disorder`, `Suicidal_Ideation_and_Behaviour`.
 6. Set training/testing split to 80/20.
 7. Train the model and deploy to an endpoint.
-8. Record the endpoint URL and API key using the template in `azure-config/endpoint-template.env`.
 
 ### 2. Building the Android Application
 
