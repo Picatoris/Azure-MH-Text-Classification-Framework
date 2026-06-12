@@ -87,7 +87,6 @@ The framework combines **Azure Sentiment Analysis** (Layer 1) and **Azure Custom
 ├── azure-config/                           # Azure Language Studio configuration
 │   ├── language-studio-setup.md            # Step-by-step Azure Language Studio replication guide
 │   ├── project-settings.json               # Category labels, training split, deployment config
-│   └── endpoint-template.env               # API endpoint and key template (credentials redacted)
 │
 ├── Clinically Annotated Data/              # Clinical validation dataset (125 samples)
 │   ├── Anxiety.pdf                         # 25 clinically annotated anxiety samples
